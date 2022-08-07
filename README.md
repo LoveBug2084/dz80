@@ -43,7 +43,7 @@ the address for the binary, the main reset address for the code and two addresse
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-; base address for ladybug.bin 24KBytes @ $0000-$5fff
+```; base address for ladybug.bin 24KBytes @ $0000-$5fff
 0x0000
 
 ; reset boot
@@ -53,6 +53,6 @@ the address for the binary, the main reset address for the code and two addresse
 0x0038
 
 ; nmi interrupt (used for coin input)
-0x0066
+0x0066```
 
 ----------------------------------------------------------------------------------------------------------------------------
