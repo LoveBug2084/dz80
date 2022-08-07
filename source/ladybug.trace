@@ -1,0 +1,8899 @@
+; dz80 - v1.04 - Z80 Disassembler by LoveBug - ladybug.trace - Fri Jan 22 19:15:57 2021
+
+J0000: 	jp J5018
+J5018: 	jp J57af
+J57af: 	ld hl, $b000
+J57b2: 	ld (hl), $9f
+J57b4: 	ld (hl), $bf
+J57b6: 	ld (hl), $df
+J57b8: 	ld (hl), $ff
+J57ba: 	ld hl, $c000
+J57bd: 	ld (hl), $9f
+J57bf: 	ld (hl), $bf
+J57c1: 	ld (hl), $df
+J57c3: 	ld (hl), $ff
+J57c5: 	ld hl, $d000
+J57c8: 	ld (hl), $ff
+J57ca: 	inc hl
+J57cb: 	ld a, h
+J57cc: 	cp $d4
+J57ce: 	jr c, J57c8
+J57d0: 	ld (hl), $00
+J57d2: 	inc hl
+J57d3: 	ld a, h
+J57d4: 	cp $d8
+J57d6: 	jr c, J57d0
+J57d8: 	ld c, $40
+J57da: 	ld de, $0020	; could be a data table address, label T0020: created
+J57dd: 	ld hl, $7000
+J57e0: 	ld b, $20
+J57e2: 	ld (hl), $00
+J57e4: 	add hl, de
+J57e5: 	djnz J57e2
+J57e7: 	dec c
+J57e8: 	jr nz, J57dd
+J57ea: 	ld hl, $0000	; could be a data table address, label T0000: created
+J57ed: 	xor a
+J57ee: 	ld b, $60
+J57f0: 	add (hl)
+J57f1: 	inc l
+J57f2: 	jr nz, J57f0
+J57f4: 	inc h
+J57f5: 	djnz J57f0
+J57f7: 	and a
+J57f8: 	nop
+J57f9: 	nop
+J57fa: 	exx	; exchange bc de hl <- -> bc' de' hl'
+J57fb: 	ld b, a
+J57fc: 	exx	; exchange bc de hl <- -> bc' de' hl'
+J57fd: 	exx	; exchange bc de hl <- -> bc' de' hl'
+J57fe: 	ld c, $00
+J5800: 	exx	; exchange bc de hl <- -> bc' de' hl'
+J5801: 	ld e, $ff
+J5803: 	ld hl, $6000
+J5806: 	ld d, $10
+J5808: 	ld a, e
+J5809: 	ld c, $10
+J580b: 	ld b, $10
+J580d: 	add a, $2f
+J580f: 	ld (hl), a
+J5810: 	inc hl
+J5811: 	djnz J580d
+J5813: 	dec a
+J5814: 	dec c
+J5815: 	jr nz, J580b
+J5817: 	dec a
+J5818: 	dec d
+J5819: 	jr nz, J5809
+J581b: 	ld hl, $6000
+J581e: 	ld d, $10
+J5820: 	ld a, e
+J5821: 	ld c, $10
+J5823: 	ld b, $10
+J5825: 	add a, $2f
+J5827: 	cp (hl)
+J5828: 	jr z, J582e
+J582e: 	inc hl
+J582f: 	djnz J5825
+J5831: 	dec a
+J5832: 	dec c
+J5833: 	jr nz, J5823
+J5835: 	dec a
+J5836: 	dec d
+J5837: 	jr nz, J5821
+J5839: 	ld a, e
+J583a: 	sub $0f
+J583c: 	ld e, a
+J583d: 	jr nc, J5803
+J583f: 	ld a, $1b
+J5841: 	ld ($d192), a
+J5844: 	ld ($d18f), a
+J5847: 	ld a, $18
+J5849: 	ld ($d1b2), a
+J584c: 	ld a, $0a
+J584e: 	ld ($d1af), a
+J5851: 	ld a, $16
+J5853: 	ld ($d1d2), a
+J5856: 	ld ($d1cf), a
+J5859: 	exx	; exchange bc de hl <- -> bc' de' hl'
+J585a: 	ld a, b
+J585b: 	and a
+J585c: 	jr nz, J586a
+J586a: 	and $f0
+J586c: 	rrca
+J586d: 	rrca
+J586e: 	rrca
+J586f: 	rrca
+J5870: 	ld ($d292), a
+J5873: 	ld a, b
+J5874: 	and $0f
+J5876: 	ld ($d2b2), a
+J5879: 	ld a, $0e
+J587b: 	ld ($d212), a
+J587e: 	ld a, $1b
+J5880: 	ld ($d232), a
+J5883: 	ld ($d252), a
+J5886: 	ld a, c
+J5887: 	and a
+J5888: 	jr nz, J5896
+J5896: 	ld a, $0e
+J5898: 	ld ($d20f), a
+J589b: 	ld a, $1b
+J589d: 	ld ($d22f), a
+J58a0: 	ld ($d24f), a
+J58a3: 	ld a, b
+J58a4: 	or c
+J58a5: 	exx	; exchange bc de hl <- -> bc' de' hl'
+J58a6: 	ld de, $0003	; could be a data table address, label T0003: created
+J58a9: 	jr z, J58ae
+J58ae: 	ld bc, $0000	; could be a data table address, label T0000: created
+J58b1: 	dec bc
+J58b2: 	ld a, b
+J58b3: 	or c
+J58b4: 	jr nz, J58b1
+J58b6: 	dec de
+J58b7: 	ld a, d
+J58b8: 	or e
+J58b9: 	jr nz, J58b1
+J58bb: 	jp J0100
+J0100: 	ld sp, $67ff
+J0103: 	im 1
+J0105: 	di
+J0106: 	ld a, ($8000)
+J0109: 	call J176e
+J176e: 	ld a, $9f
+J1770: 	ld ($b000), a
+J1773: 	ld ($c000), a
+J1776: 	ld a, $bf
+J1778: 	ld ($b000), a
+J177b: 	ld ($c000), a
+J177e: 	ld a, $df
+J1780: 	ld ($b000), a
+J1783: 	ld ($c000), a
+J1786: 	ld a, $ff
+J1788: 	ld ($b000), a
+J178b: 	ld ($c000), a
+J178e: 	ret
+J010c: 	call J1ad4
+J1ad4: 	ld a, $00
+J1ad6: 	ld b, $80
+J1ad8: 	ld hl, $d000
+J1adb: 	ld (hl), a
+J1adc: 	inc hl
+J1add: 	djnz J1adb
+J1adf: 	ld c, $00
+J1ae1: 	ld b, $18
+J1ae3: 	ld (hl), a
+J1ae4: 	ld de, $0020	; could be a data table address, label T0020: created
+J1ae7: 	add hl, de
+J1ae8: 	djnz J1ae3
+J1aea: 	inc c
+J1aeb: 	dec c
+J1aec: 	jp nz, J1af6
+J1af6: 	ret
+J1aef: 	inc c
+J1af0: 	ld hl, $d09f
+J1af3: 	jp J1ae1
+J010f: 	call J2b06
+J2b06: 	ld bc, $03ff	; could be a data table address, label T03ff: created
+J2b09: 	ld hl, $d400
+J2b0c: 	xor a
+J2b0d: 	ld (hl), a
+J2b0e: 	inc hl
+J2b0f: 	dec bc
+J2b10: 	ld a, b
+J2b11: 	or c
+J2b12: 	jr nz, J2b0c
+J2b14: 	ret
+J0112: 	call J1aba
+J1aba: 	push hl
+J1abb: 	push af
+J1abc: 	push bc
+J1abd: 	ld hl, $d080
+J1ac0: 	ld a, $ff
+J1ac2: 	ld c, $18
+J1ac4: 	inc hl
+J1ac5: 	ld b, $1e
+J1ac7: 	ld (hl), a
+J1ac8: 	inc hl
+J1ac9: 	djnz J1ac7
+J1acb: 	inc hl
+J1acc: 	dec c
+J1acd: 	jp nz, J1ac4
+J1ad0: 	pop bc
+J1ad1: 	pop af
+J1ad2: 	pop hl
+J1ad3: 	ret
+J0115: 	call J1755
+J1755: 	ld hl, $7000
+J1758: 	ld b, $04
+J175a: 	ld c, $00
+J175c: 	push bc
+J175d: 	ld b, $ff
+J175f: 	ld a, ($9001)
+J1762: 	bit 6, a
+J1764: 	jr nz, J175f
+J1766: 	ld (hl), c
+J1767: 	inc hl
+J1768: 	djnz J175f
+J176a: 	pop bc
+J176b: 	djnz J175c
+J176d: 	ret
+J0118: 	call J02c6
+J02c6: 	xor a
+J02c7: 	ld ($605b), a
+J02ca: 	ld ($a000), a
+J02cd: 	ld ($61c9), a
+J02d0: 	call J5040
+J5040: 	ld hl, $6830
+J5043: 	ld b, $10
+J5045: 	ld (hl), a
+J5046: 	inc hl
+J5047: 	djnz J5045
+J5049: 	ret
+J02d3: 	ld ($61cd), a
+J02d6: 	ld ($605e), a
+J02d9: 	jp J4957
+J4957: 	ld ($605f), a
+J495a: 	ld ($61e3), a
+J495d: 	jp J02dc
+J02dc: 	call J02f9
+J02f9: 	ld b, $09
+J02fb: 	ld hl, $6073
+J02fe: 	xor a
+J02ff: 	inc a
+J0300: 	ld (hl), a
+J0301: 	xor a
+J0302: 	inc hl
+J0303: 	ld (hl), a
+J0304: 	inc hl
+J0305: 	ld (hl), a
+J0306: 	inc hl
+J0307: 	djnz J02ff
+J0309: 	ret
+J02df: 	call J030a
+J030a: 	ld hl, $d380
+J030d: 	ld b, $09
+J030f: 	push bc
+J0310: 	ld b, $02
+J0312: 	ld a, $ff
+J0314: 	ld (hl), a
+J0315: 	inc hl
+J0316: 	djnz J0314
+J0318: 	ld ix, $2efc	; could be a data table address, label T2efc: created
+J031c: 	ld b, $09
+J031e: 	ld a, (ix + $00)
+J0321: 	inc ix
+J0323: 	ld (hl), a
+J0324: 	inc hl
+J0325: 	djnz J031e
+J0327: 	ld a, $ff
+J0329: 	ld (hl), a
+J032a: 	inc hl
+J032b: 	pop bc
+J032c: 	djnz J030f
+J032e: 	ret
+J02e2: 	xor a
+J02e3: 	ld hl, $6068
+J02e6: 	ld (hl), a
+J02e7: 	inc hl
+J02e8: 	ld (hl), a
+J02e9: 	inc hl
+J02ea: 	ld (hl), a
+J02eb: 	ld hl, $6000
+J02ee: 	ld b, $1c
+J02f0: 	ld (hl), a
+J02f1: 	inc hl
+J02f2: 	djnz J02f0
+J02f4: 	call J032f
+J032f: 	ld b, $32
+J0331: 	xor a
+J0332: 	ld hl, $601c
+J0335: 	ld (hl), a
+J0336: 	inc hl
+J0337: 	djnz J0335
+J0339: 	ret
+J02f7: 	ei
+J02f8: 	ret
+J011b: 	ld sp, $67ff
+J011e: 	xor a
+J011f: 	ld ($a000), a
+J0122: 	call J1aba
+J0125: 	call J5028
+J5028: 	jp J5ba6
+J5ba6: 	jp J5f00
+J5f00: 	xor a
+J5f01: 	ld ($6065), a
+J5f04: 	ld hl, $5c0f	; could be a data table address, label T5c0f: created
+J5f07: 	jp J5ba9
+J5ba9: 	ld de, $601c
+J5bac: 	ld bc, $0032	; could be a data table address, label T0032: created
+J5baf: 	ldir
+J5bb1: 	ld hl, $5c56	; could be a data table address, label T5c56: created
+J5bb4: 	call J5d36
+J5d36: 	ld e, (hl)
+J5d37: 	inc hl
+J5d38: 	ld d, (hl)
+J5d39: 	inc hl
+J5d3a: 	ld c, (hl)
+J5d3b: 	inc hl
+J5d3c: 	ld b, (hl)
+J5d3d: 	inc hl
+J5d3e: 	ex de, hl
+J5d3f: 	push de
+J5d40: 	push hl
+J5d41: 	ld a, (de)
+J5d42: 	ld (hl), a
+J5d43: 	ld de, $0400	; could be a data table address, label T0400: created
+J5d46: 	add hl, de
+J5d47: 	ld (hl), c
+J5d48: 	pop hl
+J5d49: 	ld de, $0020	; could be a data table address, label T0020: created
+J5d4c: 	add hl, de
+J5d4d: 	pop de
+J5d4e: 	inc de
+J5d4f: 	djnz J5d3f
+J5d51: 	ret
+J5bb7: 	ld a, ($9003)
+J5bba: 	and $0f
+J5bbc: 	push af
+J5bbd: 	ld hl, $d126
+J5bc0: 	call J5c41
+J5c41: 	push hl
+J5c42: 	add a
+J5c43: 	ld e, a
+J5c44: 	ld d, $00
+J5c46: 	ld hl, $5c65	; could be a data table address, label T5c65: created
+J5c49: 	add hl, de
+J5c4a: 	ld e, (hl)
+J5c4b: 	inc hl
+J5c4c: 	ld d, (hl)
+J5c4d: 	pop hl
+J5c4e: 	ld b, $0f
+J5c50: 	ld c, $02
+J5c52: 	call J5d3f
+J5c55: 	ret
+J5bc3: 	pop af
+J5bc4: 	ld b, a
+J5bc5: 	ld a, $06
+J5bc7: 	ld ($d526), a
+J5bca: 	ld ($d626), a
+J5bcd: 	ld a, ($9003)
+J5bd0: 	and $f0
+J5bd2: 	rrca
+J5bd3: 	rrca
+J5bd4: 	rrca
+J5bd5: 	rrca
+J5bd6: 	cp b
+J5bd7: 	ret z
+J5bd8: 	ld hl, $d123
+J5bdb: 	call J5c41
+J5bde: 	ld a, $06
+J5be0: 	ld ($d523), a
+J5be3: 	ld ($d623), a
+J5be6: 	ld hl, $5d1b	; could be a data table address, label T5d1b: created
+J5be9: 	call J5d36
+J5bec: 	ex de, hl
+J5bed: 	call J5d36
+J5bf0: 	ret
+J0128: 	call J2607
+J2607: 	ld hl, $d4ac
+J260a: 	ld a, $02
+J260c: 	ld c, $07
+J260e: 	ld de, $0020	; could be a data table address, label T0020: created
+J2611: 	push hl
+J2612: 	ld b, $17
+J2614: 	ld (hl), a
+J2615: 	add hl, de
+J2616: 	djnz J2614
+J2618: 	pop hl
+J2619: 	inc hl
+J261a: 	dec c
+J261b: 	jr nz, J2611
+J261d: 	ld hl, $d750
+J2620: 	ld a, $07
+J2622: 	ld (hl), a
+J2623: 	inc hl
+J2624: 	ld (hl), a
+J2625: 	add hl, de
+J2626: 	ld (hl), a
+J2627: 	dec hl
+J2628: 	ld (hl), a
+J2629: 	ld hl, $d0b1
+J262c: 	ld a, $aa
+J262e: 	call J26f6
+J26f6: 	push af
+J26f7: 	push hl
+J26f8: 	ld (hl), a
+J26f9: 	inc a
+J26fa: 	push hl
+J26fb: 	add hl, de
+J26fc: 	ld (hl), a
+J26fd: 	pop hl
+J26fe: 	dec hl
+J26ff: 	inc a
+J2700: 	ld (hl), a
+J2701: 	add hl, de
+J2702: 	inc a
+J2703: 	ld (hl), a
+J2704: 	pop hl
+J2705: 	pop af
+J2706: 	ret
+J2631: 	dec hl
+J2632: 	dec hl
+J2633: 	ld (hl), $bc
+J2635: 	dec hl
+J2636: 	ld a, $b4
+J2638: 	ld (hl), a
+J2639: 	inc a
+J263a: 	add hl, de
+J263b: 	ld (hl), a
+J263c: 	add hl, de
+J263d: 	ld (hl), a
+J263e: 	add hl, de
+J263f: 	push hl
+J2640: 	ld (hl), $a5
+J2642: 	add hl, de
+J2643: 	ld (hl), $a6
+J2645: 	pop hl
+J2646: 	inc hl
+J2647: 	ld a, $a7
+J2649: 	call J2707
+J2707: 	push bc
+J2708: 	ld b, $03
+J270a: 	ld (hl), a
+J270b: 	inc a
+J270c: 	add hl, de
+J270d: 	djnz J270a
+J270f: 	pop bc
+J2710: 	ret
+J264c: 	dec hl
+J264d: 	and a
+J264e: 	sbc hl, de
+J2650: 	ld a, $a4
+J2652: 	call J2707
+J2655: 	ld hl, $d16f
+J2658: 	ld (hl), $a7
+J265a: 	add hl, de
+J265b: 	ld (hl), $a8
+J265d: 	ld hl, $d1b1
+J2660: 	ld a, $aa
+J2662: 	call J26f6
+J2665: 	dec hl
+J2666: 	dec hl
+J2667: 	push hl
+J2668: 	ld a, $b1
+J266a: 	call J2707
+J266d: 	pop hl
+J266e: 	dec hl
+J266f: 	ld a, $a4
+J2671: 	call J2707
+J2674: 	ld hl, $d20f
+J2677: 	ld (hl), $bd
+J2679: 	dec hl
+J267a: 	ld (hl), $bf
+J267c: 	dec hl
+J267d: 	ld (hl), $ad
+J267f: 	and a
+J2680: 	sbc hl, de
+J2682: 	ld (hl), $ae
+J2684: 	dec hl
+J2685: 	ld a, $bb
+J2687: 	call J2711
+J2711: 	push bc
+J2712: 	ld b, $03
+J2714: 	ld (hl), a
+J2715: 	dec a
+J2716: 	and a
+J2717: 	sbc hl, de
+J2719: 	djnz J2714
+J271b: 	pop bc
+J271c: 	ret
+J268a: 	ld hl, $d251
+J268d: 	ld a, $aa
+J268f: 	push hl
+J2690: 	ld (hl), a
+J2691: 	inc a
+J2692: 	inc a
+J2693: 	dec hl
+J2694: 	ld (hl), a
+J2695: 	dec hl
+J2696: 	ld (hl), $bc
+J2698: 	dec hl
+J2699: 	ld a, $b4
+J269b: 	ld (hl), a
+J269c: 	inc a
+J269d: 	inc a
+J269e: 	add hl, de
+J269f: 	ld (hl), a
+J26a0: 	pop hl
+J26a1: 	add hl, de
+J26a2: 	ld a, $af
+J26a4: 	ld (hl), a
+J26a5: 	inc a
+J26a6: 	add hl, de
+J26a7: 	ld (hl), a
+J26a8: 	dec hl
+J26a9: 	ld a, $b8
+J26ab: 	ld (hl), a
+J26ac: 	dec a
+J26ad: 	and a
+J26ae: 	sbc hl, de
+J26b0: 	ld (hl), a
+J26b1: 	dec hl
+J26b2: 	add hl, de
+J26b3: 	push hl
+J26b4: 	ld (hl), $be
+J26b6: 	add hl, de
+J26b7: 	ld a, $b2
+J26b9: 	ld (hl), a
+J26ba: 	inc a
+J26bb: 	add hl, de
+J26bc: 	ld (hl), a
+J26bd: 	pop hl
+J26be: 	dec hl
+J26bf: 	ld a, $a4
+J26c1: 	call J2707
+J26c4: 	push hl
+J26c5: 	inc hl
+J26c6: 	ld (hl), $bd
+J26c8: 	add hl, de
+J26c9: 	ld a, $a7
+J26cb: 	call J2707
+J26ce: 	pop hl
+J26cf: 	ld a, $a4
+J26d1: 	call J2707
+J26d4: 	ld hl, $d34e
+J26d7: 	ld (hl), $bf
+J26d9: 	dec hl
+J26da: 	ld (hl), $ad
+J26dc: 	and a
+J26dd: 	sbc hl, de
+J26df: 	ld (hl), $ae
+J26e1: 	dec hl
+J26e2: 	ld a, $bb
+J26e4: 	call J2711
+J26e7: 	ld hl, $d350
+J26ea: 	ld (hl), $93
+J26ec: 	inc hl
+J26ed: 	ld (hl), $f1
+J26ef: 	add hl, de
+J26f0: 	ld (hl), $67
+J26f2: 	dec hl
+J26f3: 	ld (hl), $61
+J26f5: 	ret
+J012b: 	ld b, $03
+J012d: 	push bc
+J012e: 	ld b, $03
+J0130: 	xor a
+J0131: 	call J2863
+J2863: 	push af
+J2864: 	ld hl, $d0d1
+J2867: 	ld ix, $2f32	; could be a data table address, label T2f32: created
+J286b: 	cp $01
+J286d: 	jr nc, J287c
+J287c: 	inc ix
+J287e: 	jr J286f
+J286f: 	call J28f5
+J28f5: 	ld a, (ix + $00)
+J28f8: 	ld (hl), a
+J28f9: 	inc ix
+J28fb: 	inc ix
+J28fd: 	ret
+J2872: 	ld de, $005e	; could be a data table address, label T005e: created
+J2875: 	add hl, de
+J2876: 	ld a, (ix + $00)
+J2879: 	ld (hl), a
+J287a: 	jr J2880
+J2880: 	pop af
+J2881: 	ld hl, $d18f
+J2884: 	ld ix, $2f36	; could be a data table address, label T2f36: created
+J2888: 	cp $01
+J288a: 	push af
+J288b: 	jr nc, J28ad
+J28ad: 	inc ix
+J28af: 	jr J288d
+J288d: 	call J28f5
+J2890: 	ld de, $001d	; could be a data table address, label T001d: created
+J2893: 	add hl, de
+J2894: 	call J28f5
+J2897: 	ld de, $0023	; could be a data table address, label T0023: created
+J289a: 	add hl, de
+J289b: 	call J28f5
+J289e: 	inc hl
+J289f: 	inc hl
+J28a0: 	call J28f5
+J28a3: 	ld de, $003e	; could be a data table address, label T003e: created
+J28a6: 	add hl, de
+J28a7: 	ld a, (ix + $00)
+J28aa: 	ld (hl), a
+J28ab: 	jr J28b1
+J28b1: 	pop af
+J28b2: 	ld hl, $d271
+J28b5: 	ld ix, $2f40	; could be a data table address, label T2f40: created
+J28b9: 	cp $01
+J28bb: 	push af
+J28bc: 	jr nc, J28cb
+J28cb: 	inc ix
+J28cd: 	jr J28be
+J28be: 	call J28f5
+J28c1: 	ld de, $003e	; could be a data table address, label T003e: created
+J28c4: 	add hl, de
+J28c5: 	ld a, (ix + $00)
+J28c8: 	ld (hl), a
+J28c9: 	jr J28cf
+J28cf: 	pop af
+J28d0: 	ld hl, $d2ec
+J28d3: 	ld ix, $2f44	; could be a data table address, label T2f44: created
+J28d7: 	cp $01
+J28d9: 	push af
+J28da: 	jr nc, J28ef
+J28ef: 	inc ix
+J28f1: 	jr J28dc
+J28dc: 	call J28f5
+J28df: 	inc hl
+J28e0: 	inc hl
+J28e1: 	inc hl
+J28e2: 	call J28f5
+J28e5: 	ld de, $0040	; could be a data table address, label T0040: created
+J28e8: 	add hl, de
+J28e9: 	ld a, (ix + $00)
+J28ec: 	ld (hl), a
+J28ed: 	jr J28f3
+J28f3: 	pop af
+J28f4: 	ret
+J0134: 	call J5030
+J5030: 	jp J5bf1
+J5bf1: 	push af
+J5bf2: 	push bc
+J5bf3: 	ld b, $1f
+J5bf5: 	call J5710
+J5710: 	push bc
+J5711: 	call J1fc7
+J1fc7: 	push ix
+J1fc9: 	call J447d
+J447d: 	ld a, ($605f)
+J4480: 	bit 3, a
+J4482: 	jp z, J449a
+J449a: 	call J45c4
+J45c4: 	ld de, $0010	; could be a data table address, label T0010: created
+J45c7: 	ld hl, $6200
+J45ca: 	push hl
+J45cb: 	ld b, $0b
+J45cd: 	ld a, (hl)
+J45ce: 	and $f0
+J45d0: 	ld (hl), a
+J45d1: 	inc hl
+J45d2: 	djnz J45cd
+J45d4: 	pop hl
+J45d5: 	add hl, de
+J45d6: 	ld a, $b0
+J45d8: 	cp l
+J45d9: 	jr nz, J45ca
+J45db: 	ret
+J449d: 	ld bc, $62cf
+J44a0: 	ld de, $62ff
+J44a3: 	ld a, $ff
+J44a5: 	ld (bc), a
+J44a6: 	ld (de), a
+J44a7: 	ld hl, $6026
+J44aa: 	bit 1, (hl)
+J44ac: 	ret z
+J44ad: 	inc hl
+J44ae: 	push de
+J44af: 	push bc
+J44b0: 	ld d, (hl)
+J44b1: 	inc hl
+J44b2: 	ld e, (hl)
+J44b3: 	ld a, $35
+J44b5: 	cp e
+J44b6: 	jp c, J44bc
+J44bc: 	call J45dc
+J45dc: 	srl d
+J45de: 	srl d
+J45e0: 	srl d
+J45e2: 	srl d
+J45e4: 	ld a, e
+J45e5: 	sub $30
+J45e7: 	srl a
+J45e9: 	srl a
+J45eb: 	srl a
+J45ed: 	srl a
+J45ef: 	ld c, a
+J45f0: 	ld a, $0a
+J45f2: 	sub c
+J45f3: 	sla a
+J45f5: 	sla a
+J45f7: 	sla a
+J45f9: 	sla a
+J45fb: 	or d
+J45fc: 	ret
+J44bf: 	pop bc
+J44c0: 	pop de
+J44c1: 	dec c
+J44c2: 	ld (bc), a
+J44c3: 	ld h, $62
+J44c5: 	ld l, a
+J44c6: 	ld a, (hl)
+J44c7: 	or $0f
+J44c9: 	ld (hl), a
+J44ca: 	ld a, (bc)
+J44cb: 	cp $ff
+J44cd: 	jp z, J453c
+J453c: 	ld a, (de)
+J453d: 	cp $ff
+J453f: 	jp z, J45be
+J45be: 	ld hl, $605f
+J45c1: 	res 3, (hl)
+J45c3: 	ret
+J4542: 	ld a, (de)
+J4543: 	cp $ff
+J4545: 	jp z, J45b8
+J45b8: 	ld a, (bc)
+J45b9: 	cp $ff
+J45bb: 	jp nz, J44ca
+J4548: 	ld l, a
+J4549: 	bit 7, (hl)
+J454b: 	jr z, J455f
+J455f: 	bit 6, (hl)
+J4561: 	jr z, J4570
+J4570: 	bit 5, (hl)
+J4572: 	jr z, J4586
+J4586: 	bit 4, (hl)
+J4588: 	jr z, J4597
+J4597: 	inc e
+J4598: 	push hl
+J4599: 	ld hl, $9001
+J459c: 	bit 7, (hl)
+J459e: 	pop hl
+J459f: 	jp z, J4542
+J45a2: 	ld hl, $605f
+J45a5: 	set 3, (hl)
+J45a7: 	ld ($61d3), bc
+J45ab: 	ld ($61d5), de
+J45af: 	set 0, a
+J45b1: 	ld ($61d7), a
+J45b4: 	ret
+J458a: 	push hl
+J458b: 	dec l
+J458c: 	ld a, (hl)
+J458d: 	and $0f
+J458f: 	jr nz, J4596
+J4596: 	pop hl
+J4591: 	set 2, (hl)
+J4593: 	dec c
+J4594: 	ld a, l
+J4595: 	ld (bc), a
+J4574: 	push hl
+J4575: 	push de
+J4576: 	ld de, $0010	; could be a data table address, label T0010: created
+J4579: 	add hl, de
+J457a: 	pop de
+J457b: 	ld a, (hl)
+J457c: 	and $0f
+J457e: 	jr nz, J4585
+J4585: 	pop hl
+J4580: 	set 3, (hl)
+J4582: 	dec c
+J4583: 	ld a, l
+J4584: 	ld (bc), a
+J4563: 	push hl
+J4564: 	inc l
+J4565: 	ld a, (hl)
+J4566: 	and $0f
+J4568: 	jr nz, J456f
+J456f: 	pop hl
+J456a: 	set 0, (hl)
+J456c: 	dec c
+J456d: 	ld a, l
+J456e: 	ld (bc), a
+J454d: 	push hl
+J454e: 	push de
+J454f: 	ld de, $fff0
+J4552: 	add hl, de
+J4553: 	pop de
+J4554: 	ld a, (hl)
+J4555: 	and $0f
+J4557: 	jr nz, J455e
+J455e: 	pop hl
+J4559: 	set 1, (hl)
+J455b: 	dec c
+J455c: 	ld a, l
+J455d: 	ld (bc), a
+J44d0: 	ld l, a
+J44d1: 	bit 7, (hl)
+J44d3: 	jr z, J44e7
+J44e7: 	bit 6, (hl)
+J44e9: 	jr z, J44f8
+J44f8: 	bit 5, (hl)
+J44fa: 	jr z, J450e
+J450e: 	bit 4, (hl)
+J4510: 	jr z, J451f
+J451f: 	inc c
+J4520: 	push hl
+J4521: 	ld hl, $9001
+J4524: 	bit 7, (hl)
+J4526: 	pop hl
+J4527: 	jp z, J44ca
+J452a: 	ld hl, $605f
+J452d: 	set 3, (hl)
+J452f: 	ld ($61d3), bc
+J4533: 	ld ($61d5), de
+J4537: 	xor a
+J4538: 	ld ($61d7), a
+J453b: 	ret
+J4512: 	push hl
+J4513: 	dec l
+J4514: 	ld a, (hl)
+J4515: 	and $0f
+J4517: 	jr nz, J451e
+J451e: 	pop hl
+J4519: 	set 2, (hl)
+J451b: 	dec e
+J451c: 	ld a, l
+J451d: 	ld (de), a
+J44fc: 	push hl
+J44fd: 	push de
+J44fe: 	ld de, $0010	; could be a data table address, label T0010: created
+J4501: 	add hl, de
+J4502: 	pop de
+J4503: 	ld a, (hl)
+J4504: 	and $0f
+J4506: 	jr nz, J450d
+J450d: 	pop hl
+J4508: 	set 3, (hl)
+J450a: 	dec e
+J450b: 	ld a, l
+J450c: 	ld (de), a
+J44eb: 	push hl
+J44ec: 	inc l
+J44ed: 	ld a, (hl)
+J44ee: 	and $0f
+J44f0: 	jr nz, J44f7
+J44f7: 	pop hl
+J44f2: 	set 0, (hl)
+J44f4: 	dec e
+J44f5: 	ld a, l
+J44f6: 	ld (de), a
+J44d5: 	push hl
+J44d6: 	push de
+J44d7: 	ld de, $fff0
+J44da: 	add hl, de
+J44db: 	pop de
+J44dc: 	ld a, (hl)
+J44dd: 	and $0f
+J44df: 	jr nz, J44e6
+J44e6: 	pop hl
+J44e1: 	set 1, (hl)
+J44e3: 	dec e
+J44e4: 	ld a, l
+J44e5: 	ld (de), a
+J44b9: 	pop bc
+J44ba: 	pop de
+J44bb: 	ret
+J4485: 	ld bc, ($61d3)
+J4489: 	ld de, ($61d5)
+J448d: 	ld h, $62
+J448f: 	ld a, ($61d7)
+J4492: 	cp $00
+J4494: 	jp z, J44ca
+J4497: 	jp J4542
+J1fcc: 	call J2d5a
+J2d5a: 	push af
+J2d5b: 	ld a, ($9002)
+J2d5e: 	bit 4, a
+J2d60: 	jr z, J2d5b
+J2d62: 	pop af
+J2d63: 	ret
+J1fcf: 	ld hl, $9001
+J1fd2: 	bit 7, (hl)
+J1fd4: 	jp z, J1fd2
+J1fd7: 	ld hl, $6059
+J1fda: 	inc (hl)
+J1fdb: 	ld a, (hl)
+J1fdc: 	ld hl, $605a
+J1fdf: 	and $07
+J1fe1: 	jr nz, J1fe4
+J1fe4: 	call J033a
+J033a: 	push af
+J033b: 	ld a, ($605b)
+J033e: 	cp $00
+J0340: 	jr z, J0346
+J0346: 	ld a, ($61cd)
+J0349: 	cp $00
+J034b: 	jr z, J034e
+J034e: 	ld ($61cd), a
+J0351: 	ld a, ($9000)
+J0354: 	bit 7, a
+J0356: 	jr nz, J035d
+J035d: 	pop af
+J035e: 	ret
+J0358: 	ld a, $05
+J035a: 	ld ($61cd), a
+J034d: 	dec a
+J0342: 	dec a
+J0343: 	ld ($605b), a
+J1fe7: 	ld hl, $604e
+J1fea: 	xor a
+J1feb: 	ld b, $0b
+J1fed: 	ld (hl), a
+J1fee: 	inc hl
+J1fef: 	djnz J1fed
+J1ff1: 	ld ix, $601c
+J1ff5: 	ld a, (ix + $00)
+J1ff8: 	and $03
+J1ffa: 	jp nz, J200c
+J200c: 	ld hl, $605f
+J200f: 	bit 1, (hl)
+J2011: 	jr z, J2033
+J2033: 	ld a, (ix + $01)
+J2036: 	ld c, (ix + $02)
+J2039: 	ld d, (ix + $00)
+J203c: 	srl d
+J203e: 	srl d
+J2040: 	srl d
+J2042: 	srl d
+J2044: 	call J1fa8
+J1fa8: 	cp $07
+J1faa: 	jp nc, J1faf
+J1faf: 	sub $07
+J1fb1: 	ld e, a
+J1fb2: 	srl e
+J1fb4: 	srl e
+J1fb6: 	srl e
+J1fb8: 	srl e
+J1fba: 	and $0f
+J1fbc: 	ex af, af'
+J1fbd: 	ld a, e
+J1fbe: 	cp $0b
+J1fc0: 	jp c, J1fc5
+J1fc5: 	ex af, af'
+J1fc6: 	ret
+J1fc3: 	ld e, $0b
+J1fad: 	ld a, $07
+J2047: 	push de
+J2048: 	ld d, $00
+J204a: 	ld iy, $604e
+J204e: 	add iy, de
+J2050: 	push af
+J2051: 	ld a, (iy + $00)
+J2054: 	inc (iy + $00)
+J2057: 	push bc
+J2058: 	ld b, e
+J2059: 	inc b
+J205a: 	ld iy, $7080
+J205e: 	ld de, $0040	; could be a data table address, label T0040: created
+J2061: 	add iy, de
+J2063: 	djnz J2061
+J2065: 	sla a
+J2067: 	sla a
+J2069: 	ld e, a
+J206a: 	add iy, de
+J206c: 	pop bc
+J206d: 	ld a, c
+J206e: 	sub $07
+J2070: 	ld iy, a
+J2072: 	inc bc
+J2073: 	pop af
+J2074: 	and $0f
+J2076: 	pop de
+J2077: 	ld e, $00
+J2079: 	bit 2, d
+J207b: 	jr nz, J2083
+J2083: 	inc e
+J2084: 	jp J208d
+J208d: 	ld hl, $605f
+J2090: 	bit 1, (hl)
+J2092: 	jr z, J20be
+J20be: 	or $c0
+J20c0: 	ld iy, a
+J20c2: 	nop
+J20c3: 	ld a, (ix + $03)
+J20c6: 	bit 4, (ix + $04)
+J20ca: 	jr nz, J20f7
+J20f7: 	ld iy, a
+J20f9: 	ld bc, $7edd
+J20fc: 	inc b
+J20fd: 	ld iy, a
+J20ff: 	ld (bc), a
+J2100: 	jp J1ffd
+J1ffd: 	inc b
+J1ffe: 	ld a, $0a
+J2000: 	cp b
+J2001: 	jp z, J2103
+J2103: 	ld hl, $70c0
+J2106: 	ld b, $0b
+J2108: 	ld ix, $604e
+J210c: 	ld a, (ix + $00)
+J210f: 	push hl
+J2110: 	sla a
+J2112: 	sla a
+J2114: 	ld e, a
+J2115: 	ld d, $00
+J2117: 	add hl, de
+J2118: 	ld (hl), d
+J2119: 	push hl
+J211a: 	pop de
+J211b: 	ld a, e
+J211c: 	pop de
+J211d: 	push de
+J211e: 	sub e
+J211f: 	cp $20
+J2121: 	jr nc, J2130
+J2130: 	ld de, $0040	; could be a data table address, label T0040: created
+J2133: 	inc ix
+J2135: 	pop hl
+J2136: 	add hl, de
+J2137: 	djnz J210c
+J2139: 	ld hl, $9001
+J213c: 	bit 7, (hl)
+J213e: 	jp nz, J213c
+J2141: 	pop ix
+J2143: 	ret
+J2123: 	pop iy
+J2125: 	push iy
+J2127: 	ld de, $0020	; could be a data table address, label T0020: created
+J212a: 	add iy, de
+J212c: 	xor a
+J212d: 	ld iy, a
+J212f: 	nop
+J2004: 	ld de, $0005	; could be a data table address, label T0005: created
+J2007: 	add ix, de
+J2009: 	jp J1ff5
+J20cc: 	cp $d8
+J20ce: 	jr nc, J20f7
+J20d0: 	ex af, af'
+J20d1: 	xor a
+J20d2: 	cp e
+J20d3: 	jr nz, J20db
+J20db: 	ex af, af'
+J20dc: 	ex af, af'
+J20dd: 	ld a, ($605a)
+J20e0: 	and $03
+J20e2: 	bit 0, a
+J20e4: 	jr z, J20eb
+J20eb: 	cp $02
+J20ed: 	jr nz, J20f6
+J20f6: 	ex af, af'
+J20ef: 	ld d, $08
+J20f1: 	ex af, af'
+J20f2: 	add d
+J20f3: 	jp J20f7
+J20e6: 	ld d, $04
+J20e8: 	jp J20f1
+J20d5: 	ex af, af'
+J20d6: 	add a, $0c
+J20d8: 	jp J20dc
+J2094: 	ld hl, $9002
+J2097: 	bit 5, (hl)
+J2099: 	jr z, J20be
+J209b: 	ld ($61c8), a
+J209e: 	ld a, ($6065)
+J20a1: 	cp $00
+J20a3: 	ld a, ($61c8)
+J20a6: 	jr z, J20be
+J20a8: 	bit 4, a
+J20aa: 	jr nz, J20b1
+J20b1: 	res 4, a
+J20b3: 	bit 5, a
+J20b5: 	jr nz, J20bc
+J20bc: 	res 5, a
+J20b7: 	set 5, a
+J20b9: 	jp J20be
+J20ac: 	set 4, a
+J20ae: 	jp J20b3
+J207d: 	bit 0, d
+J207f: 	jr z, J2087
+J2087: 	bit 3, d
+J2089: 	jr nz, J208d
+J208b: 	set 5, a
+J2081: 	set 4, a
+J2013: 	ld hl, $9002
+J2016: 	bit 5, (hl)
+J2018: 	jr z, J2033
+J201a: 	ld c, a
+J201b: 	ld a, ($6065)
+J201e: 	cp $00
+J2020: 	ld a, c
+J2021: 	jr z, J2033
+J2023: 	ld c, (ix + $02)
+J2026: 	ld a, $fe
+J2028: 	sub c
+J2029: 	ld c, a
+J202a: 	ld d, (ix + $01)
+J202d: 	ld a, $ae
+J202f: 	sub d
+J2030: 	jp J2039
+J1fe3: 	inc (hl)
+J5714: 	call J178f
+J178f: 	ld hl, $605f
+J1792: 	bit 4, (hl)
+J1794: 	jp z, J17a1
+J17a1: 	push ix
+J17a3: 	ld hl, $6000
+J17a6: 	ld a, (hl)
+J17a7: 	and $ff
+J17a9: 	jp nz, J17e5
+J17e5: 	ld b, $00
+J17e7: 	rr a
+J17e9: 	jp nc, J17ef
+J17ef: 	inc b
+J17f0: 	ex af, af'
+J17f1: 	ld a, b
+J17f2: 	cp $08
+J17f4: 	jr z, J17ac
+J17ac: 	inc hl
+J17ad: 	ld a, (hl)
+J17ae: 	and $ff
+J17b0: 	jp nz, J17d0
+J17d0: 	ld b, $08
+J17d2: 	rr a
+J17d4: 	jp nc, J17da
+J17da: 	inc b
+J17db: 	ex af, af'
+J17dc: 	ld a, b
+J17dd: 	cp $10
+J17df: 	jr z, J17b3
+J17b3: 	inc hl
+J17b4: 	ld a, (hl)
+J17b5: 	and $ff
+J17b7: 	jp z, J18bf
+J18bf: 	ld a, ($6003)
+J18c2: 	ld b, $06
+J18c4: 	ld ix, $6004
+J18c8: 	srl a
+J18ca: 	jp c, J18da
+J18da: 	ex af, af'
+J18db: 	ld a, (ix + $02)
+J18de: 	cp $00
+J18e0: 	jr z, J18e9
+J18e9: 	ld ixl, (ix + $00)
+J18ec: 	ld ixh, (ix + $01)
+J18ef: 	ld a, (hl)
+J18f0: 	cp $ff
+J18f2: 	jp nz, J193e
+J193e: 	ld a, $06
+J1940: 	sub b
+J1941: 	cp $03
+J1943: 	jp m, J199a
+J199a: 	sla a
+J199c: 	sla a
+J199e: 	sla a
+J19a0: 	sla a
+J19a2: 	sla a
+J19a4: 	or $80
+J19a6: 	ld c, a
+J19a7: 	ld iy, $1b07	; could be a data table address, label T1b07: created
+J19ab: 	ld a, (hl)
+J19ac: 	and $3f
+J19ae: 	sla a
+J19b0: 	ld e, a
+J19b1: 	ld d, $00
+J19b3: 	add iy, de
+J19b5: 	ld a, (iy + $00)
+J19b8: 	or c
+J19b9: 	ld ($b000), a
+J19bc: 	ld a, (iy + $01)
+J19bf: 	ld ($b000), a
+J19c2: 	inc hl
+J19c3: 	xor a
+J19c4: 	rrd
+J19c6: 	or c
+J19c7: 	set 4, a
+J19c9: 	ld ($b000), a
+J19cc: 	jp J197b
+J197b: 	ld a, $00
+J197d: 	rld
+J197f: 	ld iy, $1af7	; could be a data table address, label T1af7: created
+J1983: 	inc hl
+J1984: 	ld ix, ixl
+J1986: 	nop
+J1987: 	ld ix, ixh
+J1989: 	ld bc, $165f	; could be a data table address, label T165f: created
+J198c: 	nop
+J198d: 	add iy, de
+J198f: 	ld a, (iy + $00)
+J1992: 	dec a
+J1993: 	ld ix, a
+J1995: 	ld (bc), a
+J1996: 	ex af, af'
+J1997: 	jp J18cd
+J18cd: 	inc ix
+J18cf: 	inc ix
+J18d1: 	inc ix
+J18d3: 	dec b
+J18d4: 	jp z, J19cf
+J19cf: 	srl a
+J19d1: 	jr c, J19e0
+J19e0: 	ex af, af'
+J19e1: 	ld a, (ix + $02)
+J19e4: 	cp $00
+J19e6: 	jr z, J19ef
+J19ef: 	ld ixl, (ix + $00)
+J19f2: 	ld ixh, (ix + $01)
+J19f5: 	ld a, (hl)
+J19f6: 	cp $ff
+J19f8: 	jr nz, J1a0b
+J1a0b: 	ld b, $00
+J1a0d: 	srl a
+J1a0f: 	rl b
+J1a11: 	srl a
+J1a13: 	srl a
+J1a15: 	srl a
+J1a17: 	srl a
+J1a19: 	srl a
+J1a1b: 	dec a
+J1a1c: 	sla b
+J1a1e: 	sla b
+J1a20: 	or b
+J1a21: 	or $e0
+J1a23: 	ld ($b000), a
+J1a26: 	inc hl
+J1a27: 	ld a, $00
+J1a29: 	rrd
+J1a2b: 	or $f0
+J1a2d: 	ld ($b000), a
+J1a30: 	ld a, $00
+J1a32: 	rld
+J1a34: 	ld iy, $1af7	; could be a data table address, label T1af7: created
+J1a38: 	inc hl
+J1a39: 	ld ix, ixl
+J1a3b: 	nop
+J1a3c: 	ld ix, ixh
+J1a3e: 	ld bc, $165f	; could be a data table address, label T165f: created
+J1a41: 	nop
+J1a42: 	add iy, de
+J1a44: 	ld a, (iy + $00)
+J1a47: 	dec a
+J1a48: 	ld ix, a
+J1a4a: 	ld (bc), a
+J1a4b: 	ex af, af'
+J1a4c: 	jp J19d3
+J19d3: 	inc ix
+J19d5: 	inc ix
+J19d7: 	inc ix
+J19d9: 	srl a
+J19db: 	jr c, J1a4f
+J1a4f: 	ld a, (ix + $02)
+J1a52: 	cp $00
+J1a54: 	jr z, J1a5c
+J1a5c: 	ld ixl, (ix + $00)
+J1a5f: 	ld ixh, (ix + $01)
+J1a62: 	ld a, (hl)
+J1a63: 	cp $ff
+J1a65: 	jr nz, J1a77
+J1a77: 	ld b, $00
+J1a79: 	srl a
+J1a7b: 	rl b
+J1a7d: 	srl a
+J1a7f: 	srl a
+J1a81: 	srl a
+J1a83: 	srl a
+J1a85: 	srl a
+J1a87: 	dec a
+J1a88: 	sla b
+J1a8a: 	sla b
+J1a8c: 	or b
+J1a8d: 	or $e0
+J1a8f: 	ld ($c000), a
+J1a92: 	inc hl
+J1a93: 	ld a, $00
+J1a95: 	rrd
+J1a97: 	or $f0
+J1a99: 	ld ($c000), a
+J1a9c: 	ld a, $00
+J1a9e: 	rld
+J1aa0: 	ld iy, $1af7	; could be a data table address, label T1af7: created
+J1aa4: 	inc hl
+J1aa5: 	ld ix, ixl
+J1aa7: 	nop
+J1aa8: 	ld ix, ixh
+J1aaa: 	ld bc, $165f	; could be a data table address, label T165f: created
+J1aad: 	nop
+J1aae: 	add iy, de
+J1ab0: 	ld a, (iy + $00)
+J1ab3: 	dec a
+J1ab4: 	ld ix, a
+J1ab6: 	ld (bc), a
+J1ab7: 	pop ix
+J1ab9: 	ret
+J1a67: 	ld a, $ff
+J1a69: 	ld ($c000), a
+J1a6c: 	ld a, ($6003)
+J1a6f: 	and $7f
+J1a71: 	ld ($6003), a
+J1a74: 	jp J1ab7
+J1a56: 	dec (ix + $02)
+J1a59: 	jp J1ab7
+J19dd: 	jp J1ab7
+J19fa: 	ld a, $ff
+J19fc: 	ld ($b000), a
+J19ff: 	ld a, ($6003)
+J1a02: 	and $bf
+J1a04: 	ld ($6003), a
+J1a07: 	ex af, af'
+J1a08: 	jp J19d3
+J19e8: 	dec (ix + $02)
+J19eb: 	ex af, af'
+J19ec: 	jp J19d3
+J18d7: 	jp J18c8
+J1946: 	sub $03
+J1948: 	sla a
+J194a: 	sla a
+J194c: 	sla a
+J194e: 	sla a
+J1950: 	sla a
+J1952: 	or $80
+J1954: 	ld c, a
+J1955: 	ld iy, $1b07	; could be a data table address, label T1b07: created
+J1959: 	ld a, (hl)
+J195a: 	and $3f
+J195c: 	sla a
+J195e: 	ld e, a
+J195f: 	ld d, $00
+J1961: 	add iy, de
+J1963: 	ld a, (iy + $00)
+J1966: 	or c
+J1967: 	ld ($c000), a
+J196a: 	ld a, (iy + $01)
+J196d: 	ld ($c000), a
+J1970: 	inc hl
+J1971: 	ld a, $00
+J1973: 	rrd
+J1975: 	or c
+J1976: 	set 4, a
+J1978: 	ld ($c000), a
+J18f5: 	ld a, $06
+J18f7: 	sub b
+J18f8: 	cp $03
+J18fa: 	jr c, J1910
+J1910: 	sla a
+J1912: 	sla a
+J1914: 	sla a
+J1916: 	sla a
+J1918: 	sla a
+J191a: 	or $9f
+J191c: 	ld ($b000), a
+J191f: 	ld a, $06
+J1921: 	sub b
+J1922: 	ld d, a
+J1923: 	ld e, $01
+J1925: 	ld a, d
+J1926: 	cp $00
+J1928: 	jr z, J1930
+J1930: 	ld a, e
+J1931: 	cpl
+J1932: 	ld e, a
+J1933: 	ld a, ($6003)
+J1936: 	and e
+J1937: 	ld ($6003), a
+J193a: 	ex af, af'
+J193b: 	jp J18cd
+J192a: 	dec d
+J192b: 	sla e
+J192d: 	jp J1925
+J18fc: 	sub $03
+J18fe: 	sla a
+J1900: 	sla a
+J1902: 	sla a
+J1904: 	sla a
+J1906: 	sla a
+J1908: 	or $9f
+J190a: 	ld ($c000), a
+J190d: 	jp J191f
+J18e2: 	dec (ix + $02)
+J18e5: 	ex af, af'
+J18e6: 	jp J18cd
+J17ba: 	ld b, $10
+J17bc: 	rr a
+J17be: 	jp nc, J17c4
+J17c4: 	inc b
+J17c5: 	ex af, af'
+J17c6: 	ld a, b
+J17c7: 	cp $18
+J17c9: 	jp z, J18bf
+J17cc: 	ex af, af'
+J17cd: 	jp J17bc
+J17c1: 	call J17fa
+J17fa: 	push bc
+J17fb: 	push af
+J17fc: 	push hl
+J17fd: 	ld hl, $1b6d	; could be a data table address, label T1b6d: created
+J1800: 	sla b
+J1802: 	ld c, b
+J1803: 	ld b, $00
+J1805: 	add hl, bc
+J1806: 	ld b, (hl)
+J1807: 	inc hl
+J1808: 	ld c, (hl)
+J1809: 	ld l, b
+J180a: 	ld h, c
+J180b: 	ld b, (hl)
+J180c: 	inc hl
+J180d: 	ld c, a
+J180e: 	ld a, b
+J180f: 	and $ff
+J1811: 	jp z, J18af
+J18af: 	pop hl
+J18b0: 	pop af
+J18b1: 	pop bc
+J18b2: 	ex af, af'
+J18b3: 	ld a, b
+J18b4: 	and $07
+J18b6: 	inc a
+J18b7: 	call J1732
+J1732: 	push bc
+J1733: 	ld b, a
+J1734: 	ld a, $01
+J1736: 	dec b
+J1737: 	jr z, J173e
+J173e: 	pop bc
+J173f: 	ret
+J1739: 	sla a
+J173b: 	jp J1736
+J18ba: 	cpl
+J18bb: 	and (hl)
+J18bc: 	ld (hl), a
+J18bd: 	ex af, af'
+J18be: 	ret
+J1814: 	ld a, c
+J1815: 	ld e, (hl)
+J1816: 	inc hl
+J1817: 	ld d, (hl)
+J1818: 	inc hl
+J1819: 	ld ix, $6003
+J181d: 	ld a, (de)
+J181e: 	and $c0
+J1820: 	jp z, J1846
+J1846: 	ld a, (ix + $00)
+J1849: 	bit 0, a
+J184b: 	jp nz, J185a
+J185a: 	bit 1, a
+J185c: 	jp nz, J186b
+J186b: 	bit 2, a
+J186d: 	jp nz, J187c
+J187c: 	bit 3, a
+J187e: 	jp nz, J188d
+J188d: 	bit 4, a
+J188f: 	jp nz, J189e
+J189e: 	dec b
+J189f: 	bit 5, a
+J18a1: 	jp nz, J180d
+J18a4: 	ld ($6013), de
+J18a8: 	set 5, (ix + $00)
+J18ac: 	jp J180d
+J1892: 	ld ($6010), de
+J1896: 	set 4, (ix + $00)
+J189a: 	dec b
+J189b: 	jp J180d
+J1881: 	ld ($600d), de
+J1885: 	set 3, (ix + $00)
+J1889: 	dec b
+J188a: 	jp J180d
+J1870: 	ld ($600a), de
+J1874: 	set 2, (ix + $00)
+J1878: 	dec b
+J1879: 	jp J180d
+J185f: 	ld ($6007), de
+J1863: 	set 1, (ix + $00)
+J1867: 	dec b
+J1868: 	jp J180d
+J184e: 	ld ($6004), de
+J1852: 	set 0, (ix + $00)
+J1856: 	dec b
+J1857: 	jp J180d
+J1823: 	ld a, (ix + $00)
+J1826: 	bit 6, a
+J1828: 	jr nz, J1836
+J1836: 	dec b
+J1837: 	bit 7, a
+J1839: 	jr nz, J180d
+J183b: 	ld ($6019), de
+J183f: 	set 7, (ix + $00)
+J1843: 	jp J180d
+J182a: 	ld ($6016), de
+J182e: 	set 6, (ix + $00)
+J1832: 	dec b
+J1833: 	jp J180d
+J17e1: 	ex af, af'
+J17e2: 	jp J17d2
+J17d7: 	call J17fa
+J17f6: 	ex af, af'
+J17f7: 	jp J17e7
+J17ec: 	call J17fa
+J1797: 	ld hl, $6000
+J179a: 	xor a
+J179b: 	ld (hl), a
+J179c: 	inc hl
+J179d: 	ld (hl), a
+J179e: 	inc hl
+J179f: 	ld (hl), a
+J17a0: 	ret
+J5717: 	pop bc
+J5718: 	djnz J5710
+J571a: 	ret
+J5bf8: 	pop bc
+J5bf9: 	pop af
+J5bfa: 	ret
+J0137: 	inc a
+J0138: 	call J2863
+J013b: 	call J5030
+J013e: 	djnz J0130
+J0140: 	ld hl, $9002
+J0143: 	bit 6, (hl)
+J0145: 	pop bc
+J0146: 	jp z, J018c
+J018c: 	ld a, $09
+J018e: 	ld ($605e), a
+J0191: 	jp J035f
+J035f: 	ld hl, $605f
+J0362: 	set 0, (hl)
+J0364: 	res 4, (hl)
+J0366: 	ld hl, $601c
+J0369: 	xor a
+J036a: 	ld (hl), a
+J036b: 	ld hl, $6021
+J036e: 	ld (hl), a
+J036f: 	call J3ccd
+J3ccd: 	push bc
+J3cce: 	push de
+J3ccf: 	push hl
+J3cd0: 	ld b, $09
+J3cd2: 	ld de, $0005	; could be a data table address, label T0005: created
+J3cd5: 	ld hl, $6021
+J3cd8: 	res 0, (hl)
+J3cda: 	res 1, (hl)
+J3cdc: 	add hl, de
+J3cdd: 	djnz J3cd8
+J3cdf: 	push ix
+J3ce1: 	push iy
+J3ce3: 	push af
+J3ce4: 	call J1fc7
+J3ce7: 	call J178f
+J3cea: 	pop af
+J3ceb: 	pop iy
+J3ced: 	pop ix
+J3cef: 	pop hl
+J3cf0: 	pop de
+J3cf1: 	pop bc
+J3cf2: 	ret
+J0372: 	xor a
+J0373: 	ld ($a000), a
+J0376: 	call J2525
+J2525: 	call J2b06
+J2528: 	call J1aba
+J252b: 	call J1755
+J252e: 	call J253e
+J253e: 	ld b, $10
+J2540: 	ld hl, $d11e
+J2543: 	ld ix, $2ed7	; could be a data table address, label T2ed7: created
+J2547: 	ld c, $06
+J2549: 	call J27b3
+J27b3: 	push de
+J27b4: 	ld de, $0400	; could be a data table address, label T0400: created
+J27b7: 	push hl
+J27b8: 	add hl, de
+J27b9: 	ld (hl), c
+J27ba: 	pop hl
+J27bb: 	ld a, (ix + $00)
+J27be: 	ld (hl), a
+J27bf: 	push de
+J27c0: 	ld de, $0020	; could be a data table address, label T0020: created
+J27c3: 	add hl, de
+J27c4: 	inc ix
+J27c6: 	pop de
+J27c7: 	djnz J27b7
+J27c9: 	pop de
+J27ca: 	ret
+J254c: 	ld hl, $d0dc
+J254f: 	ld b, $01
+J2551: 	push hl
+J2552: 	ld a, b
+J2553: 	cp $01
+J2555: 	jr z, J255f
+J255f: 	ld c, $07
+J2561: 	call J25b1
+J25b1: 	push af
+J25b2: 	push hl
+J25b3: 	push de
+J25b4: 	ld de, $0400	; could be a data table address, label T0400: created
+J25b7: 	add hl, de
+J25b8: 	ld (hl), c
+J25b9: 	pop de
+J25ba: 	pop hl
+J25bb: 	pop af
+J25bc: 	ret
+J2564: 	ld (hl), $1d
+J2566: 	ld de, $0020	; could be a data table address, label T0020: created
+J2569: 	add hl, de
+J256a: 	ld ix, $2ecf	; could be a data table address, label T2ecf: created
+J256e: 	cp $05
+J2570: 	jr nc, J257a
+J257a: 	ld de, $0006	; could be a data table address, label T0006: created
+J257d: 	add ix, de
+J257f: 	call J25b1
+J2582: 	ld a, (ix + $00)
+J2585: 	ld (hl), a
+J2586: 	inc ix
+J2588: 	push de
+J2589: 	ld de, $0020	; could be a data table address, label T0020: created
+J258c: 	add hl, de
+J258d: 	pop de
+J258e: 	call J25b1
+J2591: 	ld a, (ix + $00)
+J2594: 	ld (hl), a
+J2595: 	push de
+J2596: 	ld de, $0040	; could be a data table address, label T0040: created
+J2599: 	add hl, de
+J259a: 	pop de
+J259b: 	call J25bd
+J25bd: 	ld a, b
+J25be: 	ld ix, $d380
+J25c2: 	dec a
+J25c3: 	sla a
+J25c5: 	sla a
+J25c7: 	ld d, a
+J25c8: 	sla a
+J25ca: 	add d
+J25cb: 	ld e, a
+J25cc: 	ld d, $00
+J25ce: 	add ix, de
+J25d0: 	push bc
+J25d1: 	ld b, $0c
+J25d3: 	ld de, $0400	; could be a data table address, label T0400: created
+J25d6: 	push hl
+J25d7: 	add hl, de
+J25d8: 	ld (hl), c
+J25d9: 	pop hl
+J25da: 	ld a, (ix + $00)
+J25dd: 	ld (hl), a
+J25de: 	push de
+J25df: 	ld de, $0020	; could be a data table address, label T0020: created
+J25e2: 	add hl, de
+J25e3: 	inc ix
+J25e5: 	pop de
+J25e6: 	djnz J25d6
+J25e8: 	ld b, $06
+J25ea: 	ld a, c
+J25eb: 	push hl
+J25ec: 	add hl, de
+J25ed: 	call J1e7d
+J1e7d: 	push bc
+J1e7e: 	push de
+J1e7f: 	push hl
+J1e80: 	ld de, $0020	; could be a data table address, label T0020: created
+J1e83: 	ld (hl), a
+J1e84: 	add hl, de
+J1e85: 	djnz J1e83
+J1e87: 	pop hl
+J1e88: 	pop de
+J1e89: 	pop bc
+J1e8a: 	ret
+J25f0: 	pop hl
+J25f1: 	pop bc
+J25f2: 	ld ix, $6073
+J25f6: 	ld a, b
+J25f7: 	push bc
+J25f8: 	dec a
+J25f9: 	ld b, a
+J25fa: 	sla a
+J25fc: 	add b
+J25fd: 	pop bc
+J25fe: 	ld e, a
+J25ff: 	ld d, $00
+J2601: 	add ix, de
+J2603: 	call J1e06
+J1e06: 	push de
+J1e07: 	push bc
+J1e08: 	push hl
+J1e09: 	ld b, $03
+J1e0b: 	ld hl, $61da
+J1e0e: 	push hl
+J1e0f: 	ld a, (ix + $00)
+J1e12: 	ld c, a
+J1e13: 	srl a
+J1e15: 	srl a
+J1e17: 	srl a
+J1e19: 	srl a
+J1e1b: 	ld (hl), a
+J1e1c: 	inc hl
+J1e1d: 	ld a, c
+J1e1e: 	and $0f
+J1e20: 	ld (hl), a
+J1e21: 	inc ix
+J1e23: 	inc hl
+J1e24: 	djnz J1e0f
+J1e26: 	pop hl
+J1e27: 	ld b, $05
+J1e29: 	xor a
+J1e2a: 	cp (hl)
+J1e2b: 	jr nz, J1e32
+J1e32: 	pop hl
+J1e33: 	push ix
+J1e35: 	ld ix, $61da
+J1e39: 	ld de, $0020	; could be a data table address, label T0020: created
+J1e3c: 	ld b, $06
+J1e3e: 	ld a, (ix + $00)
+J1e41: 	ld (hl), a
+J1e42: 	inc ix
+J1e44: 	add hl, de
+J1e45: 	djnz J1e3e
+J1e47: 	pop ix
+J1e49: 	pop bc
+J1e4a: 	pop de
+J1e4b: 	ret
+J1e2d: 	ld (hl), $ff
+J1e2f: 	inc hl
+J1e30: 	djnz J1e2a
+J2606: 	ret
+J259e: 	pop hl
+J259f: 	inc b
+J25a0: 	ld a, b
+J25a1: 	cp $0a
+J25a3: 	jr nc, J25b0
+J25b0: 	ret
+J25a5: 	cp $02
+J25a7: 	jr nz, J25ad
+J25ad: 	dec hl
+J25ae: 	jr J2551
+J25a9: 	dec hl
+J25aa: 	dec hl
+J25ab: 	jr J2551
+J2572: 	dec a
+J2573: 	sla a
+J2575: 	ld d, $00
+J2577: 	ld e, a
+J2578: 	jr J257d
+J2557: 	ld c, $03
+J2559: 	call J25b1
+J255c: 	ld (hl), a
+J255d: 	jr J2566
+J2531: 	call J2607
+J2534: 	call J271d
+J271d: 	ld b, $09
+J271f: 	ld hl, $d18b
+J2722: 	ld ix, $2ef1	; could be a data table address, label T2ef1: created
+J2726: 	ld c, $03
+J2728: 	call J27b3
+J272b: 	ld b, $02
+J272d: 	ld hl, $d1ea
+J2730: 	ld ix, $2efa	; could be a data table address, label T2efa: created
+J2734: 	ld c, $03
+J2736: 	call J27b3
+J2739: 	ld b, $0e
+J273b: 	ld hl, $d129
+J273e: 	ld ix, $2efc	; could be a data table address, label T2efc: created
+J2742: 	ld c, $07
+J2744: 	call J27b3
+J2747: 	ld b, $05
+J2749: 	ld hl, $d1c7
+J274c: 	ld ix, $2f0a	; could be a data table address, label T2f0a: created
+J2750: 	ld c, $01
+J2752: 	call J27b3
+J2755: 	ld a, ($9002)
+J2758: 	bit 6, a
+J275a: 	jr nz, J278f
+J278f: 	ld a, ($605e)
+J2792: 	cp $01
+J2794: 	jr nz, J275c
+J275c: 	ld b, $03
+J275e: 	ld hl, $d105
+J2761: 	ld ix, $2f21	; could be a data table address, label T2f21: created
+J2765: 	ld c, $01
+J2767: 	call J27b3
+J276a: 	ld b, $0e
+J276c: 	ld hl, $d185
+J276f: 	ld ix, $2f24	; could be a data table address, label T2f24: created
+J2773: 	call J27b3
+J2776: 	ld de, $0400	; could be a data table address, label T0400: created
+J2779: 	ld hl, $d0c5
+J277c: 	ld c, $04
+J277e: 	push hl
+J277f: 	add hl, de
+J2780: 	ld (hl), c
+J2781: 	pop hl
+J2782: 	ld (hl), $01
+J2784: 	ld hl, $d165
+J2787: 	push hl
+J2788: 	add hl, de
+J2789: 	ld (hl), c
+J278a: 	pop hl
+J278b: 	ld (hl), $02
+J278d: 	jr J27b2
+J27b2: 	ret
+J2796: 	ld de, $0400	; could be a data table address, label T0400: created
+J2799: 	ld hl, $d0c5
+J279c: 	ld c, $04
+J279e: 	push hl
+J279f: 	add hl, de
+J27a0: 	ld (hl), c
+J27a1: 	pop hl
+J27a2: 	ld (hl), $01
+J27a4: 	ld b, $12
+J27a6: 	ld hl, $d105
+J27a9: 	ld ix, $2f0f	; could be a data table address, label T2f0f: created
+J27ad: 	ld c, $01
+J27af: 	call J27b3
+J2537: 	call J27cb
+J27cb: 	push af
+J27cc: 	push bc
+J27cd: 	push de
+J27ce: 	push hl
+J27cf: 	ld b, $09
+J27d1: 	ld hl, $d482
+J27d4: 	ld a, $02
+J27d6: 	ld de, $0020	; could be a data table address, label T0020: created
+J27d9: 	ld (hl), a
+J27da: 	inc hl
+J27db: 	ld (hl), a
+J27dc: 	add hl, de
+J27dd: 	ld (hl), a
+J27de: 	dec hl
+J27df: 	ld (hl), a
+J27e0: 	add hl, de
+J27e1: 	djnz J27d9
+J27e3: 	jr J27ec
+J27ec: 	ld a, ($605e)
+J27ef: 	ld b, a
+J27f0: 	ld a, $09
+J27f2: 	cp b
+J27f3: 	jr c, J2811
+J2811: 	pop hl
+J2812: 	pop de
+J2813: 	pop bc
+J2814: 	pop af
+J2815: 	ret
+J27f5: 	xor a
+J27f6: 	ld hl, $9003
+J27f9: 	rld
+J27fb: 	ld hl, $d082
+J27fe: 	cp $0f
+J2800: 	jr nz, J280d
+J280d: 	ld c, $ed
+J280f: 	jr J2804
+J2804: 	ld a, c
+J2805: 	call J2816
+J2816: 	push de
+J2817: 	ld de, $0020	; could be a data table address, label T0020: created
+J281a: 	ld (hl), a
+J281b: 	dec a
+J281c: 	inc hl
+J281d: 	ld (hl), a
+J281e: 	dec a
+J281f: 	add hl, de
+J2820: 	ld (hl), a
+J2821: 	dec a
+J2822: 	dec hl
+J2823: 	ld (hl), a
+J2824: 	pop de
+J2825: 	ret
+J2808: 	add hl, de
+J2809: 	djnz J2804
+J280b: 	jr J2811
+J2802: 	ld c, $e9
+J253a: 	call J2826
+J2826: 	ld de, $0020	; could be a data table address, label T0020: created
+J2829: 	ld b, $08
+J282b: 	ld hl, $d681
+J282e: 	ld a, $02
+J2830: 	ld (hl), a
+J2831: 	add hl, de
+J2832: 	djnz J2830
+J2834: 	ld a, ($9002)
+J2837: 	bit 6, a
+J2839: 	jr z, J2856
+J2856: 	ld b, $04
+J2858: 	ld ix, $d301
+J285c: 	ld hl, $2eed	; could be a data table address, label T2eed: created
+J285f: 	call J29cf
+J29cf: 	push de
+J29d0: 	ld de, $0020	; could be a data table address, label T0020: created
+J29d3: 	ld a, (hl)
+J29d4: 	ld ix, a
+J29d6: 	nop
+J29d7: 	inc hl
+J29d8: 	add ix, de
+J29da: 	djnz J29d3
+J29dc: 	pop de
+J29dd: 	ret
+J2862: 	ret
+J283b: 	ld b, $06
+J283d: 	ld ix, $d281
+J2841: 	ld hl, $2ee7	; could be a data table address, label T2ee7: created
+J2844: 	call J29cf
+J2847: 	ld hl, $d361
+J284a: 	ld a, ($605e)
+J284d: 	cp $09
+J284f: 	jr c, J2853
+J2853: 	ld (hl), a
+J2854: 	jr J2862
+J2851: 	ld a, $09
+J253d: 	ret
+J0379: 	ld a, $01
+J037b: 	ld ($61e2), a
+J037e: 	xor a
+J037f: 	ld ($61c8), a
+J0382: 	ld bc, $0017	; could be a data table address, label T0017: created
+J0385: 	ld hl, $9000
+J0388: 	bit 5, (hl)
+J038a: 	jr z, J03b3
+J03b3: 	ld a, ($605f)
+J03b6: 	res 1, a
+J03b8: 	ld ($605f), a
+J03bb: 	call J1f36
+J1f36: 	ld a, ($9002)
+J1f39: 	bit 7, a
+J1f3b: 	jr z, J1f41
+J1f41: 	ld a, $05
+J1f43: 	ret
+J1f3d: 	ld a, $03
+J1f3f: 	jr J1f43
+J03be: 	ld ($6066), a
+J03c1: 	xor a
+J03c2: 	ld ($6067), a
+J03c5: 	ld hl, $605e
+J03c8: 	dec (hl)
+J03c9: 	jr J03e1
+J03e1: 	xor a
+J03e2: 	jp J496c
+J496c: 	ld ($6065), a
+J496f: 	ld hl, $61e3
+J4972: 	ld a, (hl)
+J4973: 	cp $00
+J4975: 	jp z, J4986
+J4986: 	jp J03e5
+J03e5: 	ld hl, $6068
+J03e8: 	ld (hl), a
+J03e9: 	inc hl
+J03ea: 	ld (hl), a
+J03eb: 	inc hl
+J03ec: 	ld (hl), a
+J03ed: 	inc hl
+J03ee: 	ld (hl), a
+J03ef: 	inc hl
+J03f0: 	ld (hl), a
+J03f1: 	inc hl
+J03f2: 	ld (hl), a
+J03f3: 	inc hl
+J03f4: 	ld (hl), a
+J03f5: 	inc hl
+J03f6: 	ld (hl), a
+J03f7: 	ld a, $ff
+J03f9: 	ld hl, $609d
+J03fc: 	ld b, $06
+J03fe: 	ld (hl), a
+J03ff: 	inc hl
+J0400: 	djnz J03fe
+J0402: 	xor a
+J0403: 	ld ($609f), a
+J0406: 	ld ($60a2), a
+J0409: 	ld hl, $d61c
+J040c: 	ld ($6063), hl
+J040f: 	ld hl, $605f
+J0412: 	res 2, (hl)
+J0414: 	call J1aba
+J0417: 	call J1be5
+J1be5: 	ld b, $03
+J1be7: 	ld c, $00
+J1be9: 	push bc
+J1bea: 	ld b, $00
+J1bec: 	call J1bfc
+J1bfc: 	ld ix, $0c55	; could be a data table address, label T0c55: created
+J1c00: 	ld d, $00
+J1c02: 	ld a, b
+J1c03: 	cp $02
+J1c05: 	jr nz, J1c09
+J1c09: 	ld a, c
+J1c0a: 	sla a
+J1c0c: 	sla a
+J1c0e: 	push de
+J1c0f: 	ld d, $00
+J1c11: 	ld e, a
+J1c12: 	add ix, de
+J1c14: 	pop de
+J1c15: 	ld e, (ix + $00)
+J1c18: 	push bc
+J1c19: 	ld b, (ix + $03)
+J1c1c: 	srl b
+J1c1e: 	srl b
+J1c20: 	srl b
+J1c22: 	srl b
+J1c24: 	ld ixl, (ix + $01)
+J1c27: 	ld ixh, (ix + $02)
+J1c2a: 	ld (hl), e
+J1c2b: 	push de
+J1c2c: 	ld de, $0020	; could be a data table address, label T0020: created
+J1c2f: 	add hl, de
+J1c30: 	pop de
+J1c31: 	djnz J1c2a
+J1c33: 	bit 0, d
+J1c35: 	jr nz, J1c4c
+J1c4c: 	pop bc
+J1c4d: 	ld a, b
+J1c4e: 	cp $00
+J1c50: 	jr nz, J1c69
+J1c69: 	ret
+J1c52: 	inc b
+J1c53: 	push bc
+J1c54: 	ld bc, $0020	; could be a data table address, label T0020: created
+J1c57: 	ld ixl, (ix + $01)
+J1c5a: 	ld ixh, (ix + $02)
+J1c5d: 	add hl, bc
+J1c5e: 	ld a, (ix + $03)
+J1c61: 	and $0f
+J1c63: 	ld b, a
+J1c64: 	ld e, $03
+J1c66: 	jp J1c2a
+J1c37: 	inc d
+J1c38: 	ld ixl, (ix + $01)
+J1c3b: 	ld ixh, (ix + $02)
+J1c3e: 	inc hl
+J1c3f: 	ld b, (ix + $03)
+J1c42: 	srl b
+J1c44: 	srl b
+J1c46: 	srl b
+J1c48: 	srl b
+J1c4a: 	jr J1c2a
+J1c07: 	ld e, $02
+J1bef: 	pop bc
+J1bf0: 	djnz J1bf4
+J1bf4: 	inc c
+J1bf5: 	push bc
+J1bf6: 	jr J1bea
+J1bf2: 	jr J1bf8
+J1bf8: 	call J1c6a
+J1c6a: 	ld bc, $0000	; could be a data table address, label T0000: created
+J1c6d: 	ld hl, $d09e
+J1c70: 	ld a, $4b
+J1c72: 	ld (hl), a
+J1c73: 	ld ix, $0c52	; could be a data table address, label T0c52: created
+J1c77: 	add ix, bc
+J1c79: 	ld b, (ix + $00)
+J1c7c: 	call J1c9b
+J1c9b: 	inc a
+J1c9c: 	ld de, $0020	; could be a data table address, label T0020: created
+J1c9f: 	add hl, de
+J1ca0: 	ld (hl), a
+J1ca1: 	add hl, de
+J1ca2: 	djnz J1ca0
+J1ca4: 	ret
+J1c7f: 	inc c
+J1c80: 	ld a, c
+J1c81: 	cp $03
+J1c83: 	jr nz, J1c70
+J1c85: 	ld hl, $d09d
+J1c88: 	ld ix, $0c61	; could be a data table address, label T0c61: created
+J1c8c: 	ld b, $18
+J1c8e: 	ld de, $0020	; could be a data table address, label T0020: created
+J1c91: 	ld a, (ix + $00)
+J1c94: 	ld (hl), a
+J1c95: 	inc ix
+J1c97: 	add hl, de
+J1c98: 	djnz J1c91
+J1c9a: 	ret
+J1bfb: 	ret
+J041a: 	xor a
+J041b: 	ld ($6060), a
+J041e: 	cpl
+J041f: 	ld ($6062), a
+J0422: 	ld a, $0c
+J0424: 	ld ($6061), a
+J0427: 	call J1cc6
+J1cc6: 	ld d, $00
+J1cc8: 	ld a, ($6062)
+J1ccb: 	cp $00
+J1ccd: 	jr z, J1cd3
+J1cd3: 	ld e, $05
+J1cd5: 	ld c, $00
+J1cd7: 	ld b, $0c
+J1cd9: 	ld hl, $d61c
+J1cdc: 	ld (hl), e
+J1cdd: 	call J1d24
+J1d24: 	push de
+J1d25: 	bit 0, c
+J1d27: 	jr z, J1d33
+J1d33: 	bit 1, c
+J1d35: 	jr z, J1d3c
+J1d3c: 	ld de, $0020	; could be a data table address, label T0020: created
+J1d3f: 	add hl, de
+J1d40: 	pop de
+J1d41: 	ret
+J1d37: 	ld de, $ffe0
+J1d3a: 	jr J1d3f
+J1d29: 	bit 1, c
+J1d2b: 	jr z, J1d30
+J1d30: 	dec hl
+J1d31: 	jr J1d40
+J1d2d: 	inc hl
+J1d2e: 	jr J1d40
+J1ce0: 	inc b
+J1ce1: 	ld a, $17
+J1ce3: 	cp b
+J1ce4: 	jr nz, J1cf0
+J1cf0: 	ld a, $00
+J1cf2: 	cp c
+J1cf3: 	jr nz, J1cfa
+J1cfa: 	ld a, ($6060)
+J1cfd: 	cp c
+J1cfe: 	jr nz, J1d15
+J1d15: 	jp J1cdc
+J1d00: 	ld a, ($6061)
+J1d03: 	cp b
+J1d04: 	jr nz, J1d15
+J1d06: 	ld ($6063), hl
+J1d09: 	inc d
+J1d0a: 	ld a, ($6062)
+J1d0d: 	cp $00
+J1d0f: 	jr z, J1d14
+J1d14: 	inc e
+J1d11: 	dec e
+J1d12: 	jr J1d15
+J1cf5: 	ld a, $0c
+J1cf7: 	cp b
+J1cf8: 	jr z, J1d18
+J1d18: 	xor a
+J1d19: 	cp d
+J1d1a: 	jr nz, J1d23
+J1d23: 	ret
+J1d1c: 	ld a, ($6062)
+J1d1f: 	cpl
+J1d20: 	ld ($6062), a
+J1ce6: 	inc c
+J1ce7: 	ld a, $04
+J1ce9: 	cp c
+J1cea: 	jr nz, J1cee
+J1cee: 	ld b, $00
+J1cec: 	ld c, $00
+J1ccf: 	ld e, $06
+J1cd1: 	jr J1cd5
+J042a: 	call J2144
+J2144: 	ld a, $00
+J2146: 	ld b, $16
+J2148: 	ld hl, $d4a6
+J214b: 	ld de, $0020	; could be a data table address, label T0020: created
+J214e: 	push bc
+J214f: 	ld b, $16
+J2151: 	push hl
+J2152: 	ld (hl), a
+J2153: 	inc hl
+J2154: 	djnz J2152
+J2156: 	pop hl
+J2157: 	pop bc
+J2158: 	add hl, de
+J2159: 	djnz J214e
+J215b: 	ret
+J042d: 	call J1d42
+J1d42: 	ld a, $52
+J1d44: 	ld c, $00
+J1d46: 	ld hl, $d09c
+J1d49: 	ex af, af'
+J1d4a: 	ld a, $4e
+J1d4c: 	ld b, $16
+J1d4e: 	ld (hl), a
+J1d4f: 	call J1d24
+J1d52: 	ex af, af'
+J1d53: 	ld (hl), a
+J1d54: 	call J1d24
+J1d57: 	djnz J1d53
+J1d59: 	cp $55
+J1d5b: 	jr z, J1d63
+J1d63: 	ret
+J1d5d: 	inc a
+J1d5e: 	ex af, af'
+J1d5f: 	inc a
+J1d60: 	inc c
+J1d61: 	jr J1d4c
+J0430: 	call J1d64
+J1d64: 	ld de, $0020	; could be a data table address, label T0020: created
+J1d67: 	ld hl, $d4a3
+J1d6a: 	ld a, $01
+J1d6c: 	ld b, $0c
+J1d6e: 	ld (hl), a
+J1d6f: 	push hl
+J1d70: 	inc hl
+J1d71: 	ld (hl), a
+J1d72: 	pop hl
+J1d73: 	add hl, de
+J1d74: 	djnz J1d6e
+J1d76: 	ret
+J0433: 	call J1d77
+J1d77: 	ld de, $0020	; could be a data table address, label T0020: created
+J1d7a: 	ld a, ($6065)
+J1d7d: 	cp $00
+J1d7f: 	jr z, J1d86
+J1d86: 	ld a, ($6066)
+J1d89: 	cp $07
+J1d8b: 	jr c, J1d8f
+J1d8f: 	ld b, a
+J1d90: 	xor a
+J1d91: 	ex af, af'
+J1d92: 	ld a, $06
+J1d94: 	sub b
+J1d95: 	ld c, a
+J1d96: 	push bc
+J1d97: 	ld hl, $d0a3
+J1d9a: 	ld a, $e1
+J1d9c: 	ld ($61c8), a
+J1d9f: 	xor a
+J1da0: 	cp b
+J1da1: 	ld a, ($61c8)
+J1da4: 	jr z, J1dae
+J1dae: 	ld a, $ff
+J1db0: 	ld b, c
+J1db1: 	sla b
+J1db3: 	ld ($61c8), a
+J1db6: 	xor a
+J1db7: 	cp b
+J1db8: 	ld a, ($61c8)
+J1dbb: 	jr z, J1dc1
+J1dc1: 	ex af, af'
+J1dc2: 	cp $ff
+J1dc4: 	jr z, J1dd0
+J1dd0: 	ret
+J1dc6: 	cpl
+J1dc7: 	ex af, af'
+J1dc8: 	ld hl, $d0a4
+J1dcb: 	ld a, $e3
+J1dcd: 	pop bc
+J1dce: 	jr J1d9c
+J1dbd: 	ld (hl), a
+J1dbe: 	add hl, de
+J1dbf: 	djnz J1dbd
+J1da6: 	ld (hl), a
+J1da7: 	inc a
+J1da8: 	add hl, de
+J1da9: 	ld (hl), a
+J1daa: 	dec a
+J1dab: 	add hl, de
+J1dac: 	djnz J1da6
+J1d8d: 	ld a, $06
+J1d81: 	ld a, ($6067)
+J1d84: 	jr J1d89
+J0436: 	call J1dd1
+J1dd1: 	xor a
+J1dd2: 	call J1e4c
+J1e4c: 	push af
+J1e4d: 	push bc
+J1e4e: 	push hl
+J1e4f: 	cp $00
+J1e51: 	jr nz, J1e67
+J1e67: 	ld a, ($6065)
+J1e6a: 	cp $00
+J1e6c: 	jr nz, J1e75
+J1e75: 	ld a, $04
+J1e77: 	jr J1e5d
+J1e5d: 	ld hl, $d643
+J1e60: 	ld b, $0a
+J1e62: 	call J1e7d
+J1e65: 	jr J1e79
+J1e79: 	pop hl
+J1e7a: 	pop bc
+J1e7b: 	pop af
+J1e7c: 	ret
+J1e6e: 	ld hl, $d644
+J1e71: 	ld a, $04
+J1e73: 	jr J1e60
+J1e53: 	ld a, $03
+J1e55: 	ld hl, $d644
+J1e58: 	ld b, $0a
+J1e5a: 	call J1e7d
+J1dd5: 	ld de, $0020	; could be a data table address, label T0020: created
+J1dd8: 	ld a, ($605f)
+J1ddb: 	bit 1, a
+J1ddd: 	jr z, J1df2
+J1df2: 	ld hl, $d244
+J1df5: 	ld (hl), $01
+J1df7: 	add hl, de
+J1df8: 	ld (hl), $1c
+J1dfa: 	add hl, de
+J1dfb: 	jp J493a
+J493a: 	ld (hl), $1d
+J493c: 	add hl, de
+J493d: 	ld (hl), $ff
+J493f: 	add hl, de
+J4940: 	jp J1dfe
+J1dfe: 	ld ix, $6068
+J1e02: 	call J1e06
+J1e05: 	ret
+J1ddf: 	ld hl, $d243
+J1de2: 	ld (hl), $02
+J1de4: 	add hl, de
+J1de5: 	ld (hl), $17
+J1de7: 	add hl, de
+J1de8: 	jp J4931
+J4931: 	ld (hl), $0d
+J4933: 	add hl, de
+J4934: 	ld (hl), $ff
+J4936: 	add hl, de
+J4937: 	jp J1deb
+J1deb: 	ld ix, $606b
+J1def: 	call J1e06
+J0439: 	call J1e8b
+J1e8b: 	ld hl, $d4e2
+J1e8e: 	ld a, $07
+J1e90: 	ld b, $03
+J1e92: 	call J1e7d
+J1e95: 	ld hl, $d0e2
+J1e98: 	ld (hl), $1d
+J1e9a: 	ld de, $0020	; could be a data table address, label T0020: created
+J1e9d: 	add hl, de
+J1e9e: 	ld (hl), $18
+J1ea0: 	add hl, de
+J1ea1: 	ld (hl), $19
+J1ea3: 	add hl, de
+J1ea4: 	ld c, a
+J1ea5: 	ld b, $01
+J1ea7: 	call J25bd
+J1eaa: 	ret
+J043c: 	ld b, $06
+J043e: 	ld a, $05
+J0440: 	ld hl, $d5a1
+J0443: 	call J1e7d
+J0446: 	call J1ee0
+J1ee0: 	ld hl, $d1a1
+J1ee3: 	ld de, $0020	; could be a data table address, label T0020: created
+J1ee6: 	ld (hl), $19
+J1ee8: 	add hl, de
+J1ee9: 	ld (hl), $0a
+J1eeb: 	add hl, de
+J1eec: 	ld (hl), $1b
+J1eee: 	add hl, de
+J1eef: 	ld (hl), $1d
+J1ef1: 	add hl, de
+J1ef2: 	jr J1efa
+J1efa: 	call J1f26
+J1f26: 	ld a, ($6065)
+J1f29: 	bit 1, a
+J1f2b: 	jr z, J1f32
+J1f32: 	ld a, ($606e)
+J1f35: 	ret
+J1f2d: 	ld a, ($606f)
+J1f30: 	jr J1f35
+J1efd: 	cp $00
+J1eff: 	jr z, J1f25
+J1f25: 	ret
+J1f01: 	cp $64
+J1f03: 	jr c, J1f0d
+J1f0d: 	ld b, $00
+J1f0f: 	ld c, $0a
+J1f11: 	cp c
+J1f12: 	jr c, J1f18
+J1f18: 	ex af, af'
+J1f19: 	xor a
+J1f1a: 	cp b
+J1f1b: 	jr z, J1f20
+J1f20: 	ld (hl), $ff
+J1f22: 	add hl, de
+J1f23: 	ex af, af'
+J1f24: 	ld (hl), a
+J1f1d: 	ld (hl), b
+J1f1e: 	jr J1f22
+J1f14: 	sub c
+J1f15: 	inc b
+J1f16: 	jr J1f11
+J1f05: 	ld (hl), $09
+J1f07: 	add hl, de
+J1f08: 	ld (hl), $09
+J1f0a: 	jp J1f25
+J0449: 	call J2826
+J044c: 	ld b, $05
+J044e: 	ld a, $01
+J0450: 	ld hl, $d4e1
+J0453: 	call J1e7d
+J0456: 	ld hl, $d0e1
+J0459: 	ld (hl), $2a
+J045b: 	add hl, de
+J045c: 	call J1f44
+J1f44: 	call J1f26
+J1f47: 	cp $00
+J1f49: 	jr nz, J1f4f
+J1f4f: 	dec a
+J1f50: 	cp $12
+J1f52: 	jr c, J1f56
+J1f56: 	ld d, $00
+J1f58: 	ld e, a
+J1f59: 	ld iy, $0c79	; could be a data table address, label T0c79: created
+J1f5d: 	add iy, de
+J1f5f: 	ld de, $0020	; could be a data table address, label T0020: created
+J1f62: 	ld a, (iy + $00)
+J1f65: 	ld c, a
+J1f66: 	and $f0
+J1f68: 	jr z, J1f74
+J1f74: 	ld a, c
+J1f75: 	and $0f
+J1f77: 	ld (hl), a
+J1f78: 	add hl, de
+J1f79: 	ld (hl), $00
+J1f7b: 	add hl, de
+J1f7c: 	ld (hl), $00
+J1f7e: 	ret
+J1f6a: 	srl a
+J1f6c: 	srl a
+J1f6e: 	srl a
+J1f70: 	srl a
+J1f72: 	ld (hl), a
+J1f73: 	add hl, de
+J1f54: 	ld a, $11
+J1f4b: 	ld (hl), $ff
+J1f4d: 	jr J1f7e
+J045f: 	ld ix, $601c
+J0463: 	ld (ix + $00), $82
+J0467: 	ld (ix + $01), $08
+J046b: 	ld (ix + $02), $0f
+J046f: 	call J1f7f
+J1f7f: 	push ix
+J1f81: 	call J1f26
+J1f84: 	cp $00
+J1f86: 	jr z, J1f8f
+J1f8f: 	ld ix, $0c93	; could be a data table address, label T0c93: created
+J1f93: 	ld c, a
+J1f94: 	ld b, $00
+J1f96: 	add ix, bc
+J1f98: 	ld b, (ix + $00)
+J1f9b: 	ld c, $00
+J1f9d: 	sla a
+J1f9f: 	sla a
+J1fa1: 	add c
+J1fa2: 	pop ix
+J1fa4: 	ret
+J1f88: 	dec a
+J1f89: 	cp $12
+J1f8b: 	jr c, J1f8f
+J1f8d: 	ld a, $11
+J0472: 	ld ix, a
+J0474: 	inc bc
+J0475: 	ld ix, b
+J0477: 	inc b
+J0478: 	call J1fc7
+J047b: 	call J178f
+J047e: 	ld (ix + $00), $81
+J0482: 	jp J04d5
+J04d5: 	xor a
+J04d6: 	ld ($61c9), a
+J04d9: 	call J33cf
+J33cf: 	ld ix, $606e
+J33d3: 	ld a, ($6065)
+J33d6: 	cp $00
+J33d8: 	jr nz, J33df
+J33df: 	inc (ix + $01)
+J33e2: 	ret
+J33da: 	inc (ix + $00)
+J33dd: 	jr J33e2
+J04dc: 	call J1d77
+J04df: 	call J0485
+J0485: 	ld ix, $6070
+J0489: 	ld a, r	; read z80 dram refresh counter, bits 6-0 count, bit 7 remains unchanged. usually used as a random number generator
+J048b: 	ld c, $00
+J048d: 	rra
+J048e: 	rl c
+J0490: 	ld ix, c
+J0492: 	nop
+J0493: 	ld a, r	; read z80 dram refresh counter, bits 6-0 count, bit 7 remains unchanged. usually used as a random number generator
+J0495: 	and $07
+J0497: 	rra
+J0498: 	adc a, $02
+J049a: 	cp $05
+J049c: 	jr nz, J04a8
+J04a8: 	ld ix, a
+J04aa: 	ld bc, $5fed	; could be a data table address, label T5fed: created
+J04ad: 	rra
+J04ae: 	and $03
+J04b0: 	rra
+J04b1: 	adc a, $07
+J04b3: 	cp $08
+J04b5: 	jr nz, J04d1
+J04d1: 	ld ix, a
+J04d3: 	ld (bc), a
+J04d4: 	ret
+J04b7: 	ld b, a
+J04b8: 	call J1f36
+J04bb: 	inc a
+J04bc: 	ld c, a
+J04bd: 	ld a, ($6065)
+J04c0: 	cp $00
+J04c2: 	jr z, J04c9
+J04c9: 	ld a, ($6066)
+J04cc: 	cp c
+J04cd: 	ld a, b
+J04ce: 	jr c, J04d1
+J04d0: 	inc a
+J04c4: 	ld a, ($6067)
+J04c7: 	jr J04cc
+J049e: 	ld a, ($61e2)
+J04a1: 	cp $00
+J04a3: 	ld a, $05
+J04a5: 	jr nz, J04a8
+J04a7: 	inc a
+J04e2: 	call J28fe
+J28fe: 	push hl
+J28ff: 	call J291c
+J291c: 	ld hl, $d5b8
+J291f: 	ld a, $05
+J2921: 	ld b, $06
+J2923: 	call J2974
+J2974: 	push bc
+J2975: 	push hl
+J2976: 	push af
+J2977: 	ld de, $0020	; could be a data table address, label T0020: created
+J297a: 	ld (hl), a
+J297b: 	add hl, de
+J297c: 	djnz J297a
+J297e: 	pop af
+J297f: 	pop hl
+J2980: 	pop bc
+J2981: 	ret
+J2926: 	ld hl, $d5d5
+J2929: 	ld a, $01
+J292b: 	dec b
+J292c: 	call J2974
+J292f: 	ld hl, $d574
+J2932: 	ld a, $04
+J2934: 	ld b, $0a
+J2936: 	call J2974
+J2939: 	ld hl, $d533
+J293c: 	ld a, $06
+J293e: 	ld b, $0f
+J2940: 	call J2974
+J2943: 	ld hl, $d550
+J2946: 	ld a, $06
+J2948: 	ld b, $0c
+J294a: 	call J2974
+J294d: 	inc hl
+J294e: 	call J2974
+J2951: 	ld hl, $d5ad
+J2954: 	ld a, $05
+J2956: 	ld b, $06
+J2958: 	call J2974
+J295b: 	inc hl
+J295c: 	call J2974
+J295f: 	ld hl, $d5aa
+J2962: 	call J2974
+J2965: 	inc hl
+J2966: 	call J2974
+J2969: 	ld hl, $d588
+J296c: 	ld a, $07
+J296e: 	ld b, $09
+J2970: 	call J2974
+J2973: 	ret
+J2902: 	call J2ac1
+J2ac1: 	ld b, $15
+J2ac3: 	ld hl, $d0a6
+J2ac6: 	ld a, $32
+J2ac8: 	ld (hl), a
+J2ac9: 	call J2afb
+J2afb: 	push hl
+J2afc: 	push de
+J2afd: 	ld de, $0400	; could be a data table address, label T0400: created
+J2b00: 	add hl, de
+J2b01: 	ld (hl), $00
+J2b03: 	pop de
+J2b04: 	pop hl
+J2b05: 	ret
+J2acc: 	inc hl
+J2acd: 	djnz J2ac8
+J2acf: 	ld (hl), $30
+J2ad1: 	call J2afb
+J2ad4: 	ld b, $15
+J2ad6: 	ld hl, $d0db
+J2ad9: 	ld de, $0020	; could be a data table address, label T0020: created
+J2adc: 	dec a
+J2add: 	ld (hl), a
+J2ade: 	call J2afb
+J2ae1: 	add hl, de
+J2ae2: 	djnz J2add
+J2ae4: 	ld hl, $d0c6
+J2ae7: 	ld de, $0020	; could be a data table address, label T0020: created
+J2aea: 	ld a, $ff
+J2aec: 	ld c, $15
+J2aee: 	push hl
+J2aef: 	ld b, $15
+J2af1: 	ld (hl), a
+J2af2: 	add hl, de
+J2af3: 	djnz J2af1
+J2af5: 	pop hl
+J2af6: 	inc hl
+J2af7: 	dec c
+J2af8: 	jr nz, J2aee
+J2afa: 	ret
+J2905: 	ld hl, $d1b8
+J2908: 	call J1ee3
+J290b: 	call J2982
+J2982: 	ld hl, $d1d5
+J2985: 	ld (hl), $2a
+J2987: 	ld de, $0020	; could be a data table address, label T0020: created
+J298a: 	add hl, de
+J298b: 	call J1f44
+J298e: 	ld ix, $6021
+J2992: 	ld (ix + $00), $82
+J2996: 	ld (ix + $01), $40
+J299a: 	ld (ix + $02), $ae
+J299e: 	call J1f7f
+J29a1: 	ld ix, a
+J29a3: 	inc bc
+J29a4: 	ld ix, b
+J29a6: 	inc b
+J29a7: 	ret
+J290e: 	call J29a8
+J29a8: 	call J1f26
+J29ab: 	ld b, $11
+J29ad: 	ld hl, $2f4a	; could be a data table address, label T2f4a: created
+J29b0: 	ld de, $000f	; could be a data table address, label T000f: created
+J29b3: 	dec a
+J29b4: 	jr z, J29b9
+J29b9: 	ld ix, $d133
+J29bd: 	ld b, $0f
+J29bf: 	call J29cf
+J29c2: 	ld b, $09
+J29c4: 	ld ix, $d188
+J29c8: 	ld hl, $3058	; could be a data table address, label T3058: created
+J29cb: 	call J29cf
+J29ce: 	ret
+J29b6: 	add hl, de
+J29b7: 	djnz J29b3
+J2911: 	call J29de
+J29de: 	call J1f26
+J29e1: 	ld hl, $d2b0
+J29e4: 	cp $12
+J29e6: 	jr c, J29ef
+J29ef: 	cp $0a
+J29f1: 	jr c, J2a00
+J2a00: 	cp $05
+J2a02: 	jr c, J2a11
+J2a11: 	cp $02
+J2a13: 	jr c, J2a22
+J2a22: 	cp $01
+J2a24: 	jr c, J2a31
+J2a31: 	ret
+J2a26: 	ld b, $02
+J2a28: 	ld de, $0080	; could be a data table address, label T0080: created
+J2a2b: 	and a
+J2a2c: 	sbc hl, de
+J2a2e: 	call J2a32
+J2a32: 	ld de, $0020	; could be a data table address, label T0020: created
+J2a35: 	ld (hl), $63
+J2a37: 	inc hl
+J2a38: 	ld (hl), $73
+J2a3a: 	and a
+J2a3b: 	sbc hl, de
+J2a3d: 	ld (hl), $f0
+J2a3f: 	dec hl
+J2a40: 	ld (hl), $a3
+J2a42: 	and a
+J2a43: 	sbc hl, de
+J2a45: 	djnz J2a35
+J2a47: 	ret
+J2a15: 	ld b, $03
+J2a17: 	ld de, $0060	; could be a data table address, label T0060: created
+J2a1a: 	and a
+J2a1b: 	sbc hl, de
+J2a1d: 	call J2a32
+J2a20: 	jr J2a31
+J2a04: 	ld b, $04
+J2a06: 	ld de, $0040	; could be a data table address, label T0040: created
+J2a09: 	and a
+J2a0a: 	sbc hl, de
+J2a0c: 	call J2a32
+J2a0f: 	jr J2a31
+J29f3: 	ld b, $05
+J29f5: 	ld de, $0020	; could be a data table address, label T0020: created
+J29f8: 	and a
+J29f9: 	sbc hl, de
+J29fb: 	call J2a32
+J29fe: 	jr J2a31
+J29e8: 	ld b, $06
+J29ea: 	call J2a32
+J29ed: 	jr J2a31
+J2914: 	call J2a48
+J2a48: 	ld hl, $d24d
+J2a4b: 	ld iy, $606f
+J2a4f: 	ld b, $03
+J2a51: 	ld ix, $0cad	; could be a data table address, label T0cad: created
+J2a55: 	inc iy
+J2a57: 	ld e, (iy + $00)
+J2a5a: 	sla e
+J2a5c: 	sla e
+J2a5e: 	ld d, $00
+J2a60: 	add ix, de
+J2a62: 	call J2a68
+J2a68: 	push de
+J2a69: 	ld de, $0020	; could be a data table address, label T0020: created
+J2a6c: 	ld a, (ix + $00)
+J2a6f: 	ld (hl), a
+J2a70: 	inc hl
+J2a71: 	inc ix
+J2a73: 	ld a, (ix + $00)
+J2a76: 	inc a
+J2a77: 	ld (hl), a
+J2a78: 	and a
+J2a79: 	sbc hl, de
+J2a7b: 	call J2a91
+J2a91: 	push bc
+J2a92: 	ld a, (iy + $00)
+J2a95: 	ld b, $f1
+J2a97: 	cp $09
+J2a99: 	jr z, J2aa3
+J2aa3: 	ld a, b
+J2aa4: 	pop bc
+J2aa5: 	ret
+J2a9b: 	sub $05
+J2a9d: 	jr c, J2aa3
+J2a9f: 	inc a
+J2aa0: 	add b
+J2aa1: 	jr J2aa4
+J2a7e: 	ld (hl), a
+J2a7f: 	dec hl
+J2a80: 	inc ix
+J2a82: 	inc ix
+J2a84: 	ld a, (ix + $00)
+J2a87: 	inc a
+J2a88: 	ld (hl), a
+J2a89: 	ld de, $0020	; could be a data table address, label T0020: created
+J2a8c: 	and a
+J2a8d: 	sbc hl, de
+J2a8f: 	pop de
+J2a90: 	ret
+J2a65: 	djnz J2a51
+J2a67: 	ret
+J2917: 	call J2aa6
+J2aa6: 	ld hl, $d24a
+J2aa9: 	ld b, $03
+J2aab: 	ld de, $0020	; could be a data table address, label T0020: created
+J2aae: 	ld (hl), $62
+J2ab0: 	inc hl
+J2ab1: 	ld (hl), $71
+J2ab3: 	and a
+J2ab4: 	sbc hl, de
+J2ab6: 	ld (hl), $ef
+J2ab8: 	dec hl
+J2ab9: 	ld (hl), $a1
+J2abb: 	and a
+J2abc: 	sbc hl, de
+J2abe: 	djnz J2aae
+J2ac0: 	ret
+J291a: 	pop hl
+J291b: 	ret
+J04e5: 	call J1fc7
+J04e8: 	call J178f
+J04eb: 	ld a, $81
+J04ed: 	ld ($6021), a
+J04f0: 	call J30f4
+J30f4: 	ld a, ($6065)
+J30f7: 	cp $00
+J30f9: 	jr z, J3100
+J3100: 	ld a, ($609d)
+J3103: 	ld b, $07
+J3105: 	ld hl, $d4bd
+J3108: 	ld d, $03
+J310a: 	ld e, $07
+J310c: 	rra
+J310d: 	jr c, J3112
+J3112: 	ld (hl), d
+J3113: 	push de
+J3114: 	ld de, $0020	; could be a data table address, label T0020: created
+J3117: 	add hl, de
+J3118: 	pop de
+J3119: 	djnz J310c
+J311b: 	ret
+J310f: 	ld (hl), e
+J3110: 	jr J3113
+J30fb: 	ld a, ($60a0)
+J30fe: 	jr J3103
+J04f3: 	call J311c
+J311c: 	ld a, ($6065)
+J311f: 	cp $00
+J3121: 	jr z, J3128
+J3128: 	ld a, ($609e)
+J312b: 	ld b, $05
+J312d: 	ld hl, $d5dd
+J3130: 	ld d, $03
+J3132: 	ld e, $06
+J3134: 	rra
+J3135: 	jr c, J313a
+J313a: 	ld (hl), d
+J313b: 	push de
+J313c: 	ld de, $0020	; could be a data table address, label T0020: created
+J313f: 	add hl, de
+J3140: 	pop de
+J3141: 	djnz J3134
+J3143: 	ret
+J3137: 	ld (hl), e
+J3138: 	jr J313b
+J3123: 	ld a, ($60a1)
+J3126: 	jr J312b
+J04f6: 	call J3154
+J3154: 	ld a, ($6065)
+J3157: 	cp $00
+J3159: 	jr z, J3160
+J3160: 	ld a, ($609f)
+J3163: 	ld hl, $d6bd
+J3166: 	ld de, $0020	; could be a data table address, label T0020: created
+J3169: 	ld b, $03
+J316b: 	ld c, $05
+J316d: 	cp $00
+J316f: 	jr nz, J317e
+J317e: 	ld (hl), c
+J317f: 	add hl, de
+J3180: 	ld (hl), c
+J3181: 	cp $01
+J3183: 	jr z, J3174
+J3174: 	add hl, de
+J3175: 	ld (hl), b
+J3176: 	add hl, de
+J3177: 	ld (hl), b
+J3178: 	add hl, de
+J3179: 	ld (hl), b
+J317a: 	add hl, de
+J317b: 	ld (hl), b
+J317c: 	jr J3191
+J3191: 	ret
+J3185: 	add hl, de
+J3186: 	ld (hl), c
+J3187: 	add hl, de
+J3188: 	ld (hl), c
+J3189: 	cp $02
+J318b: 	jr z, J3178
+J318d: 	add hl, de
+J318e: 	ld (hl), c
+J318f: 	add hl, de
+J3190: 	ld (hl), c
+J3171: 	ld (hl), b
+J3172: 	add hl, de
+J3173: 	ld (hl), b
+J315b: 	ld a, ($60a2)
+J315e: 	jr J3163
+J04f9: 	call J1d77
+J04fc: 	call J1ef4
+J1ef4: 	ld hl, $d221
+J1ef7: 	ld de, $0020	; could be a data table address, label T0020: created
+J04ff: 	ld hl, $d101
+J0502: 	call J1f44
+J0505: 	ld hl, $601f
+J0508: 	call J1f7f
+J050b: 	ld (hl), a
+J050c: 	inc hl
+J050d: 	ld (hl), b
+J050e: 	call J1fc7
+J0511: 	call J178f
+J0514: 	ld b, $b4
+J0516: 	call J0528
+J0528: 	ld hl, $9001
+J052b: 	call J2d5a
+J052e: 	bit 7, (hl)
+J0530: 	jr z, J052e
+J0532: 	bit 7, (hl)
+J0534: 	jr nz, J0532
+J0536: 	push bc
+J0537: 	call J033a
+J053a: 	call J178f
+J053d: 	pop bc
+J053e: 	djnz J0528
+J0540: 	ret
+J0519: 	call J2ac1
+J051c: 	xor a
+J051d: 	ld ($6021), a
+J0520: 	call J1fc7
+J0523: 	call J178f
+J0526: 	jr J0541
+J0541: 	call J2144
+J0544: 	call J33e3
+J33e3: 	ld hl, $d0c6
+J33e6: 	call J3425
+J3425: 	ld c, $02
+J3427: 	ld a, $e5
+J3429: 	ld de, $0400	; could be a data table address, label T0400: created
+J342c: 	ld b, $05
+J342e: 	push bc
+J342f: 	ld b, $0b
+J3431: 	ld (hl), a
+J3432: 	push hl
+J3433: 	add hl, de
+J3434: 	ld (hl), c
+J3435: 	pop hl
+J3436: 	inc hl
+J3437: 	inc hl
+J3438: 	djnz J3431
+J343a: 	push de
+J343b: 	ld de, $002a	; could be a data table address, label T002a: created
+J343e: 	add hl, de
+J343f: 	pop de
+J3440: 	pop bc
+J3441: 	djnz J342e
+J3443: 	ret
+J33e9: 	push de
+J33ea: 	ld de, $0006	; could be a data table address, label T0006: created
+J33ed: 	add hl, de
+J33ee: 	pop de
+J33ef: 	push hl
+J33f0: 	pop ix
+J33f2: 	ld ix, a
+J33f4: 	nop
+J33f5: 	ld ix, a
+J33f7: 	ld (bc), a
+J33f8: 	ld ix, a
+J33fa: 	ld b, $dd
+J33fc: 	ld (hl), a
+J33fd: 	ex af, af'
+J33fe: 	ld ix, a
+J3400: 	ld a, (bc)
+J3401: 	ld ix, a
+J3403: 	inc c
+J3404: 	ld ix, a
+J3406: 	ld c, $dd
+J3408: 	add hl, de
+J3409: 	ld ix, c
+J340b: 	nop
+J340c: 	ld ix, c
+J340e: 	ld (bc), a
+J340f: 	ld ix, c
+J3411: 	ld b, $dd
+J3413: 	ld (hl), c
+J3414: 	ex af, af'
+J3415: 	ld ix, c
+J3417: 	ld a, (bc)
+J3418: 	ld ix, c
+J341a: 	inc c
+J341b: 	ld ix, c
+J341d: 	ld c, $21
+J341f: 	ld b, (hl)
+J3420: 	jp nc, J25cd
+J25cd: 	nop
+J3423: 	inc (hl)
+J3424: 	ret
+J0547: 	call J215c
+J215c: 	ld ix, $d0e7
+J2160: 	ld a, $32
+J2162: 	ld de, $0020	; could be a data table address, label T0020: created
+J2165: 	ld ix, a
+J2167: 	ld bc, $77dd
+J216a: 	dec b
+J216b: 	ld ix, a
+J216d: 	rlca
+J216e: 	ld ix, a
+J2170: 	ex af, af'
+J2171: 	ld ix, a
+J2173: 	ld de, $dd3d
+J2176: 	ld (hl), a
+J2177: 	inc b
+J2178: 	ld ix, a
+J217a: 	ld a, (bc)
+J217b: 	ld ix, a
+J217d: 	inc c
+J217e: 	dec a
+J217f: 	ld ix, a
+J2181: 	ld (bc), a
+J2182: 	inc a
+J2183: 	add ix, de
+J2185: 	ld ix, a
+J2187: 	ld (bc), a
+J2188: 	ld ix, a
+J218a: 	inc b
+J218b: 	ld ix, a
+J218d: 	ld a, (bc)
+J218e: 	ld ix, a
+J2190: 	inc c
+J2191: 	ld ix, a
+J2193: 	djnz J2172
+J2195: 	add hl, de
+J2196: 	inc a
+J2197: 	ld ix, a
+J2199: 	add hl, bc
+J219a: 	ld ix, a
+J219c: 	ld a, (bc)
+J219d: 	ld ix, a
+J219f: 	dec c
+J21a0: 	inc a
+J21a1: 	ld ix, a
+J21a3: 	inc b
+J21a4: 	ld ix, a
+J21a6: 	inc c
+J21a7: 	ld ix, a
+J21a9: 	djnz J2188
+J21ab: 	add hl, de
+J21ac: 	dec a
+J21ad: 	dec a
+J21ae: 	ld ix, a
+J21b0: 	ld (bc), a
+J21b1: 	add ix, de
+J21b3: 	ld ix, a
+J21b5: 	nop
+J21b6: 	inc a
+J21b7: 	ld ix, a
+J21b9: 	dec b
+J21ba: 	ld ix, a
+J21bc: 	dec bc
+J21bd: 	ld ix, a
+J21bf: 	ld de, $77dd
+J21c2: 	ld (de), a
+J21c3: 	inc a
+J21c4: 	ld ix, a
+J21c6: 	inc b
+J21c7: 	add ix, de
+J21c9: 	dec a
+J21ca: 	dec a
+J21cb: 	ld ix, a
+J21cd: 	nop
+J21ce: 	add ix, de
+J21d0: 	inc a
+J21d1: 	ld ix, a
+J21d3: 	add hl, bc
+J21d4: 	ld ix, a
+J21d6: 	ld a, (bc)
+J21d7: 	inc a
+J21d8: 	ld ix, a
+J21da: 	nop
+J21db: 	add ix, de
+J21dd: 	dec a
+J21de: 	dec a
+J21df: 	ld ix, a
+J21e1: 	inc b
+J21e2: 	ld ix, a
+J21e4: 	ld c, $dd
+J21e6: 	ld (hl), a
+J21e7: 	ld (de), a
+J21e8: 	add ix, de
+J21ea: 	ld ix, a
+J21ec: 	ex af, af'
+J21ed: 	inc a
+J21ee: 	ld ix, a
+J21f0: 	ld bc, $77dd
+J21f3: 	ld (bc), a
+J21f4: 	ld ix, a
+J21f6: 	dec b
+J21f7: 	ld ix, a
+J21f9: 	ld b, $dd
+J21fb: 	ld (hl), a
+J21fc: 	add hl, bc
+J21fd: 	ld ix, a
+J21ff: 	ld a, (bc)
+J2200: 	ld ix, a
+J2202: 	dec c
+J2203: 	ld ix, a
+J2205: 	ld c, $dd
+J2207: 	ld (hl), a
+J2208: 	ld de, $77dd
+J220b: 	ld (de), a
+J220c: 	inc a
+J220d: 	ld ix, a
+J220f: 	nop
+J2210: 	ld ix, a
+J2212: 	inc b
+J2213: 	ld ix, a
+J2215: 	inc c
+J2216: 	ld ix, a
+J2218: 	djnz J21f7
+J221a: 	add hl, de
+J221b: 	dec a
+J221c: 	dec a
+J221d: 	ld ix, a
+J221f: 	ex af, af'
+J2220: 	add ix, de
+J2222: 	dec a
+J2223: 	ld ix, a
+J2225: 	ld c, $dd
+J2227: 	ld (hl), a
+J2228: 	ld (de), a
+J2229: 	inc a
+J222a: 	ld ix, a
+J222c: 	inc b
+J222d: 	inc a
+J222e: 	ld ix, a
+J2230: 	ld bc, $77dd
+J2233: 	dec b
+J2234: 	ld ix, a
+J2236: 	add hl, bc
+J2237: 	ld ix, a
+J2239: 	ld a, (bc)
+J223a: 	ld ix, a
+J223c: 	dec c
+J223d: 	ld ix, a
+J223f: 	ld de, $dd3c
+J2242: 	ld (hl), a
+J2243: 	nop
+J2244: 	ld ix, a
+J2246: 	ex af, af'
+J2247: 	add ix, de
+J2249: 	dec a
+J224a: 	dec a
+J224b: 	ld ix, a
+J224d: 	inc b
+J224e: 	ld ix, a
+J2250: 	ld c, $dd
+J2252: 	ld (hl), a
+J2253: 	ld (de), a
+J2254: 	add ix, de
+J2256: 	ld ix, a
+J2258: 	nop
+J2259: 	inc a
+J225a: 	ld ix, a
+J225c: 	add hl, bc
+J225d: 	ld ix, a
+J225f: 	ld a, (bc)
+J2260: 	add ix, de
+J2262: 	dec a
+J2263: 	ld ix, a
+J2265: 	nop
+J2266: 	add ix, de
+J2268: 	ld ix, a
+J226a: 	ld (bc), a
+J226b: 	inc a
+J226c: 	ld ix, a
+J226e: 	dec b
+J226f: 	ld ix, a
+J2271: 	dec bc
+J2272: 	ld ix, a
+J2274: 	inc c
+J2275: 	ld ix, a
+J2277: 	ld de, $dd3c
+J227a: 	ld (hl), a
+J227b: 	inc b
+J227c: 	add ix, de
+J227e: 	dec a
+J227f: 	dec a
+J2280: 	ld ix, a
+J2282: 	ld (bc), a
+J2283: 	add ix, de
+J2285: 	ld ix, a
+J2287: 	inc b
+J2288: 	ld ix, a
+J228a: 	inc c
+J228b: 	ld ix, a
+J228d: 	djnz J22cb
+J22cb: 	ld ix, a
+J22cd: 	inc b
+J22ce: 	ld ix, a
+J22d0: 	ld a, (bc)
+J22d1: 	ld ix, a
+J22d3: 	inc c
+J22d4: 	ret
+J228f: 	ld ix, a
+J2291: 	add hl, bc
+J2292: 	ld ix, a
+J2294: 	dec c
+J2295: 	dec a
+J2296: 	dec a
+J2297: 	ld ix, a
+J2299: 	ld a, (bc)
+J229a: 	add ix, de
+J229c: 	inc a
+J229d: 	ld ix, a
+J229f: 	ld (bc), a
+J22a0: 	ld ix, a
+J22a2: 	inc b
+J22a3: 	ld ix, a
+J22a5: 	ld a, (bc)
+J22a6: 	ld ix, a
+J22a8: 	inc c
+J22a9: 	ld ix, a
+J22ab: 	djnz J228a
+J22ad: 	add hl, de
+J22ae: 	inc a
+J22af: 	ld ix, a
+J22b1: 	ld bc, $77dd
+J22b4: 	ld (bc), a
+J22b5: 	ld ix, a
+J22b7: 	dec b
+J22b8: 	ld ix, a
+J22ba: 	ld b, $dd
+J22bc: 	ld (hl), a
+J22bd: 	rlca
+J22be: 	ld ix, a
+J22c0: 	ex af, af'
+J22c1: 	ld ix, a
+J22c3: 	ld de, $77dd
+J22c6: 	ld (de), a
+J22c7: 	inc a
+J22c8: 	ld ix, a
+J22ca: 	nop
+J054a: 	call J3192
+J3192: 	call J3363
+J3363: 	ld b, $04
+J3365: 	ld hl, $6091
+J3368: 	push hl
+J3369: 	pop ix
+J336b: 	ld a, r	; read z80 dram refresh counter, bits 6-0 count, bit 7 remains unchanged. usually used as a random number generator
+J336d: 	ld c, a
+J336e: 	and $07
+J3370: 	sla c
+J3372: 	adc a, $00
+J3374: 	sla c
+J3376: 	adc a, $00
+J3378: 	call J33a2
+J33a2: 	ex af, af'
+J33a3: 	ld a, b
+J33a4: 	cp $01
+J33a6: 	jr nz, J33bc
+J33bc: 	cp $02
+J33be: 	jr nz, J33c3
+J33c3: 	cp $03
+J33c5: 	jr nz, J33ca
+J33ca: 	ex af, af'
+J33cb: 	jr J33b8
+J33b8: 	scf
+J33b9: 	ccf
+J33ba: 	jr J33ce
+J33ce: 	ret
+J33c7: 	ex af, af'
+J33c8: 	jr J33b3
+J33b3: 	cp (ix + $00)
+J33b6: 	jr z, J33cd
+J33cd: 	scf
+J33c0: 	ex af, af'
+J33c1: 	jr J33ae
+J33ae: 	cp (ix + $01)
+J33b1: 	jr z, J33cd
+J33a8: 	ex af, af'
+J33a9: 	cp (ix + $02)
+J33ac: 	jr z, J33cd
+J337b: 	jr c, J336b
+J337d: 	ld (hl), a
+J337e: 	inc hl
+J337f: 	djnz J336b
+J3381: 	ld hl, $6095
+J3384: 	ld b, $02
+J3386: 	push bc
+J3387: 	push hl
+J3388: 	pop ix
+J338a: 	ld b, $04
+J338c: 	ld a, r	; read z80 dram refresh counter, bits 6-0 count, bit 7 remains unchanged. usually used as a random number generator
+J338e: 	ld c, a
+J338f: 	and $0f
+J3391: 	cp $0f
+J3393: 	jr z, J338c
+J3395: 	call J33a2
+J3398: 	jr c, J338c
+J339a: 	ld (hl), a
+J339b: 	inc hl
+J339c: 	djnz J338c
+J339e: 	pop bc
+J339f: 	djnz J3386
+J33a1: 	ret
+J3195: 	call J3f3d
+J3f3d: 	ld iy, $619c
+J3f41: 	ld ix, $6091
+J3f45: 	call J4035
+J4035: 	xor a
+J4036: 	ld b, $03
+J4038: 	ld c, (ix + $00)
+J403b: 	call J333b
+J333b: 	push ix
+J333d: 	push bc
+J333e: 	cp $01
+J3340: 	jr z, J334e
+J334e: 	ld hl, $0c16	; could be a data table address, label T0c16: created
+J3351: 	ld b, $00
+J3353: 	sla c
+J3355: 	add hl, bc
+J3356: 	push hl
+J3357: 	pop ix
+J3359: 	ld ixl, (ix + $00)
+J335c: 	ld ixh, (ix + $01)
+J335f: 	pop bc
+J3360: 	pop ix
+J3362: 	ret
+J3342: 	jr c, J3349
+J3349: 	ld hl, $0c02	; could be a data table address, label T0c02: created
+J334c: 	jr J3351
+J3344: 	ld hl, $0c34	; could be a data table address, label T0c34: created
+J3347: 	jr J3351
+J403e: 	ld iy, iyl
+J4040: 	nop
+J4041: 	inc iy
+J4043: 	ld iy, iyh
+J4045: 	nop
+J4046: 	inc iy
+J4048: 	inc a
+J4049: 	inc ix
+J404b: 	inc ix
+J404d: 	inc ix
+J404f: 	inc ix
+J4051: 	djnz J4038
+J4053: 	ret
+J3f48: 	ld ix, $6092
+J3f4c: 	call J4035
+J3f4f: 	ld ix, $6093
+J3f53: 	call J4035
+J3f56: 	ld ix, $6094
+J3f5a: 	call J4035
+J3f5d: 	call J34a9
+J34a9: 	call J1f26
+J34ac: 	cp $01
+J34ae: 	jr nz, J34b4
+J34b4: 	cp $05
+J34b6: 	jr nc, J34bc
+J34bc: 	cp $0a
+J34be: 	jr nc, J34c4
+J34c4: 	cp $11
+J34c6: 	jr nc, J34cc
+J34cc: 	ld a, $06
+J34ce: 	ret
+J34c8: 	ld a, $05
+J34ca: 	jr J34ce
+J34c0: 	ld a, $04
+J34c2: 	jr J34ce
+J34b8: 	ld a, $03
+J34ba: 	jr J34ce
+J34b0: 	ld a, $02
+J34b2: 	jr J34ce
+J3f60: 	ex af, af'
+J3f61: 	ld b, a
+J3f62: 	ld a, $06
+J3f64: 	sub b
+J3f65: 	jr z, J3f7a
+J3f7a: 	ret
+J3f67: 	ld b, a
+J3f68: 	ex af, af'
+J3f69: 	sla a
+J3f6b: 	ld d, $00
+J3f6d: 	ld e, a
+J3f6e: 	ld hl, $61a8
+J3f71: 	add hl, de
+J3f72: 	ld (hl), $00
+J3f74: 	inc hl
+J3f75: 	ld (hl), $00
+J3f77: 	inc hl
+J3f78: 	djnz J3f72
+J3198: 	ld b, $0a
+J319a: 	ld d, $00
+J319c: 	ld iy, $6091
+J31a0: 	push iy
+J31a2: 	ld a, (iy + $01)
+J31a5: 	call J32c5
+J32c5: 	push af
+J32c6: 	call J3a79
+J3a79: 	push hl
+J3a7a: 	push de
+J3a7b: 	push af
+J3a7c: 	ld a, d
+J3a7d: 	cp $01
+J3a7f: 	jr z, J3a88
+J3a88: 	ld hl, $0d84	; could be a data table address, label T0d84: created
+J3a8b: 	jr J3a90
+J3a90: 	pop af
+J3a91: 	ld e, a
+J3a92: 	ld d, $00
+J3a94: 	add hl, de
+J3a95: 	ld a, (hl)
+J3a96: 	pop de
+J3a97: 	pop hl
+J3a98: 	ret
+J3a81: 	jr c, J3a8d
+J3a8d: 	ld hl, $0d7a	; could be a data table address, label T0d7a: created
+J3a83: 	ld hl, $0d93	; could be a data table address, label T0d93: created
+J3a86: 	jr J3a90
+J32c9: 	call J3444
+J3444: 	ld c, $00
+J3446: 	cp $0a
+J3448: 	jr z, J34a8
+J34a8: 	ret
+J344a: 	cp $64
+J344c: 	jr z, J34a8
+J344e: 	cp $07
+J3450: 	jr c, J3476
+J3476: 	inc c
+J3477: 	jr J34a7
+J34a7: 	inc c
+J3452: 	cp $09
+J3454: 	jr z, J3476
+J3456: 	cp $31
+J3458: 	jr z, J3476
+J345a: 	cp $3a
+J345c: 	jr z, J3476
+J345e: 	cp $3c
+J3460: 	jr z, J3476
+J3462: 	cp $43
+J3464: 	jr z, J3476
+J3466: 	cp $5a
+J3468: 	jr z, J3476
+J346a: 	cp $6b
+J346c: 	jr z, J3476
+J346e: 	cp $6d
+J3470: 	jr z, J3476
+J3472: 	cp $6e
+J3474: 	jr nz, J3479
+J3479: 	cp $18
+J347b: 	jr z, J34a5
+J34a5: 	inc c
+J34a6: 	inc c
+J347d: 	cp $1c
+J347f: 	jr z, J34a5
+J3481: 	cp $2c
+J3483: 	jr z, J34a5
+J3485: 	cp $3a
+J3487: 	jr z, J34a5
+J3489: 	cp $3b
+J348b: 	jr z, J34a5
+J348d: 	cp $3e
+J348f: 	jr z, J34a5
+J3491: 	cp $56
+J3493: 	jr z, J34a5
+J3495: 	cp $6a
+J3497: 	jr z, J34a5
+J3499: 	cp $6c
+J349b: 	jr z, J34a5
+J349d: 	cp $6f
+J349f: 	jr z, J34a5
+J34a1: 	cp $70
+J34a3: 	jr nz, J34a7
+J32cc: 	pop af
+J32cd: 	push af
+J32ce: 	push bc
+J32cf: 	ld c, a
+J32d0: 	ld a, d
+J32d1: 	call J333b
+J32d4: 	pop bc
+J32d5: 	ld a, b
+J32d6: 	jr J32d9
+J32d9: 	push bc
+J32da: 	ld b, $07
+J32dc: 	cp $0a
+J32de: 	jr nz, J32e6
+J32e6: 	cp $0b
+J32e8: 	jr nz, J32f3
+J32f3: 	ld ix, $0cad	; could be a data table address, label T0cad: created
+J32f7: 	push de
+J32f8: 	sla a
+J32fa: 	sla a
+J32fc: 	ld d, $00
+J32fe: 	ld e, a
+J32ff: 	add ix, de
+J3301: 	ld a, (ix + $00)
+J3304: 	ld (hl), a
+J3305: 	ld de, $0400	; could be a data table address, label T0400: created
+J3308: 	push hl
+J3309: 	add hl, de
+J330a: 	ld (hl), b
+J330b: 	pop hl
+J330c: 	ld a, (ix + $01)
+J330f: 	inc hl
+J3310: 	bit 1, c
+J3312: 	jr z, J3315
+J3315: 	ld (hl), a
+J3316: 	push hl
+J3317: 	add hl, de
+J3318: 	ld (hl), b
+J3319: 	pop hl
+J331a: 	push de
+J331b: 	ld de, $ffe0
+J331e: 	add hl, de
+J331f: 	pop de
+J3320: 	ld a, (ix + $02)
+J3323: 	add c
+J3324: 	ld (hl), a
+J3325: 	push hl
+J3326: 	add hl, de
+J3327: 	ld (hl), b
+J3328: 	pop hl
+J3329: 	dec hl
+J332a: 	ld a, (ix + $03)
+J332d: 	bit 0, c
+J332f: 	jr z, J3332
+J3332: 	ld (hl), a
+J3333: 	push hl
+J3334: 	add hl, de
+J3335: 	ld (hl), b
+J3336: 	pop hl
+J3337: 	pop de
+J3338: 	pop bc
+J3339: 	pop af
+J333a: 	ret
+J3331: 	inc a
+J3314: 	inc a
+J32ea: 	ld b, $06
+J32ec: 	ld ix, $0ca9	; could be a data table address, label T0ca9: created
+J32f0: 	push de
+J32f1: 	jr J3301
+J32e0: 	ld ix, $0ca5	; could be a data table address, label T0ca5: created
+J32e4: 	jr J32f0
+J31a8: 	inc iy
+J31aa: 	inc iy
+J31ac: 	inc iy
+J31ae: 	inc iy
+J31b0: 	inc d
+J31b1: 	ld a, $03
+J31b3: 	cp d
+J31b4: 	jr nz, J31a2
+J31b6: 	call J34a9
+J31b9: 	pop iy
+J31bb: 	ld b, $0b
+J31bd: 	ld d, $00
+J31bf: 	ex af, af'
+J31c0: 	ld a, (iy + $02)
+J31c3: 	call J32c5
+J31c6: 	inc iy
+J31c8: 	inc iy
+J31ca: 	inc iy
+J31cc: 	inc iy
+J31ce: 	inc d
+J31cf: 	ex af, af'
+J31d0: 	dec a
+J31d1: 	jr z, J31e1
+J31e1: 	ld d, $00
+J31e3: 	ld iy, $6070
+J31e7: 	ld a, r	; read z80 dram refresh counter, bits 6-0 count, bit 7 remains unchanged. usually used as a random number generator
+J31e9: 	rlca
+J31ea: 	rl d
+J31ec: 	rlca
+J31ed: 	and $03
+J31ef: 	adc d
+J31f0: 	ld d, $00
+J31f2: 	cp $01
+J31f4: 	jr z, J3228
+J3228: 	ld b, (iy + $00)
+J322b: 	ld a, ($6091)
+J322e: 	call J32c5
+J3231: 	inc d
+J3232: 	ld b, (iy + $02)
+J3235: 	ld a, ($6095)
+J3238: 	call J32c5
+J323b: 	inc d
+J323c: 	ld b, (iy + $01)
+J323f: 	ld a, ($6099)
+J3242: 	call J32c5
+J3245: 	jp J32c4
+J32c4: 	ret
+J31f6: 	jr c, J3208
+J3208: 	ld b, (iy + $00)
+J320b: 	ld a, ($6091)
+J320e: 	call J32c5
+J3211: 	inc d
+J3212: 	ld b, (iy + $01)
+J3215: 	ld a, ($6095)
+J3218: 	call J32c5
+J321b: 	inc d
+J321c: 	ld b, (iy + $02)
+J321f: 	ld a, ($6099)
+J3222: 	call J32c5
+J3225: 	jp J32c4
+J31f8: 	cp $03
+J31fa: 	jp z, J3268
+J3268: 	ld b, (iy + $01)
+J326b: 	ld a, ($6091)
+J326e: 	call J32c5
+J3271: 	inc d
+J3272: 	ld b, (iy + $02)
+J3275: 	ld a, ($6095)
+J3278: 	call J32c5
+J327b: 	inc d
+J327c: 	ld b, (iy + $00)
+J327f: 	ld a, ($6099)
+J3282: 	call J32c5
+J3285: 	jp J32c4
+J31fd: 	jp c, J3248
+J3248: 	ld b, (iy + $01)
+J324b: 	ld a, ($6091)
+J324e: 	call J32c5
+J3251: 	inc d
+J3252: 	ld b, (iy + $00)
+J3255: 	ld a, ($6095)
+J3258: 	call J32c5
+J325b: 	inc d
+J325c: 	ld b, (iy + $02)
+J325f: 	ld a, ($6099)
+J3262: 	call J32c5
+J3265: 	jp J32c4
+J3200: 	cp $05
+J3202: 	jp z, J32a7
+J32a7: 	ld b, (iy + $02)
+J32aa: 	ld a, ($6091)
+J32ad: 	call J32c5
+J32b0: 	inc d
+J32b1: 	ld b, (iy + $01)
+J32b4: 	ld a, ($6095)
+J32b7: 	call J32c5
+J32ba: 	inc d
+J32bb: 	ld b, (iy + $00)
+J32be: 	ld a, ($6099)
+J32c1: 	call J32c5
+J3205: 	jp J3288
+J3288: 	ld b, (iy + $02)
+J328b: 	ld a, ($6091)
+J328e: 	call J32c5
+J3291: 	inc d
+J3292: 	ld b, (iy + $00)
+J3295: 	ld a, ($6095)
+J3298: 	call J32c5
+J329b: 	inc d
+J329c: 	ld b, (iy + $01)
+J329f: 	ld a, ($6099)
+J32a2: 	call J32c5
+J32a5: 	jr J32c4
+J31d3: 	ex af, af'
+J31d4: 	ld a, d
+J31d5: 	cp $03
+J31d7: 	jr nz, J31c0
+J31d9: 	ld iy, $6092
+J31dd: 	ld d, $00
+J31df: 	jr J31c0
+J054d: 	call J30da
+J30da: 	ld b, $03
+J30dc: 	ld a, ($6065)
+J30df: 	cp $00
+J30e1: 	jr z, J30e8
+J30e8: 	ld hl, $60a3
+J30eb: 	ld (hl), $95
+J30ed: 	inc hl
+J30ee: 	ld (hl), $6a
+J30f0: 	inc hl
+J30f1: 	ld (hl), $0a
+J30f3: 	ret
+J30e3: 	ld hl, $60a6
+J30e6: 	jr J30eb
+J0550: 	call J30cf
+J30cf: 	call J34a9
+J30d2: 	ld b, a
+J30d3: 	ld a, $75
+J30d5: 	sub b
+J30d6: 	ld ($60a9), a
+J30d9: 	ret
+J0553: 	call J3144
+J3144: 	ld hl, $609f
+J3147: 	ld a, ($6065)
+J314a: 	cp $00
+J314c: 	jr z, J3151
+J3151: 	xor a
+J3152: 	ld (hl), a
+J3153: 	ret
+J314e: 	ld hl, $60a2
+J0556: 	ld a, $03
+J0558: 	ld ($619b), a
+J055b: 	call J2b15
+J2b15: 	ld a, ($6065)
+J2b18: 	cp $00
+J2b1a: 	jr nz, J2b22
+J2b22: 	ld ix, $60a6
+J2b26: 	ld a, $01
+J2b28: 	ld c, (ix + $00)
+J2b2b: 	ld d, (ix + $01)
+J2b2e: 	ld e, (ix + $02)
+J2b31: 	ld b, $00
+J2b33: 	srl e
+J2b35: 	rr d
+J2b37: 	rr c
+J2b39: 	rl b
+J2b3b: 	call J2b6e
+J2b6e: 	push de
+J2b6f: 	push bc
+J2b70: 	push ix
+J2b72: 	push af
+J2b73: 	push hl
+J2b74: 	ld e, a
+J2b75: 	ld c, a
+J2b76: 	call J2c04
+J2c04: 	push de
+J2c05: 	push ix
+J2c07: 	ld ix, $0d1d	; could be a data table address, label T0d1d: created
+J2c0b: 	ld d, $00
+J2c0d: 	dec e
+J2c0e: 	sla e
+J2c10: 	add ix, de
+J2c12: 	ld ixh, (ix + $01)
+J2c15: 	ld ixl, (ix + $00)
+J2c18: 	pop ix
+J2c1a: 	pop de
+J2c1b: 	ret
+J2b79: 	ld a, b
+J2b7a: 	cp $00
+J2b7c: 	jr nz, J2b98
+J2b98: 	ld (hl), $3e
+J2b9a: 	push hl
+J2b9b: 	inc hl
+J2b9c: 	ld (hl), $3d
+J2b9e: 	pop hl
+J2b9f: 	dec hl
+J2ba0: 	ld (hl), $3f
+J2ba2: 	ld de, $0020	; could be a data table address, label T0020: created
+J2ba5: 	inc hl
+J2ba6: 	push hl
+J2ba7: 	add hl, de
+J2ba8: 	ld (hl), $ff
+J2baa: 	pop hl
+J2bab: 	and a
+J2bac: 	sbc hl, de
+J2bae: 	ld (hl), $40
+J2bb0: 	add hl, de
+J2bb1: 	push hl
+J2bb2: 	ld iy, $0d45	; could be a data table address, label T0d45: created
+J2bb6: 	ld ix, $0d55	; could be a data table address, label T0d55: created
+J2bba: 	ld d, $00
+J2bbc: 	ld e, c
+J2bbd: 	dec e
+J2bbe: 	push de
+J2bbf: 	srl e
+J2bc1: 	add ix, de
+J2bc3: 	ld c, (ix + $00)
+J2bc6: 	pop de
+J2bc7: 	bit 0, e
+J2bc9: 	jr nz, J2bd1
+J2bd1: 	srl c
+J2bd3: 	srl c
+J2bd5: 	srl c
+J2bd7: 	srl c
+J2bd9: 	push bc
+J2bda: 	ld b, $00
+J2bdc: 	sla c
+J2bde: 	sla c
+J2be0: 	add iy, bc
+J2be2: 	pop bc
+J2be3: 	ld a, b
+J2be4: 	cp $00
+J2be6: 	jr nz, J2bec
+J2bec: 	ld bc, $0040	; could be a data table address, label T0040: created
+J2bef: 	and a
+J2bf0: 	sbc hl, bc
+J2bf2: 	ld a, (iy + $00)
+J2bf5: 	ld (hl), a
+J2bf6: 	pop hl
+J2bf7: 	inc hl
+J2bf8: 	inc hl
+J2bf9: 	ld a, (iy + $01)
+J2bfc: 	ld (hl), a
+J2bfd: 	pop hl
+J2bfe: 	pop af
+J2bff: 	pop ix
+J2c01: 	pop bc
+J2c02: 	pop de
+J2c03: 	ret
+J2be8: 	inc iy
+J2bea: 	inc iy
+J2bcb: 	ld a, c
+J2bcc: 	and $0f
+J2bce: 	ld c, a
+J2bcf: 	jr J2bd9
+J2b7e: 	ld (hl), $36
+J2b80: 	push hl
+J2b81: 	inc hl
+J2b82: 	ld (hl), $39
+J2b84: 	pop hl
+J2b85: 	dec hl
+J2b86: 	ld (hl), $ff
+J2b88: 	ld de, $0020	; could be a data table address, label T0020: created
+J2b8b: 	inc hl
+J2b8c: 	push hl
+J2b8d: 	add hl, de
+J2b8e: 	ld (hl), $37
+J2b90: 	pop hl
+J2b91: 	and a
+J2b92: 	sbc hl, de
+J2b94: 	ld (hl), $35
+J2b96: 	jr J2bb0
+J2b3e: 	push af
+J2b3f: 	cp $03
+J2b41: 	jr z, J2b5f
+J2b5f: 	rr b
+J2b61: 	rl l
+J2b63: 	pop af
+J2b64: 	inc a
+J2b65: 	cp $15
+J2b67: 	jr nz, J2b31
+J2b69: 	ld c, l
+J2b6a: 	call J2c1c
+J2c1c: 	ld d, $00
+J2c1e: 	sla c
+J2c20: 	rl d
+J2c22: 	sla c
+J2c24: 	rl d
+J2c26: 	ld hl, $d12f
+J2c29: 	call J2c5a
+J2c5a: 	ld a, d
+J2c5b: 	cp $00
+J2c5d: 	jr z, J2c6b
+J2c6b: 	ld (hl), $34
+J2c6d: 	jr J2c71
+J2c71: 	ld d, $00
+J2c73: 	ret
+J2c5f: 	cp $02
+J2c61: 	jr z, J2c6f
+J2c6f: 	ld (hl), $3a
+J2c63: 	cp $03
+J2c65: 	jr nz, J2c71
+J2c67: 	ld (hl), $3b
+J2c69: 	jr J2c71
+J2c2c: 	sla c
+J2c2e: 	rl d
+J2c30: 	sla c
+J2c32: 	rl d
+J2c34: 	ld hl, $d177
+J2c37: 	call J2c5a
+J2c3a: 	ld e, $00
+J2c3c: 	sla c
+J2c3e: 	rl d
+J2c40: 	sla c
+J2c42: 	rl e
+J2c44: 	sla c
+J2c46: 	rl d
+J2c48: 	sla c
+J2c4a: 	rl e
+J2c4c: 	ld hl, $d26f
+J2c4f: 	call J2c5a
+J2c52: 	ld d, e
+J2c53: 	ld hl, $d275
+J2c56: 	call J2c5a
+J2c59: 	ret
+J2b6d: 	ret
+J2b43: 	cp $05
+J2b45: 	jr z, J2b5f
+J2b47: 	cp $06
+J2b49: 	jr z, J2b5f
+J2b4b: 	cp $0a
+J2b4d: 	jr z, J2b5f
+J2b4f: 	cp $0c
+J2b51: 	jr z, J2b5f
+J2b53: 	cp $0d
+J2b55: 	jr z, J2b5f
+J2b57: 	cp $0f
+J2b59: 	jr z, J2b5f
+J2b5b: 	cp $10
+J2b5d: 	jr nz, J2b63
+J2b1c: 	ld ix, $60a3
+J2b20: 	jr J2b26
+J055e: 	call J30f4
+J0561: 	call J311c
+J0564: 	call J3154
+J0567: 	call J1ef4
+J056a: 	ld hl, $d101
+J056d: 	call J1f44
+J0570: 	ld ix, $601c
+J0574: 	ld (ix + $00), $82
+J0578: 	ld (ix + $01), $08
+J057c: 	ld (ix + $02), $0f
+J0580: 	call J1f7f
+J0583: 	ld ix, a
+J0585: 	inc bc
+J0586: 	ld ix, b
+J0588: 	inc b
+J0589: 	call J1fc7
+J058c: 	call J178f
+J058f: 	ld (ix + $00), $81
+J0593: 	ld hl, $d61c
+J0596: 	ld ($6063), hl
+J0599: 	xor a
+J059a: 	ld ($6060), a
+J059d: 	cpl
+J059e: 	ld ($6062), a
+J05a1: 	ld a, $0c
+J05a3: 	ld ($6061), a
+J05a6: 	call J1cc6
+J05a9: 	call J05ae
+J05ae: 	ld de, $0005	; could be a data table address, label T0005: created
+J05b1: 	ld hl, $602b
+J05b4: 	ld c, $00
+J05b6: 	ld a, (hl)
+J05b7: 	and $03
+J05b9: 	jr z, J05c3
+J05c3: 	call J3061
+J3061: 	ld a, c
+J3062: 	ld ix, $602b
+J3066: 	sla a
+J3068: 	sla a
+J306a: 	add c
+J306b: 	ld d, $00
+J306d: 	ld e, a
+J306e: 	add ix, de
+J3070: 	ld (ix + $00), $82
+J3074: 	ld (ix + $01), $58
+J3078: 	ld (ix + $02), $86
+J307c: 	ld a, c
+J307d: 	call J3087
+J3087: 	push af
+J3088: 	call J1f26
+J308b: 	cp $09
+J308d: 	jr nc, J30af
+J30af: 	dec a
+J30b0: 	and $07
+J30b2: 	cp $05
+J30b4: 	jr c, J30b8
+J30b8: 	ld b, a
+J30b9: 	pop af
+J30ba: 	add b
+J30bb: 	ld b, a
+J30bc: 	inc b
+J30bd: 	ld c, a
+J30be: 	ld a, $18
+J30c0: 	sla c
+J30c2: 	sla c
+J30c4: 	sla c
+J30c6: 	ex af, af'
+J30c7: 	ld a, c
+J30c8: 	sla c
+J30ca: 	add c
+J30cb: 	ld c, a
+J30cc: 	ex af, af'
+J30cd: 	add c
+J30ce: 	ret
+J30b6: 	sub $05
+J308f: 	ld c, a
+J3090: 	cp $03
+J3092: 	jr z, J309a
+J309a: 	inc a
+J309b: 	jr J309e
+J309e: 	ld b, a
+J309f: 	ld a, c
+J30a0: 	dec a
+J30a1: 	push hl
+J30a2: 	ld hl, $0c8b	; could be a data table address, label T0c8b: created
+J30a5: 	ld d, $00
+J30a7: 	ld e, a
+J30a8: 	add hl, de
+J30a9: 	ld a, (hl)
+J30aa: 	ld c, a
+J30ab: 	pop hl
+J30ac: 	pop af
+J30ad: 	ld a, c
+J30ae: 	ret
+J3094: 	cp $04
+J3096: 	jr z, J309d
+J309d: 	dec a
+J3098: 	jr J309e
+J3080: 	ld ix, a
+J3082: 	inc bc
+J3083: 	ld ix, b
+J3085: 	inc b
+J3086: 	ret
+J05c6: 	call J1fc7
+J05c9: 	call J178f
+J05cc: 	ld (ix + $00), $81
+J05d0: 	ret
+J05bb: 	add hl, de
+J05bc: 	inc c
+J05bd: 	cp $04
+J05bf: 	jr nz, J05b6
+J05c1: 	jr J05d0
+J05ac: 	jr J05d1
+J05d1: 	ld a, ($6065)
+J05d4: 	cp $00
+J05d6: 	jr z, J05dd
+J05dd: 	ld hl, $6066
+J05e0: 	dec (hl)
+J05e1: 	ld a, (hl)
+J05e2: 	push af
+J05e3: 	call J1d77
+J05e6: 	pop af
+J05e7: 	ld ix, $6026
+J05eb: 	ld (ix + $00), $42
+J05ef: 	ld (ix + $02), $1f
+J05f3: 	sla a
+J05f5: 	sla a
+J05f7: 	sla a
+J05f9: 	sla a
+J05fb: 	add a, $08
+J05fd: 	ld ix, a
+J05ff: 	ld bc, $36dd	; could be a data table address, label T36dd: created
+J0602: 	inc bc
+J0603: 	nop
+J0604: 	ld (ix + $04), $00
+J0608: 	jp J0621
+J0621: 	ld hl, $6000
+J0624: 	set 6, (hl)
+J0626: 	ld hl, $6027
+J0629: 	xor a
+J062a: 	ld d, $58
+J062c: 	ld b, $0f
+J062e: 	djnz J0636
+J0636: 	push af
+J0637: 	push bc
+J0638: 	push hl
+J0639: 	push de
+J063a: 	call J1fc7
+J063d: 	call J178f
+J0640: 	pop de
+J0641: 	pop hl
+J0642: 	pop bc
+J0643: 	ld a, (hl)
+J0644: 	cp d
+J0645: 	jr z, J064b
+J064b: 	cp $56
+J064d: 	jr z, J0659
+J0659: 	pop af
+J065a: 	ld a, $ff
+J065c: 	call J1e4c
+J065f: 	jp J0730
+J0730: 	call J35e3
+J35e3: 	call J1f26
+J35e6: 	ld hl, $60aa
+J35e9: 	cp $02
+J35eb: 	jr nc, J35f1
+J35f1: 	cp $05
+J35f3: 	jr nc, J35f9
+J35f9: 	ld (hl), $03
+J35fb: 	ld a, (hl)
+J35fc: 	inc hl
+J35fd: 	ld (hl), a
+J35fe: 	ret
+J35f5: 	ld (hl), $06
+J35f7: 	jr J35fb
+J35ed: 	ld (hl), $09
+J35ef: 	jr J35fb
+J0733: 	ld ix, $61b6
+J0737: 	ld (ix + $00), $60
+J073b: 	ld (ix + $01), $00
+J073f: 	ld (ix + $02), $00
+J0743: 	ld (ix + $03), $b4
+J0747: 	xor a
+J0748: 	ld ($61b5), a
+J074b: 	ld ($61b4), a
+J074e: 	ld ($61e1), a
+J0751: 	ld hl, $61ce
+J0754: 	ld b, $05
+J0756: 	xor a
+J0757: 	ld (hl), a
+J0758: 	inc hl
+J0759: 	djnz J0757
+J075b: 	ld hl, $605f
+J075e: 	set 7, (hl)
+J0760: 	ld hl, $6196
+J0763: 	ld (hl), $58
+J0765: 	inc hl
+J0766: 	ld (hl), $56
+J0768: 	inc hl
+J0769: 	ld (hl), $08
+J076b: 	ld a, $08
+J076d: 	ld ($6198), a
+J0770: 	ld de, $0000	; could be a data table address, label T0000: created
+J0773: 	ld ($6199), de
+J0777: 	ld hl, $605f
+J077a: 	res 6, (hl)
+J077c: 	call J45fd
+J45fd: 	ld ix, $0da2	; could be a data table address, label T0da2: created
+J4601: 	ld hl, $62a0
+J4604: 	ld b, $0b
+J4606: 	ld de, $fff0
+J4609: 	push hl
+J460a: 	push bc
+J460b: 	ld b, $05
+J460d: 	ld a, (ix + $00)
+J4610: 	ld c, a
+J4611: 	and $0f
+J4613: 	sla a
+J4615: 	sla a
+J4617: 	sla a
+J4619: 	sla a
+J461b: 	ld (hl), a
+J461c: 	add hl, de
+J461d: 	ld a, c
+J461e: 	and $f0
+J4620: 	ld (hl), a
+J4621: 	add hl, de
+J4622: 	inc ix
+J4624: 	djnz J460d
+J4626: 	ld a, (ix + $00)
+J4629: 	sla a
+J462b: 	sla a
+J462d: 	sla a
+J462f: 	sla a
+J4631: 	ld (hl), a
+J4632: 	pop bc
+J4633: 	pop hl
+J4634: 	inc ix
+J4636: 	inc hl
+J4637: 	djnz J4609
+J4639: 	ret
+J077f: 	call J463a
+J463a: 	ld de, $46c4	; could be a data table address, label T46c4: created
+J463d: 	ld ix, $0d1d	; could be a data table address, label T0d1d: created
+J4641: 	ld a, $01
+J4643: 	ld bc, $fff0
+J4646: 	ld ixl, (ix + $00)
+J4649: 	ld ixh, (ix + $01)
+J464c: 	push af
+J464d: 	ld a, (hl)
+J464e: 	cp $36
+J4650: 	ld hl, $6200
+J4653: 	ld a, (de)
+J4654: 	ld l, a
+J4655: 	jr z, J4664
+J4664: 	res 7, (hl)
+J4666: 	dec hl
+J4667: 	res 7, (hl)
+J4669: 	add hl, bc
+J466a: 	res 5, (hl)
+J466c: 	inc hl
+J466d: 	res 5, (hl)
+J466f: 	pop af
+J4670: 	inc de
+J4671: 	inc ix
+J4673: 	inc ix
+J4675: 	inc a
+J4676: 	cp $15
+J4678: 	jr nz, J4646
+J467a: 	ret
+J4657: 	res 4, (hl)
+J4659: 	dec hl
+J465a: 	res 6, (hl)
+J465c: 	add hl, bc
+J465d: 	res 6, (hl)
+J465f: 	inc hl
+J4660: 	res 4, (hl)
+J4662: 	jr J466f
+J0782: 	jr J078a
+J078a: 	call J2d5a
+J078d: 	ld hl, $605f
+J0790: 	bit 4, (hl)
+J0792: 	jr nz, J079c
+J079c: 	call J39b1
+J39b1: 	ld hl, $60aa
+J39b4: 	dec (hl)
+J39b5: 	jp nz, J3a48
+J3a48: 	ld hl, $61ca
+J3a4b: 	dec (hl)
+J3a4c: 	ld hl, $61b6
+J3a4f: 	dec (hl)
+J3a50: 	inc hl
+J3a51: 	jr nz, J3a75
+J3a75: 	inc hl
+J3a76: 	inc hl
+J3a77: 	dec (hl)
+J3a78: 	ret
+J3a53: 	dec hl
+J3a54: 	ld (hl), $3c
+J3a56: 	inc hl
+J3a57: 	push hl
+J3a58: 	inc hl
+J3a59: 	inc (hl)
+J3a5a: 	ld b, $04
+J3a5c: 	ld hl, $61ce
+J3a5f: 	xor a
+J3a60: 	cp (hl)
+J3a61: 	jr z, J3a64
+J3a64: 	inc hl
+J3a65: 	djnz J3a60
+J3a67: 	ld hl, $61e1
+J3a6a: 	cp (hl)
+J3a6b: 	jr z, J3a6e
+J3a6e: 	pop hl
+J3a6f: 	ld a, (hl)
+J3a70: 	cp $f0
+J3a72: 	jr nc, J3a75
+J3a74: 	inc (hl)
+J3a6d: 	dec (hl)
+J3a63: 	dec (hl)
+J39b8: 	ld hl, ($6063)
+J39bb: 	ld a, ($6062)
+J39be: 	cp $00
+J39c0: 	jr z, J39c6
+J39c6: 	ld (hl), $05
+J39c8: 	ld a, ($6060)
+J39cb: 	ld c, a
+J39cc: 	call J1d24
+J39cf: 	ld ($6063), hl
+J39d2: 	ld hl, $6000
+J39d5: 	set 4, (hl)
+J39d7: 	ld hl, $6061
+J39da: 	inc (hl)
+J39db: 	ld a, (hl)
+J39dc: 	cp $17
+J39de: 	jr nz, J39ef
+J39ef: 	cp $0c
+J39f1: 	jr nz, J3a01
+J3a01: 	ld a, ($60ab)
+J3a04: 	ld ($60aa), a
+J3a07: 	ld a, ($6060)
+J3a0a: 	cp $00
+J3a0c: 	jr nz, J3a48
+J3a0e: 	ld a, ($6061)
+J3a11: 	cp $01
+J3a13: 	jr z, J3a30
+J3a30: 	ld b, $04
+J3a32: 	ld de, $0005	; could be a data table address, label T0005: created
+J3a35: 	ld hl, $602b
+J3a38: 	bit 0, (hl)
+J3a3a: 	jr nz, J3a41
+J3a41: 	push hl
+J3a42: 	ld hl, $6000
+J3a45: 	set 5, (hl)
+J3a47: 	pop hl
+J3a3c: 	add hl, de
+J3a3d: 	djnz J3a38
+J3a3f: 	jr J3a48
+J3a15: 	cp $0c
+J3a17: 	jr nz, J3a48
+J3a19: 	ld b, $04
+J3a1b: 	ld de, $0005	; could be a data table address, label T0005: created
+J3a1e: 	ld hl, $602b
+J3a21: 	bit 0, (hl)
+J3a23: 	jr nz, J3a2a
+J3a2a: 	res 0, (hl)
+J3a2c: 	set 1, (hl)
+J3a2e: 	jr J3a48
+J3a25: 	add hl, de
+J3a26: 	djnz J3a21
+J3a28: 	jr J3a48
+J39f3: 	ld a, ($6060)
+J39f6: 	cp $00
+J39f8: 	jr nz, J3a01
+J39fa: 	ld a, ($6062)
+J39fd: 	cpl
+J39fe: 	ld ($6062), a
+J39e0: 	ld (hl), $00
+J39e2: 	ld hl, $6060
+J39e5: 	inc (hl)
+J39e6: 	ld a, (hl)
+J39e7: 	cp $04
+J39e9: 	jr nz, J3a01
+J39eb: 	ld (hl), $00
+J39ed: 	jr J3a01
+J39c2: 	ld (hl), $06
+J39c4: 	jr J39c8
+J079f: 	call J3956
+J3956: 	ld hl, ($6199)
+J3959: 	inc hl
+J395a: 	ld ($6199), hl
+J395d: 	ld a, h
+J395e: 	cp $00
+J3960: 	jr z, J3975
+J3975: 	ld a, l
+J3976: 	cp $01
+J3978: 	jr z, J3971
+J3971: 	ld a, $07
+J3973: 	jr J3988
+J3988: 	ld b, $06
+J398a: 	ld ix, $619c
+J398e: 	ld de, $0400	; could be a data table address, label T0400: created
+J3991: 	ld ixl, (ix + $00)
+J3994: 	inc ix
+J3996: 	ld ixh, (ix + $00)
+J3999: 	inc ix
+J399b: 	ld c, a
+J399c: 	xor a
+J399d: 	cp h
+J399e: 	ld a, c
+J399f: 	jr z, J39ae
+J39ae: 	djnz J3991
+J39b0: 	ret
+J39a1: 	add hl, de
+J39a2: 	ld (hl), a
+J39a3: 	inc hl
+J39a4: 	ld (hl), a
+J39a5: 	push de
+J39a6: 	ld de, $ffe0
+J39a9: 	add hl, de
+J39aa: 	pop de
+J39ab: 	ld (hl), a
+J39ac: 	dec hl
+J39ad: 	ld (hl), a
+J397a: 	cp $1e
+J397c: 	jr nz, J3982
+J3982: 	cp $b4
+J3984: 	jr nz, J39b0
+J3986: 	ld a, $05
+J397e: 	ld a, $06
+J3980: 	jr J3988
+J3962: 	cp $02
+J3964: 	jr c, J39b0
+J3966: 	ld a, l
+J3967: 	cp $58
+J3969: 	jr c, J39b0
+J396b: 	ld hl, $0000	; could be a data table address, label T0000: created
+J396e: 	ld ($6199), hl
+J07a2: 	ld a, ($61e1)
+J07a5: 	cp $00
+J07a7: 	jr nz, J07ac
+J07ac: 	call J4406
+J4406: 	ld de, $0005	; could be a data table address, label T0005: created
+J4409: 	ld b, $04
+J440b: 	ld hl, $602b
+J440e: 	push hl
+J440f: 	push bc
+J4410: 	bit 0, (hl)
+J4412: 	jp nz, J447a
+J447a: 	pop bc
+J447b: 	pop hl
+J447c: 	ret
+J4415: 	add hl, de
+J4416: 	djnz J4410
+J4418: 	pop bc
+J4419: 	pop hl
+J441a: 	bit 1, (hl)
+J441c: 	jr z, J4441
+J4441: 	push hl
+J4442: 	push bc
+J4443: 	ld b, $04
+J4445: 	ld hl, $602b
+J4448: 	bit 1, (hl)
+J444a: 	jr z, J4467
+J4467: 	add hl, de
+J4468: 	djnz J4448
+J446a: 	pop bc
+J446b: 	ld a, b
+J446c: 	sub $04
+J446e: 	neg
+J4470: 	ld c, a
+J4471: 	call J3061
+J4474: 	pop hl
+J4475: 	res 1, (hl)
+J4477: 	set 0, (hl)
+J4479: 	ret
+J444c: 	push hl
+J444d: 	pop ix
+J444f: 	ld a, $58
+J4451: 	cp (ix + $01)
+J4454: 	jr nz, J4467
+J4456: 	ld a, $86
+J4458: 	cp (ix + $02)
+J445b: 	jr c, J4467
+J445d: 	ld a, $94
+J445f: 	cp (ix + $02)
+J4462: 	jr nc, J4467
+J4464: 	pop bc
+J4465: 	pop hl
+J4466: 	ret
+J441e: 	add hl, de
+J441f: 	djnz J441a
+J4421: 	ld hl, $605f
+J4424: 	bit 6, (hl)
+J4426: 	ret nz
+J4427: 	ld ix, $6021
+J442b: 	ld (ix + $00), $82
+J442f: 	ld (ix + $01), $58
+J4433: 	ld (ix + $02), $86
+J4437: 	call J1f7f
+J443a: 	ld ix, a
+J443c: 	inc bc
+J443d: 	ld ix, b
+J443f: 	inc b
+J4440: 	ret
+J07af: 	call J35ff
+J35ff: 	ld hl, $605f
+J3602: 	bit 4, (hl)
+J3604: 	jp z, J3629
+J3629: 	ld a, ($6065)
+J362c: 	cp $00
+J362e: 	jr z, J363c
+J363c: 	ld a, ($9000)
+J363f: 	cpl
+J3640: 	and $0f
+J3642: 	ret z
+J3643: 	cp $01
+J3645: 	jr z, J3652
+J3652: 	ld d, a
+J3653: 	ld a, ($605f)
+J3656: 	bit 7, a
+J3658: 	jp z, J36c1
+J36c1: 	push de
+J36c2: 	xor a
+J36c3: 	ld ($61e0), a
+J36c6: 	ld a, ($6198)
+J36c9: 	and $0a
+J36cb: 	jp nz, J376e
+J376e: 	ld a, ($6028)
+J3771: 	ld b, a
+J3772: 	ld a, ($6027)
+J3775: 	call J377a
+J377a: 	sub $08
+J377c: 	srl a
+J377e: 	srl a
+J3780: 	srl a
+J3782: 	srl a
+J3784: 	sla a
+J3786: 	ld hl, $0dfa	; could be a data table address, label T0dfa: created
+J3789: 	ld d, $00
+J378b: 	ld e, a
+J378c: 	add hl, de
+J378d: 	ld e, (hl)
+J378e: 	inc hl
+J378f: 	ld d, (hl)
+J3790: 	ld a, $36
+J3792: 	ld c, $10
+J3794: 	ret
+J3778: 	jr J3795
+J3795: 	srl d
+J3797: 	rr e
+J3799: 	jr c, J379e
+J379e: 	call J3703
+J3703: 	cp b
+J3704: 	ccf
+J3705: 	ret
+J37a1: 	jr z, J37a9
+J37a9: 	ld h, a
+J37aa: 	ld l, a
+J37ab: 	jr J37ba
+J37ba: 	ld a, ($6028)
+J37bd: 	ex af, af'
+J37be: 	ld ix, $6196
+J37c2: 	ld a, h
+J37c3: 	sub $04
+J37c5: 	ld d, a
+J37c6: 	ex af, af'
+J37c7: 	cp d
+J37c8: 	jr nc, J37fd
+J37fd: 	ld ix, ixh
+J37ff: 	ld bc, $273a	; could be a data table address, label T273a: created
+J3802: 	ld h, b
+J3803: 	ld ix, a
+J3805: 	nop
+J3806: 	pop de
+J3807: 	jp J388c
+J388c: 	ld hl, $605f
+J388f: 	set 7, (hl)
+J3891: 	ld a, ($6026)
+J3894: 	srl a
+J3896: 	srl a
+J3898: 	srl a
+J389a: 	srl a
+J389c: 	cp d
+J389d: 	jp nz, J381e
+J381e: 	ld a, d
+J381f: 	sla a
+J3821: 	sla a
+J3823: 	sla a
+J3825: 	sla a
+J3827: 	or $02
+J3829: 	ld ($6026), a
+J382c: 	ret
+J38a0: 	ld iy, $6026
+J38a4: 	ld ix, $6196
+J38a8: 	ld a, ($6028)
+J38ab: 	cp (ix + $01)
+J38ae: 	jr nz, J38e6
+J38e6: 	ld a, (iy + $02)
+J38e9: 	cp (ix + $01)
+J38ec: 	jr c, J38fd
+J38fd: 	ld a, $0a
+J38ff: 	and d
+J3900: 	jr nz, J38d4
+J38d4: 	jp J3844
+J3844: 	ld ix, $6027
+J3848: 	ld a, d
+J3849: 	cp $02
+J384b: 	jr c, J3858
+J3858: 	dec (ix + $00)
+J385b: 	jr J3865
+J3865: 	ld ($6198), a
+J3868: 	ret
+J384d: 	jr z, J385d
+J385d: 	dec (ix + $01)
+J3860: 	jr J3865
+J384f: 	cp $04
+J3851: 	jr z, J3862
+J3862: 	inc (ix + $00)
+J3853: 	inc (ix + $01)
+J3856: 	jr J3865
+J3902: 	call J390d
+J390d: 	ld ix, $6196
+J3911: 	ld a, (ix + $00)
+J3914: 	srl a
+J3916: 	srl a
+J3918: 	srl a
+J391a: 	srl a
+J391c: 	sla a
+J391e: 	ld e, a
+J391f: 	sla a
+J3921: 	add e
+J3922: 	ld b, $00
+J3924: 	ld c, a
+J3925: 	ld hl, $0da2	; could be a data table address, label T0da2: created
+J3928: 	add hl, bc
+J3929: 	ld a, (ix + $01)
+J392c: 	srl a
+J392e: 	srl a
+J3930: 	srl a
+J3932: 	srl a
+J3934: 	sub $03
+J3936: 	ld e, a
+J3937: 	srl a
+J3939: 	ld c, a
+J393a: 	add hl, bc
+J393b: 	ld a, (hl)
+J393c: 	bit 0, e
+J393e: 	jr z, J394b
+J394b: 	and $0f
+J394d: 	ld e, a
+J394e: 	and d
+J394f: 	jp nz, J3954
+J3954: 	and a
+J3955: 	ret
+J3952: 	scf
+J3953: 	ret
+J3940: 	srl a
+J3942: 	srl a
+J3944: 	srl a
+J3946: 	srl a
+J3948: 	jp J394d
+J3905: 	ret c
+J3906: 	inc (iy + $02)
+J3909: 	jp J38d4
+J38ee: 	ld a, $0a
+J38f0: 	and d
+J38f1: 	jr nz, J38d4
+J38f3: 	call J390d
+J38f6: 	ret c
+J38f7: 	dec (iy + $02)
+J38fa: 	jp J38d4
+J38b0: 	ld a, ($6027)
+J38b3: 	cp (ix + $00)
+J38b6: 	jr nz, J38bf
+J38bf: 	ld a, ($6027)
+J38c2: 	cp (ix + $00)
+J38c5: 	jr c, J38d7
+J38d7: 	ld a, $05
+J38d9: 	and d
+J38da: 	jr nz, J38d4
+J38dc: 	call J390d
+J38df: 	ret c
+J38e0: 	inc (iy + $01)
+J38e3: 	jp J38d4
+J38c7: 	ld a, $05
+J38c9: 	and d
+J38ca: 	jp nz, J3844
+J38cd: 	call J390d
+J38d0: 	ret c
+J38d1: 	dec (iy + $01)
+J38b8: 	call J390d
+J38bb: 	jp nc, J3844
+J38be: 	ret
+J37ca: 	ex af, af'
+J37cb: 	ld a, d
+J37cc: 	sub $03
+J37ce: 	ld d, a
+J37cf: 	ex af, af'
+J37d0: 	cp d
+J37d1: 	jr nc, J37f8
+J37f8: 	ld ix, ixh
+J37fa: 	ld bc, $ec18
+J37d3: 	ex af, af'
+J37d4: 	ld a, l
+J37d5: 	add a, $05
+J37d7: 	ld e, a
+J37d8: 	ex af, af'
+J37d9: 	cp e
+J37da: 	jr c, J37f3
+J37f3: 	ld ix, ixl
+J37f5: 	ld bc, $0818	; could be a data table address, label T0818: created
+J37dc: 	ex af, af'
+J37dd: 	ld a, e
+J37de: 	add a, $03
+J37e0: 	ld e, a
+J37e1: 	ex af, af'
+J37e2: 	cp e
+J37e3: 	jp nc, J380a
+J380a: 	pop de
+J380b: 	ld hl, $605f
+J380e: 	res 7, (hl)
+J3810: 	ld a, ($6026)
+J3813: 	srl a
+J3815: 	srl a
+J3817: 	srl a
+J3819: 	srl a
+J381b: 	cp d
+J381c: 	jr z, J382d
+J382d: 	ld a, $05
+J382f: 	and d
+J3830: 	jr z, J383c
+J383c: 	ld a, ($6198)
+J383f: 	and $0a
+J3841: 	jp z, J3869
+J3869: 	ld a, ($61e0)
+J386c: 	cp $00
+J386e: 	ret z
+J386f: 	bit 0, a
+J3871: 	jr z, J3880
+J3880: 	ld hl, $6027
+J3883: 	ld a, ($6196)
+J3886: 	cp (hl)
+J3887: 	jr c, J387e
+J387e: 	dec (hl)
+J387f: 	ret
+J3889: 	jp J387c
+J387c: 	inc (hl)
+J387d: 	ret
+J3873: 	ld hl, $6028
+J3876: 	ld a, ($6197)
+J3879: 	cp (hl)
+J387a: 	jr c, J387e
+J3832: 	ld a, ($6198)
+J3835: 	and $05
+J3837: 	jp z, J3869
+J383a: 	jr J3844
+J37e6: 	ld ix, ixl
+J37e8: 	ld bc, $21e5	; could be a data table address, label T21e5: created
+J37eb: 	ret po
+J37ec: 	ld h, c
+J37ed: 	set 0, (hl)
+J37ef: 	pop hl
+J37f0: 	jp J380a
+J37a3: 	jr c, J37ad
+J37ad: 	ld h, a
+J37ae: 	sla e
+J37b0: 	rl d
+J37b2: 	sub c
+J37b3: 	sla e
+J37b5: 	rl d
+J37b7: 	jr nc, J37b2
+J37b9: 	ld l, a
+J37a5: 	set 7, d
+J37a7: 	jr J379b
+J379b: 	add c
+J379c: 	jr J3795
+J36ce: 	ld a, ($6027)
+J36d1: 	ld b, a
+J36d2: 	ld a, ($6028)
+J36d5: 	call J36da
+J36da: 	sub $36
+J36dc: 	srl a
+J36de: 	srl a
+J36e0: 	srl a
+J36e2: 	srl a
+J36e4: 	sla a
+J36e6: 	ld hl, $0de4	; could be a data table address, label T0de4: created
+J36e9: 	ld d, $00
+J36eb: 	ld e, a
+J36ec: 	add hl, de
+J36ed: 	ld e, (hl)
+J36ee: 	inc hl
+J36ef: 	ld d, (hl)
+J36f0: 	ld a, $08
+J36f2: 	ld c, $10
+J36f4: 	ret
+J36d8: 	jr J36f5
+J36f5: 	srl d
+J36f7: 	rr e
+J36f9: 	jr c, J36fe
+J36fe: 	call J3703
+J3701: 	jr J3706
+J3706: 	jr z, J370e
+J370e: 	ld h, a
+J370f: 	ld l, a
+J3710: 	jr J371f
+J371f: 	ld a, ($6027)
+J3722: 	ex af, af'
+J3723: 	ld ix, $6196
+J3727: 	ld a, h
+J3728: 	sub $04
+J372a: 	ld d, a
+J372b: 	ex af, af'
+J372c: 	cp d
+J372d: 	jr nc, J3762
+J3762: 	ld ix, ixh
+J3764: 	nop
+J3765: 	ld a, ($6028)
+J3768: 	ld ix, a
+J376a: 	ld bc, $06c3	; could be a data table address, label T06c3: created
+J376d: 	jr c, J37a9
+J376f: 	jr z, J37d1
+J372f: 	ex af, af'
+J3730: 	ld a, d
+J3731: 	sub $02
+J3733: 	ld d, a
+J3734: 	ex af, af'
+J3735: 	cp d
+J3736: 	jr nc, J375d
+J375d: 	ld ix, ixh
+J375f: 	nop
+J3760: 	jr J374e
+J374e: 	push hl
+J374f: 	ld hl, $61e0
+J3752: 	set 1, (hl)
+J3754: 	pop hl
+J3755: 	jp J380a
+J3738: 	ex af, af'
+J3739: 	ld a, l
+J373a: 	add a, $05
+J373c: 	ld e, a
+J373d: 	ex af, af'
+J373e: 	cp e
+J373f: 	jr c, J3758
+J3758: 	ld ix, ixl
+J375a: 	nop
+J375b: 	jr J3765
+J3741: 	ex af, af'
+J3742: 	ld a, e
+J3743: 	add a, $02
+J3745: 	ld e, a
+J3746: 	ex af, af'
+J3747: 	cp e
+J3748: 	jp nc, J380a
+J374b: 	ld ix, ixl
+J374d: 	nop
+J3708: 	jr c, J3712
+J3712: 	ld h, a
+J3713: 	sla e
+J3715: 	rl d
+J3717: 	sub c
+J3718: 	sla e
+J371a: 	rl d
+J371c: 	jr nc, J3717
+J371e: 	ld l, a
+J370a: 	set 7, d
+J370c: 	jr J36fb
+J36fb: 	add c
+J36fc: 	jr J36f5
+J365b: 	ld a, ($6027)
+J365e: 	and $0f
+J3660: 	cp $08
+J3662: 	jp z, J4943
+J4943: 	push de
+J4944: 	xor a
+J4945: 	ld ($61e0), a
+J4948: 	jp J376e
+J3665: 	ld a, ($6028)
+J3668: 	and $0f
+J366a: 	cp $06
+J366c: 	jp nz, J494b
+J494b: 	ld a, ($6026)
+J494e: 	srl a
+J4950: 	srl a
+J4952: 	srl a
+J4954: 	jp J3677
+J3677: 	srl a
+J3679: 	cp d
+J367a: 	jp nz, J381e
+J367d: 	ld hl, $6027
+J3680: 	and $0a
+J3682: 	jr z, J36a2
+J36a2: 	inc hl
+J36a3: 	ld a, (hl)
+J36a4: 	and $0f
+J36a6: 	cp $07
+J36a8: 	jr c, J36ad
+J36ad: 	inc (hl)
+J36ae: 	dec hl
+J36af: 	bit 2, d
+J36b1: 	jr z, J36ba
+J36ba: 	dec (hl)
+J36bb: 	ld a, $01
+J36bd: 	ld ($6198), a
+J36c0: 	ret
+J36b3: 	inc (hl)
+J36b4: 	ld a, $04
+J36b6: 	ld ($6198), a
+J36b9: 	ret
+J36aa: 	dec (hl)
+J36ab: 	jr J36ae
+J3684: 	ld a, (hl)
+J3685: 	and $0f
+J3687: 	cp $08
+J3689: 	jr c, J368e
+J368e: 	inc (hl)
+J368f: 	inc hl
+J3690: 	bit 3, d
+J3692: 	jr nz, J369b
+J369b: 	inc (hl)
+J369c: 	ld a, $08
+J369e: 	ld ($6198), a
+J36a1: 	ret
+J3694: 	dec (hl)
+J3695: 	ld a, $02
+J3697: 	ld ($6198), a
+J369a: 	ret
+J368b: 	dec (hl)
+J368c: 	jr J368f
+J366f: 	push de
+J3670: 	xor a
+J3671: 	ld ($61e0), a
+J3674: 	jp J36ce
+J3647: 	cp $02
+J3649: 	jr z, J3652
+J364b: 	cp $04
+J364d: 	jr z, J3652
+J364f: 	cp $08
+J3651: 	ret nz
+J3630: 	ld a, ($9002)
+J3633: 	bit 5, a
+J3635: 	jr z, J363c
+J3637: 	ld a, ($9001)
+J363a: 	jr J363f
+J3607: 	ld hl, ($61d8)
+J360a: 	ld a, ($6027)
+J360d: 	and $0f
+J360f: 	cp $08
+J3611: 	jr nz, J3626
+J3626: 	ld a, (hl)
+J3627: 	jr J3640
+J3613: 	ld a, ($6028)
+J3616: 	and $0f
+J3618: 	cp $06
+J361a: 	jr nz, J3626
+J361c: 	inc hl
+J361d: 	ld a, (hl)
+J361e: 	cp $ff
+J3620: 	jr nz, J3623
+J3623: 	ld ($61d8), hl
+J3622: 	dec hl
+J07b2: 	call J3a99
+J3a99: 	ld a, ($61c9)
+J3a9c: 	and $ff
+J3a9e: 	jr z, J3aa3
+J3aa3: 	ld a, ($6026)
+J3aa6: 	srl a
+J3aa8: 	srl a
+J3aaa: 	srl a
+J3aac: 	srl a
+J3aae: 	ld hl, $6198
+J3ab1: 	cp (hl)
+J3ab2: 	ret nz
+J3ab3: 	cp $02
+J3ab5: 	jp c, J3b98
+J3b98: 	jp J0080
+J0080: 	ld a, ($6027)
+J0083: 	inc a
+J0084: 	jp J3b9b
+J3b9b: 	inc a
+J3b9c: 	ld d, a
+J3b9d: 	ld a, ($6028)
+J3ba0: 	sub $03
+J3ba2: 	ld e, a
+J3ba3: 	call J3c0a
+J3c0a: 	push af
+J3c0b: 	push bc
+J3c0c: 	ld a, d
+J3c0d: 	and $f8
+J3c0f: 	ld b, $00
+J3c11: 	ld c, a
+J3c12: 	sla c
+J3c14: 	rl b
+J3c16: 	sla c
+J3c18: 	rl b
+J3c1a: 	ld hl, $d0a0
+J3c1d: 	add hl, bc
+J3c1e: 	ld a, e
+J3c1f: 	srl a
+J3c21: 	srl a
+J3c23: 	srl a
+J3c25: 	ld b, $00
+J3c27: 	ld c, a
+J3c28: 	add hl, bc
+J3c29: 	pop bc
+J3c2a: 	pop af
+J3c2b: 	ret
+J3ba6: 	ld a, (hl)
+J3ba7: 	dec d
+J3ba8: 	call J3c0a
+J3bab: 	cp (hl)
+J3bac: 	jr z, J3bc9
+J3bc9: 	ret
+J3bae: 	ld a, $3d
+J3bb0: 	cp (hl)
+J3bb1: 	jr nz, J3bb9
+J3bb9: 	ld a, e
+J3bba: 	add a, $08
+J3bbc: 	ld e, a
+J3bbd: 	call J3c0a
+J3bc0: 	ld a, $3e
+J3bc2: 	cp (hl)
+J3bc3: 	ret nz
+J3bc4: 	ld a, $02
+J3bc6: 	jp J3bca
+J3bca: 	ex af, af'
+J3bcb: 	ld a, ($61c9)
+J3bce: 	cp $00
+J3bd0: 	jp nz, J3af9
+J3af9: 	ld hl, ($61cb)
+J3afc: 	ld a, ($61c9)
+J3aff: 	ex af, af'
+J3b00: 	xor a
+J3b01: 	ld ($61c9), a
+J3b04: 	ex af, af'
+J3b05: 	cp $02
+J3b07: 	jr z, J3b13
+J3b13: 	ld a, $07
+J3b15: 	jr J3b1d
+J3b1d: 	call J3bea
+J3bea: 	push af
+J3beb: 	push hl
+J3bec: 	ld b, $01
+J3bee: 	ld a, l
+J3bef: 	ld hl, $0d1d	; could be a data table address, label T0d1d: created
+J3bf2: 	cp (hl)
+J3bf3: 	jr z, J3bfb
+J3bfb: 	pop hl
+J3bfc: 	pop af
+J3bfd: 	ret
+J3bf5: 	inc b
+J3bf6: 	inc hl
+J3bf7: 	inc hl
+J3bf8: 	jp J3bf2
+J3b20: 	call J22eb
+J22eb: 	push hl
+J22ec: 	push bc
+J22ed: 	push hl
+J22ee: 	cp $04
+J22f0: 	jr c, J2302
+J2302: 	ld c, $00
+J2304: 	bit 0, a
+J2306: 	jr z, J232c
+J232c: 	ld de, $0021	; could be a data table address, label T0021: created
+J232f: 	add hl, de
+J2330: 	ex af, af'
+J2331: 	ld a, (hl)
+J2332: 	cp $e5
+J2334: 	jr nz, J2338
+J2338: 	ld de, $ffbe
+J233b: 	add hl, de
+J233c: 	ld a, (hl)
+J233d: 	cp $e5
+J233f: 	jr nz, J2343
+J2343: 	push af
+J2344: 	ld a, c
+J2345: 	ld ($608e), a
+J2348: 	pop af
+J2349: 	ex af, af'
+J234a: 	ld iy, $0cd5	; could be a data table address, label T0cd5: created
+J234e: 	call J240f
+J240f: 	push af
+J2410: 	sla a
+J2412: 	ld e, a
+J2413: 	ld d, $00
+J2415: 	ld ix, $0cf9	; could be a data table address, label T0cf9: created
+J2419: 	add ix, de
+J241b: 	ld d, (ix + $00)
+J241e: 	ld e, (ix + $01)
+J2421: 	pop af
+J2422: 	ret
+J2351: 	pop hl
+J2352: 	ld c, $00
+J2354: 	ex af, af'
+J2355: 	srl d
+J2357: 	rr e
+J2359: 	jp nc, J23df
+J23df: 	ld a, c
+J23e0: 	cp $0a
+J23e2: 	jr z, J23e9
+J23e9: 	ex af, af'
+J23ea: 	cp $04
+J23ec: 	jr c, J23fb
+J23fb: 	ld a, $09
+J23fd: 	ld ($608f), a
+J2400: 	ld a, $01
+J2402: 	ld ($6090), a
+J2405: 	push hl
+J2406: 	ld hl, $6000
+J2409: 	set 0, (hl)
+J240b: 	pop hl
+J240c: 	pop bc
+J240d: 	pop hl
+J240e: 	ret
+J23ee: 	ld a, $00
+J23f0: 	ld ($608e), a
+J23f3: 	ld ($6090), a
+J23f6: 	ld ($608f), a
+J23f9: 	jr J240c
+J23e4: 	inc c
+J23e5: 	ex af, af'
+J23e6: 	jp J2354
+J235c: 	ld a, c
+J235d: 	cp $00
+J235f: 	jr nz, J2366
+J2366: 	cp $04
+J2368: 	jr nz, J236f
+J236f: 	call J2423
+J2423: 	push de
+J2424: 	push hl
+J2425: 	pop ix
+J2427: 	cp $06
+J2429: 	jr z, J2467
+J2467: 	pop de
+J2468: 	ret
+J242b: 	cp $02
+J242d: 	jr nz, J2433
+J2433: 	jr nc, J243c
+J243c: 	cp $05
+J243e: 	jr nz, J2445
+J2445: 	jr nc, J244c
+J244c: 	cp $08
+J244e: 	jr nz, J2455
+J2455: 	jr nc, J245c
+J245c: 	cp $09
+J245e: 	jr z, J2465
+J2465: 	dec ix
+J2460: 	ld de, $001f	; could be a data table address, label T001f: created
+J2463: 	jr J2438
+J2438: 	add ix, de
+J243a: 	jr J2467
+J2457: 	ld de, $0020	; could be a data table address, label T0020: created
+J245a: 	jr J2438
+J2450: 	ld de, $ffdf
+J2453: 	jr J2438
+J2447: 	ld de, $0021	; could be a data table address, label T0021: created
+J244a: 	jr J2438
+J2440: 	ld de, $ffe0
+J2443: 	jr J2438
+J2435: 	ld de, $ffe1
+J242f: 	inc ix
+J2431: 	jr J2467
+J2372: 	push de
+J2373: 	push iy
+J2375: 	ld d, $00
+J2377: 	dec a
+J2378: 	cp $04
+J237a: 	jr c, J237d
+J237d: 	ld e, a
+J237e: 	add iy, de
+J2380: 	ld a, (iy + $00)
+J2383: 	pop iy
+J2385: 	pop de
+J2386: 	cp $01
+J2388: 	jr nz, J23ca
+J23ca: 	push af
+J23cb: 	ld a, $00
+J23cd: 	push ix
+J23cf: 	push de
+J23d0: 	ld de, $0400	; could be a data table address, label T0400: created
+J23d3: 	add ix, de
+J23d5: 	ld ix, a
+J23d7: 	nop
+J23d8: 	pop de
+J23d9: 	pop ix
+J23db: 	pop af
+J23dc: 	ld ix, a
+J23de: 	nop
+J238a: 	push hl
+J238b: 	ld hl, $608e
+J238e: 	ld a, c
+J238f: 	cp $03
+J2391: 	jr nz, J2399
+J2399: 	jr nc, J23a1
+J23a1: 	cp $08
+J23a3: 	jr nz, J23ab
+J23ab: 	bit 3, (hl)
+J23ad: 	jr nz, J23b3
+J23b3: 	ld a, $e5
+J23b5: 	push af
+J23b6: 	ld a, $02
+J23b8: 	push ix
+J23ba: 	push de
+J23bb: 	ld de, $0400	; could be a data table address, label T0400: created
+J23be: 	add ix, de
+J23c0: 	ld ix, a
+J23c2: 	nop
+J23c3: 	pop de
+J23c4: 	pop ix
+J23c6: 	pop af
+J23c7: 	pop hl
+J23c8: 	jr J23dc
+J23af: 	ld a, $ff
+J23b1: 	jr J23c7
+J23a5: 	bit 2, (hl)
+J23a7: 	jr z, J23af
+J23a9: 	jr J23b3
+J239b: 	bit 0, (hl)
+J239d: 	jr z, J23af
+J239f: 	jr J23b3
+J2393: 	bit 1, (hl)
+J2395: 	jr z, J23af
+J2397: 	jr J23b3
+J237c: 	dec a
+J236a: 	call J248b
+J248b: 	push de
+J248c: 	push hl
+J248d: 	ld de, $ffc0
+J2490: 	add hl, de
+J2491: 	call J2469
+J2469: 	ld ix, $0d09	; could be a data table address, label T0d09: created
+J246d: 	ld a, b
+J246e: 	dec a
+J246f: 	ld d, $00
+J2471: 	ld e, a
+J2472: 	add ix, de
+J2474: 	ld d, (ix + $00)
+J2477: 	ld a, c
+J2478: 	cp $00
+J247a: 	jr z, J2487
+J2487: 	ld a, d
+J2488: 	and $0f
+J248a: 	ret
+J247c: 	srl d
+J247e: 	srl d
+J2480: 	srl d
+J2482: 	srl d
+J2484: 	ld a, d
+J2485: 	jr J248a
+J2494: 	cp $02
+J2496: 	jr nz, J24a5
+J24a5: 	jr nc, J24b4
+J24b4: 	ex af, af'
+J24b5: 	cp $04
+J24b7: 	jr c, J24c7
+J24c7: 	ex af, af'
+J24c8: 	ld a, (hl)
+J24c9: 	cp $3a
+J24cb: 	jr nz, J24d1
+J24d1: 	ld (hl), $33
+J24d3: 	jr J24d6
+J24d6: 	pop hl
+J24d7: 	pop de
+J24d8: 	ret
+J24cd: 	ld (hl), $3b
+J24cf: 	jr J24d6
+J24b9: 	ex af, af'
+J24ba: 	ld a, (hl)
+J24bb: 	cp $3b
+J24bd: 	jr nz, J24c3
+J24c3: 	ld (hl), $34
+J24c5: 	jr J24d6
+J24bf: 	ld (hl), $3a
+J24c1: 	jr J24d6
+J24a7: 	ex af, af'
+J24a8: 	cp $04
+J24aa: 	jr c, J24b0
+J24b0: 	ld (hl), $32
+J24b2: 	jr J24d5
+J24d5: 	ex af, af'
+J24ac: 	ld (hl), $38
+J24ae: 	jr J24d5
+J2498: 	ex af, af'
+J2499: 	cp $04
+J249b: 	jr c, J24a1
+J24a1: 	ld (hl), $33
+J24a3: 	jr J24d5
+J249d: 	ld (hl), $34
+J249f: 	jr J24d5
+J236d: 	jr J23df
+J2361: 	call J24d9
+J24d9: 	push de
+J24da: 	push hl
+J24db: 	inc hl
+J24dc: 	inc hl
+J24dd: 	call J2469
+J24e0: 	cp $02
+J24e2: 	jr nz, J24f1
+J24f1: 	jr nc, J2500
+J2500: 	ex af, af'
+J2501: 	cp $04
+J2503: 	jr c, J2513
+J2513: 	ex af, af'
+J2514: 	ld a, (hl)
+J2515: 	cp $3a
+J2517: 	jr nz, J251d
+J251d: 	ld (hl), $33
+J251f: 	jr J2522
+J2522: 	pop hl
+J2523: 	pop de
+J2524: 	ret
+J2519: 	ld (hl), $34
+J251b: 	jr J2522
+J2505: 	ex af, af'
+J2506: 	ld a, (hl)
+J2507: 	cp $34
+J2509: 	jr nz, J250f
+J250f: 	ld (hl), $3b
+J2511: 	jr J2522
+J250b: 	ld (hl), $3a
+J250d: 	jr J2522
+J24f3: 	ex af, af'
+J24f4: 	cp $04
+J24f6: 	jr c, J24fc
+J24fc: 	ld (hl), $31
+J24fe: 	jr J2521
+J2521: 	ex af, af'
+J24f8: 	ld (hl), $3c
+J24fa: 	jr J2521
+J24e4: 	ex af, af'
+J24e5: 	cp $04
+J24e7: 	jr c, J24ed
+J24ed: 	ld (hl), $33
+J24ef: 	jr J2521
+J24e9: 	ld (hl), $3b
+J24eb: 	jr J2521
+J2364: 	jr J23df
+J2341: 	set 2, c
+J2336: 	set 1, c
+J2308: 	ld de, $ffe1
+J230b: 	add hl, de
+J230c: 	ex af, af'
+J230d: 	ld a, (hl)
+J230e: 	cp $e5
+J2310: 	jr nz, J2314
+J2314: 	ld de, $003e	; could be a data table address, label T003e: created
+J2317: 	add hl, de
+J2318: 	ld a, (hl)
+J2319: 	cp $e5
+J231b: 	jr nz, J231f
+J231f: 	push af
+J2320: 	ld a, c
+J2321: 	ld ($608e), a
+J2324: 	pop af
+J2325: 	ex af, af'
+J2326: 	ld iy, $0cde	; could be a data table address, label T0cde: created
+J232a: 	jr J234e
+J231d: 	set 3, c
+J2312: 	set 0, c
+J22f2: 	bit 0, a
+J22f4: 	jr z, J22fc
+J22fc: 	ld iy, $0ce7	; could be a data table address, label T0ce7: created
+J2300: 	jr J234e
+J22f6: 	ld iy, $0cf0	; could be a data table address, label T0cf0: created
+J22fa: 	jr J234e
+J3b23: 	call J467b
+J467b: 	push hl
+J467c: 	ld hl, $46c4	; could be a data table address, label T46c4: created
+J467f: 	dec b
+J4680: 	ld c, b
+J4681: 	ld b, $00
+J4683: 	add hl, bc
+J4684: 	ex de, hl
+J4685: 	ld bc, $fff0
+J4688: 	pop hl
+J4689: 	ld a, (hl)
+J468a: 	ld ($61c8), a
+J468d: 	cp $36
+J468f: 	ld hl, $6200
+J4692: 	ld a, (de)
+J4693: 	ld l, a
+J4694: 	jr z, J46b0
+J46b0: 	set 4, (hl)
+J46b2: 	res 7, (hl)
+J46b4: 	dec hl
+J46b5: 	set 6, (hl)
+J46b7: 	res 7, (hl)
+J46b9: 	add hl, bc
+J46ba: 	set 6, (hl)
+J46bc: 	res 5, (hl)
+J46be: 	inc hl
+J46bf: 	set 4, (hl)
+J46c1: 	res 5, (hl)
+J46c3: 	ret
+J4696: 	ld a, ($61c8)
+J4699: 	cp $3e
+J469b: 	ret nz
+J469c: 	set 7, (hl)
+J469e: 	res 4, (hl)
+J46a0: 	dec hl
+J46a1: 	set 7, (hl)
+J46a3: 	res 6, (hl)
+J46a5: 	add hl, bc
+J46a6: 	set 5, (hl)
+J46a8: 	res 6, (hl)
+J46aa: 	inc hl
+J46ab: 	set 5, (hl)
+J46ad: 	res 4, (hl)
+J46af: 	ret
+J3b26: 	ld hl, $605f
+J3b29: 	res 3, (hl)
+J3b2b: 	jp J3aa3
+J3b09: 	jr c, J3b17
+J3b17: 	ld a, $05
+J3b19: 	jr J3b1d
+J3b0b: 	cp $03
+J3b0d: 	jr z, J3b1b
+J3b1b: 	ld a, $04
+J3b0f: 	ld a, $06
+J3b11: 	jr J3b1d
+J3bd3: 	ex af, af'
+J3bd4: 	ld b, a
+J3bd5: 	inc a
+J3bd6: 	ld ($61c9), a
+J3bd9: 	ld a, b
+J3bda: 	ld ($61cb), hl
+J3bdd: 	ex af, af'
+J3bde: 	ld a, $01
+J3be0: 	ld ($61ca), a
+J3be3: 	ex af, af'
+J3be4: 	call J3bea
+J3be7: 	jp J3bfe
+J3bfe: 	call J22eb
+J3c01: 	call J467b
+J3c04: 	ld hl, $605f
+J3c07: 	res 3, (hl)
+J3c09: 	ret
+J3bb3: 	dec hl
+J3bb4: 	ld a, $03
+J3bb6: 	jp J3bca
+J3ab8: 	jp z, J3b61
+J3b61: 	ld a, ($6027)
+J3b64: 	add a, $04
+J3b66: 	ld d, a
+J3b67: 	ld a, ($6028)
+J3b6a: 	sub $04
+J3b6c: 	ld e, a
+J3b6d: 	call J3c0a
+J3b70: 	ld a, (hl)
+J3b71: 	dec e
+J3b72: 	call J3c0a
+J3b75: 	cp (hl)
+J3b76: 	jr z, J3b97
+J3b97: 	ret
+J3b78: 	ld a, $35
+J3b7a: 	cp (hl)
+J3b7b: 	jr nz, J3b87
+J3b87: 	ld a, d
+J3b88: 	sub $08
+J3b8a: 	ld d, a
+J3b8b: 	call J3c0a
+J3b8e: 	ld a, $36
+J3b90: 	cp (hl)
+J3b91: 	ret nz
+J3b92: 	ld a, $01
+J3b94: 	jp J3bca
+J3b7d: 	push de
+J3b7e: 	ld de, $0020	; could be a data table address, label T0020: created
+J3b81: 	add hl, de
+J3b82: 	pop de
+J3b83: 	xor a
+J3b84: 	jp J3bca
+J3abb: 	cp $04
+J3abd: 	jp z, J3b2e
+J3b2e: 	ld a, ($6027)
+J3b31: 	add a, $05
+J3b33: 	ld d, a
+J3b34: 	ld a, ($6028)
+J3b37: 	add a, $05
+J3b39: 	ld e, a
+J3b3a: 	call J3c0a
+J3b3d: 	ld a, (hl)
+J3b3e: 	inc d
+J3b3f: 	call J3c0a
+J3b42: 	cp (hl)
+J3b43: 	jr z, J3b60
+J3b60: 	ret
+J3b45: 	ld a, $3e
+J3b47: 	cp (hl)
+J3b48: 	jr nz, J3b4f
+J3b4f: 	ld a, e
+J3b50: 	sub $08
+J3b52: 	ld e, a
+J3b53: 	call J3c0a
+J3b56: 	ld a, $3d
+J3b58: 	cp (hl)
+J3b59: 	ret nz
+J3b5a: 	dec hl
+J3b5b: 	ld a, $02
+J3b5d: 	jp J3bca
+J3b4a: 	ld a, $03
+J3b4c: 	jp J3bca
+J3ac0: 	ld a, ($6027)
+J3ac3: 	sub $04
+J3ac5: 	ld d, a
+J3ac6: 	ld a, ($6028)
+J3ac9: 	nop
+J3aca: 	ld e, a
+J3acb: 	call J3c0a
+J3ace: 	ld b, (hl)
+J3acf: 	dec e
+J3ad0: 	call J3c0a
+J3ad3: 	ld a, (hl)
+J3ad4: 	cp b
+J3ad5: 	jr z, J3af8
+J3af8: 	ret
+J3ad7: 	ld a, b
+J3ad8: 	cp $36
+J3ada: 	jr nz, J3ae1
+J3ae1: 	inc e
+J3ae2: 	ld a, d
+J3ae3: 	add a, $08
+J3ae5: 	ld d, a
+J3ae6: 	call J3c0a
+J3ae9: 	ld a, $35
+J3aeb: 	cp (hl)
+J3aec: 	ret nz
+J3aed: 	push de
+J3aee: 	ld de, $0020	; could be a data table address, label T0020: created
+J3af1: 	add hl, de
+J3af2: 	pop de
+J3af3: 	ld a, $01
+J3af5: 	jp J3bca
+J3adc: 	inc hl
+J3add: 	xor a
+J3ade: 	jp J3bca
+J3aa0: 	jp J3af9
+J07b5: 	ld b, $04
+J07b7: 	ld hl, $602b
+J07ba: 	ld de, $0005	; could be a data table address, label T0005: created
+J07bd: 	bit 1, (hl)
+J07bf: 	jp nz, J07c8
+J07c8: 	push hl
+J07c9: 	inc hl
+J07ca: 	inc hl
+J07cb: 	ld a, ($6028)
+J07ce: 	sub (hl)
+J07cf: 	jr nc, J07d3
+J07d3: 	cp $09
+J07d5: 	jp nc, J07ea
+J07ea: 	pop hl
+J07eb: 	jp J07c2
+J07c2: 	add hl, de
+J07c3: 	djnz J07bd
+J07c5: 	jp J07ee
+J07ee: 	call J3cb0
+J3cb0: 	push hl
+J3cb1: 	push de
+J3cb2: 	push bc
+J3cb3: 	ld hl, $6044
+J3cb6: 	ld de, $fffb
+J3cb9: 	ld b, $06
+J3cbb: 	xor a
+J3cbc: 	bit 1, (hl)
+J3cbe: 	jr z, J3cc4
+J3cc4: 	and a
+J3cc5: 	rla
+J3cc6: 	add hl, de
+J3cc7: 	djnz J3cbc
+J3cc9: 	pop bc
+J3cca: 	pop de
+J3ccb: 	pop hl
+J3ccc: 	ret
+J3cc0: 	scf
+J3cc1: 	jp J3cc5
+J07f1: 	and $0f
+J07f3: 	cp $0f
+J07f5: 	jr nz, J0814
+J0814: 	ld a, ($605f)
+J0817: 	bit 7, a
+J0819: 	jr nz, J084b
+J084b: 	ld a, ($6028)
+J084e: 	ld hl, $6197
+J0851: 	sub (hl)
+J0852: 	jp nc, J0857
+J0857: 	cp $05
+J0859: 	jp nc, J0888
+J0888: 	jp J0784
+J0784: 	call J1fc7
+J0787: 	call J178f
+J085c: 	ld a, ($6027)
+J085f: 	dec hl
+J0860: 	sub (hl)
+J0861: 	jp nc, J0866
+J0866: 	cp $05
+J0868: 	jp nc, J0888
+J086b: 	ld d, (hl)
+J086c: 	inc hl
+J086d: 	ld e, (hl)
+J086e: 	call J3c0a
+J0871: 	ld a, (hl)
+J0872: 	cp $e5
+J0874: 	jp z, J094a
+J094a: 	ld a, $ff
+J094c: 	ld (hl), a
+J094d: 	ld e, $00
+J094f: 	call J3c2c
+J3c2c: 	push hl
+J3c2d: 	ld hl, $605f
+J3c30: 	bit 4, (hl)
+J3c32: 	jp nz, J3cae
+J3cae: 	pop hl
+J3caf: 	ret
+J3c35: 	push de
+J3c36: 	ld a, ($6065)
+J3c39: 	cp $00
+J3c3b: 	jr nz, J3c42
+J3c42: 	ld a, ($60a2)
+J3c45: 	ex af, af'
+J3c46: 	ld hl, $0e10	; could be a data table address, label T0e10: created
+J3c49: 	xor a
+J3c4a: 	cp e
+J3c4b: 	jr nz, J3c62
+J3c62: 	dec e
+J3c63: 	sla e
+J3c65: 	sla e
+J3c67: 	ld d, $00
+J3c69: 	add hl, de
+J3c6a: 	ex af, af'
+J3c6b: 	ld e, a
+J3c6c: 	add hl, de
+J3c6d: 	ld b, $00
+J3c6f: 	ld c, (hl)
+J3c70: 	ld d, $00
+J3c72: 	ld a, ($6065)
+J3c75: 	cp $00
+J3c77: 	jr nz, J3c7f
+J3c7f: 	ld ix, $606b
+J3c83: 	ld a, (ix + $02)
+J3c86: 	add d
+J3c87: 	daa
+J3c88: 	ld ix, a
+J3c8a: 	ld (bc), a
+J3c8b: 	ld a, (ix + $01)
+J3c8e: 	adc c
+J3c8f: 	daa
+J3c90: 	ld ix, a
+J3c92: 	ld bc, $7edd
+J3c95: 	nop
+J3c96: 	adc b
+J3c97: 	daa
+J3c98: 	ld ix, a
+J3c9a: 	nop
+J3c9b: 	ld a, ($6065)
+J3c9e: 	cp $00
+J3ca0: 	jr nz, J3ca7
+J3ca7: 	ld hl, $d2c3
+J3caa: 	call J1e06
+J3cad: 	pop de
+J3ca2: 	ld hl, $d2c4
+J3ca5: 	jr J3caa
+J3c79: 	ld ix, $6068
+J3c7d: 	jr J3c83
+J3c4d: 	ex af, af'
+J3c4e: 	ld b, $00
+J3c50: 	ld c, a
+J3c51: 	add hl, bc
+J3c52: 	ld a, (hl)
+J3c53: 	sla a
+J3c55: 	sla a
+J3c57: 	sla a
+J3c59: 	sla a
+J3c5b: 	ld b, $00
+J3c5d: 	ld c, $00
+J3c5f: 	ld d, a
+J3c60: 	jr J3c72
+J3c3d: 	ld a, ($609f)
+J3c40: 	jr J3c45
+J0952: 	ld hl, $6000
+J0955: 	set 3, (hl)
+J0957: 	ld hl, $60a9
+J095a: 	dec (hl)
+J095b: 	jp nz, J0784
+J095e: 	call J3f2f
+J3f2f: 	call J1fc7
+J3f32: 	call J178f
+J3f35: 	ld a, ($6003)
+J3f38: 	cp $00
+J3f3a: 	jr nz, J3f2f
+J3f3c: 	ret
+J0961: 	ld hl, $6001
+J0964: 	set 1, (hl)
+J0966: 	call J3f2f
+J0969: 	ld hl, $619b
+J096c: 	dec (hl)
+J096d: 	jr nz, J098d
+J098d: 	call J3ccd
+J0990: 	call J1fc7
+J0993: 	call J178f
+J0996: 	call J4054
+J4054: 	ld b, $0c
+J4056: 	ld ix, $619c
+J405a: 	ld a, (ix + $01)
+J405d: 	cp $00
+J405f: 	jr z, J4077
+J4077: 	inc ix
+J4079: 	inc ix
+J407b: 	djnz J405a
+J407d: 	ret
+J4061: 	ld ixl, (ix + $00)
+J4064: 	ld ixh, (ix + $01)
+J4067: 	push ix
+J4069: 	push bc
+J406a: 	call J3d2b
+J3d2b: 	push hl
+J3d2c: 	ld c, $00
+J3d2e: 	ld b, $02
+J3d30: 	ld de, $0e1c	; could be a data table address, label T0e1c: created
+J3d33: 	ld a, (de)
+J3d34: 	inc de
+J3d35: 	cp l
+J3d36: 	jp nz, J3d3e
+J3d3e: 	inc de
+J3d3f: 	djnz J3d33
+J3d41: 	inc c
+J3d42: 	ld b, $0c
+J3d44: 	ld a, (de)
+J3d45: 	inc de
+J3d46: 	cp l
+J3d47: 	jp nz, J3d4f
+J3d4f: 	inc de
+J3d50: 	djnz J3d44
+J3d52: 	inc c
+J3d53: 	ld b, $10
+J3d55: 	ld a, (de)
+J3d56: 	inc de
+J3d57: 	cp l
+J3d58: 	jp nz, J3d60
+J3d60: 	inc de
+J3d61: 	djnz J3d55
+J3d63: 	inc c
+J3d64: 	ld b, $00
+J3d66: 	ld ix, $0e58	; could be a data table address, label T0e58: created
+J3d6a: 	sla c
+J3d6c: 	sla c
+J3d6e: 	add ix, bc
+J3d70: 	ld a, (ix + $00)
+J3d73: 	ld (hl), a
+J3d74: 	push hl
+J3d75: 	ld de, $0400	; could be a data table address, label T0400: created
+J3d78: 	add hl, de
+J3d79: 	ld (hl), $02
+J3d7b: 	pop hl
+J3d7c: 	inc hl
+J3d7d: 	ld a, (ix + $01)
+J3d80: 	ld (hl), a
+J3d81: 	push hl
+J3d82: 	add hl, de
+J3d83: 	ld (hl), $00
+J3d85: 	pop hl
+J3d86: 	push de
+J3d87: 	ld de, $ffe0
+J3d8a: 	add hl, de
+J3d8b: 	pop de
+J3d8c: 	ld a, (ix + $02)
+J3d8f: 	ld (hl), a
+J3d90: 	push hl
+J3d91: 	add hl, de
+J3d92: 	ld (hl), $00
+J3d94: 	pop hl
+J3d95: 	dec hl
+J3d96: 	ld a, (ix + $03)
+J3d99: 	ld (hl), a
+J3d9a: 	add hl, de
+J3d9b: 	ld (hl), $00
+J3d9d: 	pop hl
+J3d9e: 	ret
+J3d5b: 	ld a, (de)
+J3d5c: 	cp h
+J3d5d: 	jp z, J3d64
+J3d4a: 	ld a, (de)
+J3d4b: 	cp h
+J3d4c: 	jp z, J3d64
+J3d39: 	ld a, (de)
+J3d3a: 	cp h
+J3d3b: 	jp z, J3d64
+J406d: 	pop bc
+J406e: 	pop ix
+J4070: 	xor a
+J4071: 	ld ix, a
+J4073: 	nop
+J4074: 	ld ix, a
+J4076: 	ld bc, $23dd	; could be a data table address, label T23dd: created
+J0999: 	jp J0662
+J0662: 	call J33cf
+J0665: 	ld hl, $6066
+J0668: 	ld a, ($6065)
+J066b: 	cp $00
+J066d: 	jr z, J0672
+J0672: 	inc (hl)
+J0673: 	inc (hl)
+J0674: 	push hl
+J0675: 	call J0485
+J0678: 	pop hl
+J0679: 	dec (hl)
+J067a: 	dec (hl)
+J067b: 	call J28fe
+J067e: 	call J1fc7
+J0681: 	call J178f
+J0684: 	ld a, $81
+J0686: 	ld ($6021), a
+J0689: 	call J30f4
+J068c: 	call J311c
+J068f: 	call J3154
+J0692: 	call J1d77
+J0695: 	call J1ef4
+J0698: 	ld hl, $d101
+J069b: 	call J1f44
+J069e: 	ld hl, $601f
+J06a1: 	call J1f7f
+J06a4: 	ld (hl), a
+J06a5: 	inc hl
+J06a6: 	ld (hl), b
+J06a7: 	call J1fc7
+J06aa: 	call J178f
+J06ad: 	ld b, $b4
+J06af: 	call J0528
+J06b2: 	call J2ac1
+J06b5: 	xor a
+J06b6: 	ld ($6021), a
+J06b9: 	call J1fc7
+J06bc: 	call J178f
+J06bf: 	call J2144
+J06c2: 	call J33e3
+J06c5: 	call J215c
+J06c8: 	call J3192
+J06cb: 	call J3144
+J06ce: 	call J3154
+J06d1: 	call J30da
+J06d4: 	call J30cf
+J06d7: 	call J2b15
+J06da: 	xor a
+J06db: 	ld ($6060), a
+J06de: 	cpl
+J06df: 	ld ($6062), a
+J06e2: 	ld a, $0c
+J06e4: 	ld ($6061), a
+J06e7: 	call J1cc6
+J06ea: 	ld hl, $d61c
+J06ed: 	ld ($6063), hl
+J06f0: 	call J1ef4
+J06f3: 	ld hl, $d101
+J06f6: 	call J1f44
+J06f9: 	ld ix, $601c
+J06fd: 	ld (ix + $00), $82
+J0701: 	ld (ix + $01), $08
+J0705: 	ld (ix + $02), $0f
+J0709: 	call J1f7f
+J070c: 	ld ix, a
+J070e: 	inc bc
+J070f: 	ld ix, b
+J0711: 	inc b
+J0712: 	call J1fc7
+J0715: 	call J178f
+J0718: 	ld (ix + $00), $81
+J071c: 	call J05ae
+J071f: 	ld hl, $6026
+J0722: 	ld (hl), $82
+J0724: 	inc hl
+J0725: 	ld (hl), $58
+J0727: 	inc hl
+J0728: 	ld (hl), $56
+J072a: 	call J1fc7
+J072d: 	call J178f
+J066f: 	ld hl, $6067
+J096f: 	ld a, ($605f)
+J0972: 	bit 1, a
+J0974: 	jr z, J098d
+J0976: 	ld a, ($6065)
+J0979: 	cp $00
+J097b: 	jr z, J0986
+J0986: 	ld a, ($6067)
+J0989: 	cp $00
+J098b: 	jr nz, J099c
+J099c: 	call J3a99
+J099f: 	call J3cf3
+J3cf3: 	ld ix, $0d43	; could be a data table address, label T0d43: created
+J3cf7: 	ld b, $14
+J3cf9: 	ld e, $00
+J3cfb: 	ld ixl, (ix + $00)
+J3cfe: 	ld ixh, (ix + $01)
+J3d01: 	ld a, (hl)
+J3d02: 	cp $36
+J3d04: 	jr nz, J3d09
+J3d09: 	scf
+J3d0a: 	rl e
+J3d0c: 	rl d
+J3d0e: 	rl c
+J3d10: 	dec ix
+J3d12: 	dec ix
+J3d14: 	djnz J3cfb
+J3d16: 	ld a, ($6065)
+J3d19: 	cp $00
+J3d1b: 	jr nz, J3d22
+J3d22: 	ld hl, $60a6
+J3d25: 	ld (hl), e
+J3d26: 	inc hl
+J3d27: 	ld (hl), d
+J3d28: 	inc hl
+J3d29: 	ld (hl), c
+J3d2a: 	ret
+J3d1d: 	ld hl, $60a3
+J3d20: 	jr J3d25
+J3d06: 	and a
+J3d07: 	jr J3d0a
+J09a2: 	call J3510
+J3510: 	ld c, $00
+J3512: 	ld hl, $d0c6
+J3515: 	ld a, ($6065)
+J3518: 	cp $00
+J351a: 	jr z, J3522
+J3522: 	ld ix, $60ac
+J3526: 	ld b, $0b
+J3528: 	call J3563
+J3563: 	ld iy, $0d5f	; could be a data table address, label T0d5f: created
+J3567: 	ld d, $00
+J3569: 	ld a, (hl)
+J356a: 	cp (iy + $00)
+J356d: 	jr z, J357f
+J357f: 	cp $5c
+J3581: 	jr nz, J3574
+J3574: 	ld a, d
+J3575: 	cp $01
+J3577: 	jr z, J357b
+J357b: 	ld a, (iy + $00)
+J357e: 	ret
+J3579: 	jr nc, J358f
+J358f: 	sub $02
+J3591: 	ret
+J3583: 	push hl
+J3584: 	inc hl
+J3585: 	ld a, (hl)
+J3586: 	pop hl
+J3587: 	cp $66
+J3589: 	jr c, J3574
+J358b: 	inc d
+J358c: 	inc d
+J358d: 	jr J3574
+J356f: 	inc iy
+J3571: 	inc d
+J3572: 	jr J356a
+J352b: 	ld ix, a
+J352d: 	nop
+J352e: 	inc ix
+J3530: 	inc c
+J3531: 	ld a, c
+J3532: 	cp $37
+J3534: 	jr nz, J3556
+J3556: 	cp $75
+J3558: 	jr z, J3562
+J3562: 	ret
+J355a: 	djnz J3552
+J3552: 	inc hl
+J3553: 	inc hl
+J3554: 	jr J3528
+J355c: 	ld de, $002c	; could be a data table address, label T002c: created
+J355f: 	add hl, de
+J3560: 	jr J3526
+J3536: 	ld de, $0032	; could be a data table address, label T0032: created
+J3539: 	add hl, de
+J353a: 	call J3563
+J353d: 	ld ix, a
+J353f: 	nop
+J3540: 	inc ix
+J3542: 	inc c
+J3543: 	inc hl
+J3544: 	inc hl
+J3545: 	call J3563
+J3548: 	ld ix, a
+J354a: 	nop
+J354b: 	inc ix
+J354d: 	inc c
+J354e: 	ld b, $05
+J3550: 	inc hl
+J3551: 	inc hl
+J351c: 	ld ix, $6121
+J3520: 	jr J3526
+J09a5: 	call J3ccd
+J09a8: 	ld hl, $6026
+J09ab: 	set 1, (hl)
+J09ad: 	call J2c74
+J2c74: 	call J2ac1
+J2c77: 	ld hl, $6026
+J2c7a: 	bit 1, (hl)
+J2c7c: 	jr z, J2c81
+J2c81: 	ld hl, $d150
+J2c84: 	ld a, $ff
+J2c86: 	ld b, $0d
+J2c88: 	call J1e7d
+J2c8b: 	ld hl, $d550
+J2c8e: 	ld a, $06
+J2c90: 	ld b, $0d
+J2c92: 	call J1e7d
+J2c95: 	ld hl, $0d6d	; could be a data table address, label T0d6d: created
+J2c98: 	ld ix, $d150
+J2c9c: 	ld b, $0d
+J2c9e: 	call J29cf
+J2ca1: 	ret
+J2c7e: 	call J2ca2
+J2ca2: 	xor a
+J2ca3: 	ld hl, $6021
+J2ca6: 	ld (hl), a
+J2ca7: 	call J1fc7
+J2caa: 	call J178f
+J2cad: 	ld hl, $602b
+J2cb0: 	ld b, $07
+J2cb2: 	ld de, $0005	; could be a data table address, label T0005: created
+J2cb5: 	xor a
+J2cb6: 	ld (hl), a
+J2cb7: 	push de
+J2cb8: 	call J2e4f
+J2e4f: 	push af
+J2e50: 	push hl
+J2e51: 	push bc
+J2e52: 	call J1fc7
+J2e55: 	call J178f
+J2e58: 	pop bc
+J2e59: 	pop hl
+J2e5a: 	pop af
+J2e5b: 	ret
+J2cbb: 	pop de
+J2cbc: 	add hl, de
+J2cbd: 	djnz J2cb6
+J2cbf: 	ld hl, $6026
+J2cc2: 	push hl
+J2cc3: 	ld (hl), $12
+J2cc5: 	inc hl
+J2cc6: 	call J2e4f
+J2cc9: 	dec (hl)
+J2cca: 	ld a, (hl)
+J2ccb: 	cp $07
+J2ccd: 	jr nz, J2cc6
+J2ccf: 	pop hl
+J2cd0: 	ld (hl), $22
+J2cd2: 	inc hl
+J2cd3: 	inc hl
+J2cd4: 	call J2e4f
+J2cd7: 	dec (hl)
+J2cd8: 	ld a, (hl)
+J2cd9: 	cp $22
+J2cdb: 	jr nz, J2cd4
+J2cdd: 	ld hl, $6026
+J2ce0: 	ld (hl), $00
+J2ce2: 	call J1fc7
+J2ce5: 	call J178f
+J2ce8: 	ld a, ($6065)
+J2ceb: 	cp $00
+J2ced: 	jr z, J2cf4
+J2cf4: 	ld hl, $6066
+J2cf7: 	inc (hl)
+J2cf8: 	call J1d77
+J2cfb: 	ret
+J2cef: 	ld hl, $6067
+J2cf2: 	jr J2cf7
+J09b0: 	ld b, $80
+J09b2: 	call J0528
+J09b5: 	ld a, ($6065)
+J09b8: 	cpl
+J09b9: 	ld ($6065), a
+J09bc: 	call J3fcd
+J3fcd: 	ld hl, $9002
+J3fd0: 	bit 5, (hl)
+J3fd2: 	jr z, J3fe4
+J3fe4: 	ret
+J3fd4: 	ld hl, $a000
+J3fd7: 	ld a, ($6065)
+J3fda: 	cp $00
+J3fdc: 	jr nz, J3fe2
+J3fe2: 	set 0, (hl)
+J3fde: 	res 0, (hl)
+J3fe0: 	jr J3fe4
+J09bf: 	ld hl, $605f
+J09c2: 	bit 2, (hl)
+J09c4: 	jp z, J04d5
+J09c7: 	res 2, (hl)
+J09c9: 	jp J060b
+J060b: 	call J2ac1
+J060e: 	xor a
+J060f: 	ld ($61c9), a
+J0612: 	call J1e4c
+J0615: 	call J2144
+J0618: 	call J215c
+J061b: 	call J3592
+J3592: 	call J3fbc
+J3fbc: 	push af
+J3fbd: 	push bc
+J3fbe: 	push hl
+J3fbf: 	xor a
+J3fc0: 	ld b, $18
+J3fc2: 	ld hl, $619c
+J3fc5: 	ld (hl), a
+J3fc6: 	inc hl
+J3fc7: 	djnz J3fc5
+J3fc9: 	pop hl
+J3fca: 	pop bc
+J3fcb: 	pop af
+J3fcc: 	ret
+J3595: 	xor a
+J3596: 	ld ($60a9), a
+J3599: 	ld a, ($6065)
+J359c: 	cp $00
+J359e: 	jr nz, J35a6
+J35a6: 	ld iy, $6121
+J35aa: 	ld hl, $d0c6
+J35ad: 	ld c, $00
+J35af: 	ld b, $0b
+J35b1: 	call J34cf
+J34cf: 	push bc
+J34d0: 	push hl
+J34d1: 	ld a, (iy + $00)
+J34d4: 	cp $0c
+J34d6: 	jr c, J34f3
+J34f3: 	cp $0b
+J34f5: 	jr z, J34fd
+J34fd: 	ld b, c
+J34fe: 	ex af, af'
+J34ff: 	ld a, c
+J3500: 	call J3444
+J3503: 	ex af, af'
+J3504: 	ld b, a
+J3505: 	call J32d8
+J32d8: 	push af
+J3508: 	pop hl
+J3509: 	push hl
+J350a: 	call J3f7b
+J3f7b: 	push ix
+J3f7d: 	push af
+J3f7e: 	push de
+J3f7f: 	ld a, b
+J3f80: 	cp $0a
+J3f82: 	jr c, J3f96
+J3f96: 	ld ix, $619c
+J3f9a: 	ld a, (ix + $01)
+J3f9d: 	cp $00
+J3f9f: 	jr z, J3fb1
+J3fb1: 	ld ix, ixl
+J3fb3: 	nop
+J3fb4: 	ld ix, ixh
+J3fb6: 	ld bc, $f1d1
+J3fb9: 	pop ix
+J3fbb: 	ret
+J3fa1: 	inc ix
+J3fa3: 	inc ix
+J3fa5: 	push ix
+J3fa7: 	ld de, $61b4
+J3faa: 	ld a, e
+J3fab: 	pop de
+J3fac: 	cp e
+J3fad: 	jr z, J3fb7
+J3fb7: 	pop de
+J3fb8: 	pop af
+J3faf: 	jr J3f9a
+J3f84: 	jr z, J3f90
+J3f90: 	ld ix, $61a2
+J3f94: 	jr J3f9a
+J3f86: 	cp $0b
+J3f88: 	jr nz, J3fb7
+J3f8a: 	ld ix, $61a8
+J3f8e: 	jr J3f9a
+J350d: 	pop hl
+J350e: 	pop bc
+J350f: 	ret
+J34f7: 	push hl
+J34f8: 	ld hl, $60a9
+J34fb: 	inc (hl)
+J34fc: 	pop hl
+J34d8: 	cp $ff
+J34da: 	jr z, J34e2
+J34e2: 	ld (hl), a
+J34e3: 	cp $ff
+J34e5: 	jr z, J350d
+J34e7: 	ld de, $0400	; could be a data table address, label T0400: created
+J34ea: 	add hl, de
+J34eb: 	ld (hl), $02
+J34ed: 	ld hl, $60a9
+J34f0: 	inc (hl)
+J34f1: 	jr J350d
+J34dc: 	cp $e5
+J34de: 	jr z, J34e2
+J34e0: 	ld a, $ff
+J35b4: 	inc iy
+J35b6: 	inc c
+J35b7: 	ld a, c
+J35b8: 	cp $37
+J35ba: 	jr nz, J35d6
+J35d6: 	cp $75
+J35d8: 	jr z, J35e2
+J35e2: 	ret
+J35da: 	djnz J35d2
+J35d2: 	inc hl
+J35d3: 	inc hl
+J35d4: 	jr J35b1
+J35dc: 	ld de, $002c	; could be a data table address, label T002c: created
+J35df: 	add hl, de
+J35e0: 	jr J35af
+J35bc: 	ld de, $0032	; could be a data table address, label T0032: created
+J35bf: 	add hl, de
+J35c0: 	call J34cf
+J35c3: 	inc iy
+J35c5: 	inc c
+J35c6: 	inc hl
+J35c7: 	inc hl
+J35c8: 	call J34cf
+J35cb: 	inc iy
+J35cd: 	inc c
+J35ce: 	ld b, $05
+J35d0: 	inc hl
+J35d1: 	inc hl
+J35a0: 	ld iy, $60ac
+J35a4: 	jr J35aa
+J061e: 	jp J0556
+J097d: 	ld a, ($6066)
+J0980: 	cp $00
+J0982: 	jr z, J098d
+J0984: 	jr J099c
+J0877: 	cp $63
+J0879: 	jp z, J0aea
+J0aea: 	call J3fe5
+J3fe5: 	push af
+J3fe6: 	push bc
+J3fe7: 	push de
+J3fe8: 	ld b, $0c
+J3fea: 	ld de, $619c
+J3fed: 	ld a, (de)
+J3fee: 	cp l
+J3fef: 	jr nz, J3ff7
+J3ff7: 	inc de
+J3ff8: 	inc de
+J3ff9: 	djnz J3fed
+J3ffb: 	jr J4001
+J4001: 	pop de
+J4002: 	pop bc
+J4003: 	pop af
+J4004: 	ret
+J3ff1: 	inc de
+J3ff2: 	ld a, (de)
+J3ff3: 	dec de
+J3ff4: 	cp h
+J3ff5: 	jr z, J3ffd
+J3ffd: 	xor a
+J3ffe: 	ld (de), a
+J3fff: 	inc de
+J4000: 	ld (de), a
+J0aed: 	call J3d2b
+J0af0: 	call J4005
+J4005: 	ld b, $06
+J4007: 	ld ix, $61a8
+J400b: 	ld a, (ix + $01)
+J400e: 	cp $00
+J4010: 	jr z, J402e
+J402e: 	inc ix
+J4030: 	inc ix
+J4032: 	djnz J400b
+J4034: 	ret
+J4012: 	ld ixl, (ix + $00)
+J4015: 	ld ixh, (ix + $01)
+J4018: 	push ix
+J401a: 	push bc
+J401b: 	call J3d2b
+J401e: 	ld (hl), $e5
+J4020: 	ld hl, $60a9
+J4023: 	inc (hl)
+J4024: 	pop bc
+J4025: 	pop ix
+J4027: 	xor a
+J4028: 	ld ix, a
+J402a: 	nop
+J402b: 	ld ix, a
+J402d: 	ld bc, $23dd	; could be a data table address, label T23dd: created
+J0af3: 	ld hl, $6001
+J0af6: 	set 5, (hl)
+J0af8: 	call J2d64
+J2d64: 	ld hl, $6026
+J2d67: 	ld (hl), $82
+J2d69: 	ld b, $1e
+J2d6b: 	ld a, $e4
+J2d6d: 	inc hl
+J2d6e: 	inc hl
+J2d6f: 	inc hl
+J2d70: 	call J2e4f
+J2d73: 	ld (hl), a
+J2d74: 	inc hl
+J2d75: 	ld (hl), $00
+J2d77: 	dec hl
+J2d78: 	djnz J2d70
+J2d7a: 	ld b, $06
+J2d7c: 	add a, $04
+J2d7e: 	ld c, $05
+J2d80: 	ld (hl), a
+J2d81: 	call J2e4f
+J2d84: 	dec c
+J2d85: 	jr nz, J2d80
+J2d87: 	djnz J2d7c
+J2d89: 	ld b, $06
+J2d8b: 	ld a, $48
+J2d8d: 	ld c, $05
+J2d8f: 	ld (hl), a
+J2d90: 	inc hl
+J2d91: 	ld (hl), $09
+J2d93: 	set 4, (hl)
+J2d95: 	dec hl
+J2d96: 	call J2e4f
+J2d99: 	dec c
+J2d9a: 	jr nz, J2d8f
+J2d9c: 	add a, $04
+J2d9e: 	djnz J2d8d
+J2da0: 	ld b, $1e
+J2da2: 	ld (hl), a
+J2da3: 	call J2e4f
+J2da6: 	djnz J2da2
+J2da8: 	ld ix, $6002
+J2dac: 	set 0, (ix + $00)
+J2db0: 	dec hl
+J2db1: 	ld de, $2dce	; could be a data table address, label T2dce: created
+J2db4: 	push de
+J2db5: 	call J2dd7
+J2dd7: 	dec hl
+J2dd8: 	ld b, $02
+J2dda: 	ld a, $af
+J2ddc: 	inc (hl)
+J2ddd: 	cp (hl)
+J2dde: 	jp z, J2e12
+J2e12: 	pop de
+J2e13: 	ret
+J2de1: 	call J2e4f
+J2de4: 	djnz J2ddc
+J2de6: 	ld b, $04
+J2de8: 	ld a, $af
+J2dea: 	inc (hl)
+J2deb: 	cp (hl)
+J2dec: 	jp z, J2e12
+J2def: 	inc hl
+J2df0: 	inc (hl)
+J2df1: 	ld a, $d7
+J2df3: 	cp (hl)
+J2df4: 	jp z, J2e12
+J2df7: 	call J2e4f
+J2dfa: 	dec hl
+J2dfb: 	djnz J2de8
+J2dfd: 	inc hl
+J2dfe: 	ld b, $04
+J2e00: 	inc (hl)
+J2e01: 	cp (hl)
+J2e02: 	jp z, J2e12
+J2e05: 	call J2e4f
+J2e08: 	djnz J2e00
+J2e0a: 	ld b, $05
+J2e0c: 	call J2e4f
+J2e0f: 	djnz J2e0c
+J2e11: 	ret
+J2db8: 	call J2e14
+J2e14: 	dec hl
+J2e15: 	ld b, $02
+J2e17: 	xor a
+J2e18: 	dec (hl)
+J2e19: 	cp (hl)
+J2e1a: 	jp z, J2e4d
+J2e4d: 	pop de
+J2e4e: 	ret
+J2e1d: 	call J2e4f
+J2e20: 	djnz J2e18
+J2e22: 	ld b, $04
+J2e24: 	xor a
+J2e25: 	dec (hl)
+J2e26: 	cp (hl)
+J2e27: 	jp z, J2e4d
+J2e2a: 	inc hl
+J2e2b: 	inc (hl)
+J2e2c: 	ld a, $d7
+J2e2e: 	cp (hl)
+J2e2f: 	jp z, J2e4d
+J2e32: 	call J2e4f
+J2e35: 	dec hl
+J2e36: 	djnz J2e24
+J2e38: 	inc hl
+J2e39: 	ld b, $04
+J2e3b: 	inc (hl)
+J2e3c: 	cp (hl)
+J2e3d: 	jp z, J2e4d
+J2e40: 	call J2e4f
+J2e43: 	djnz J2e3b
+J2e45: 	ld b, $05
+J2e47: 	call J2e4f
+J2e4a: 	djnz J2e47
+J2e4c: 	ret
+J2dbb: 	call J2e14
+J2dbe: 	call J2dd7
+J2dc1: 	call J2dd7
+J2dc4: 	call J2e14
+J2dc7: 	call J2e14
+J2dca: 	call J2dd7
+J2dcd: 	pop de
+J2dce: 	ld hl, $6026
+J2dd1: 	ld (hl), $00
+J2dd3: 	call J3f2f
+J2dd6: 	ret
+J0afb: 	call J3ccd
+J0afe: 	push hl
+J0aff: 	ld hl, $605f
+J0b02: 	bit 4, (hl)
+J0b04: 	pop hl
+J0b05: 	jp nz, J0178
+J0178: 	ld hl, $601c
+J017b: 	xor a
+J017c: 	ld (hl), a
+J017d: 	ld hl, $6021
+J0180: 	ld (hl), a
+J0181: 	call J3ccd
+J0184: 	ld hl, $605f
+J0187: 	res 4, (hl)
+J0189: 	jp J011b
+J0b08: 	ld a, ($6065)
+J0b0b: 	cp $00
+J0b0d: 	jr nz, J0b22
+J0b22: 	ld a, ($6067)
+J0b25: 	cp $00
+J0b27: 	jr nz, J0b35
+J0b35: 	ld a, ($605f)
+J0b38: 	bit 1, a
+J0b3a: 	jr z, J0b53
+J0b53: 	call J3a99
+J0b56: 	jp J0593
+J0b3c: 	ld a, ($6065)
+J0b3f: 	cp $00
+J0b41: 	jr nz, J0b4c
+J0b4c: 	ld a, ($6066)
+J0b4f: 	cp $00
+J0b51: 	jr nz, J0b6e
+J0b6e: 	call J3a99
+J0b71: 	call J3cf3
+J0b74: 	call J3510
+J0b77: 	call J2c74
+J0b7a: 	ld b, $80
+J0b7c: 	call J0528
+J0b7f: 	ld a, ($6065)
+J0b82: 	cpl
+J0b83: 	ld ($6065), a
+J0b86: 	call J3fcd
+J0b89: 	ld hl, $605f
+J0b8c: 	bit 2, (hl)
+J0b8e: 	jp nz, J060b
+J0b91: 	set 2, (hl)
+J0b93: 	jp J04d5
+J0b43: 	ld a, ($6067)
+J0b46: 	cp $00
+J0b48: 	jr nz, J0b6e
+J0b4a: 	jr J0b53
+J0b29: 	ld a, ($6066)
+J0b2c: 	cp $00
+J0b2e: 	jp z, J0b96
+J0b96: 	call J2cfc
+J2cfc: 	push af
+J2cfd: 	call J2ac1
+J2d00: 	ld hl, $d571
+J2d03: 	ld b, $0a
+J2d05: 	ld a, $07
+J2d07: 	call J1e7d
+J2d0a: 	dec hl
+J2d0b: 	call J1e7d
+J2d0e: 	dec hl
+J2d0f: 	call J1e7d
+J2d12: 	pop af
+J2d13: 	cp $01
+J2d15: 	jr z, J2d27
+J2d27: 	ld b, $0a
+J2d29: 	ld ix, $d171
+J2d2d: 	ld hl, $0e71	; could be a data table address, label T0e71: created
+J2d30: 	call J29cf
+J2d33: 	ld b, $09
+J2d35: 	ld ix, $d18f
+J2d39: 	ld hl, $0e68	; could be a data table address, label T0e68: created
+J2d3c: 	call J29cf
+J2d3f: 	jr J2d59
+J2d59: 	ret
+J2d17: 	jr nc, J2d41
+J2d41: 	ld b, $0a
+J2d43: 	ld ix, $d171
+J2d47: 	ld hl, $0e7b	; could be a data table address, label T0e7b: created
+J2d4a: 	call J29cf
+J2d4d: 	ld b, $09
+J2d4f: 	ld ix, $d18f
+J2d53: 	ld hl, $0e68	; could be a data table address, label T0e68: created
+J2d56: 	call J29cf
+J2d19: 	ld b, $09
+J2d1b: 	ld ix, $d190
+J2d1f: 	ld hl, $0e68	; could be a data table address, label T0e68: created
+J2d22: 	call J29cf
+J2d25: 	jr J2d59
+J0b99: 	ld b, $80
+J0b9b: 	call J0528
+J0b9e: 	ld hl, $601c
+J0ba1: 	res 0, (hl)
+J0ba3: 	call J1fc7
+J0ba6: 	call J178f
+J0ba9: 	call J1aba
+J0bac: 	call J5000
+J5000: 	jp J5060
+J5060: 	ld de, $6068
+J5063: 	ld a, ($6065)
+J5066: 	and a
+J5067: 	jr z, J506c
+J506c: 	call J50a4
+J50a4: 	ld hl, $6073
+J50a7: 	ld bc, $0900	; could be a data table address, label T0900: created
+J50aa: 	push bc
+J50ab: 	push de
+J50ac: 	push hl
+J50ad: 	call J5d2c
+J5d2c: 	ld b, $03
+J5d2e: 	ld a, (de)
+J5d2f: 	cp (hl)
+J5d30: 	ret nz
+J5d31: 	inc de
+J5d32: 	inc hl
+J5d33: 	djnz J5d2e
+J5d35: 	ret
+J50b0: 	jr nc, J50be
+J50be: 	pop hl
+J50bf: 	pop de
+J50c0: 	pop bc
+J50c1: 	ld ix, $6800
+J50c5: 	ld (ix + $00), $5c
+J50c9: 	ld (ix + $01), $4e
+J50cd: 	ld (ix + $02), $0a
+J50d1: 	ld a, ($9002)
+J50d4: 	and $04
+J50d6: 	jr nz, J50dc
+J50dc: 	ld (ix + $03), $00
+J50e0: 	ld ix, c
+J50e2: 	inc b
+J50e3: 	ex de, hl
+J50e4: 	ld de, $6805
+J50e7: 	ld bc, $0003	; could be a data table address, label T0003: created
+J50ea: 	ldir
+J50ec: 	ex de, hl
+J50ed: 	ld b, $0a
+J50ef: 	ld (hl), $ff
+J50f1: 	inc hl
+J50f2: 	djnz J50ef
+J50f4: 	and a
+J50f5: 	ret
+J50d8: 	ld (ix + $02), $03
+J50b2: 	pop hl
+J50b3: 	ld bc, $0003	; could be a data table address, label T0003: created
+J50b6: 	add hl, bc
+J50b7: 	pop de
+J50b8: 	pop bc
+J50b9: 	inc c
+J50ba: 	djnz J50aa
+J50bc: 	scf
+J50bd: 	ret
+J506f: 	call nc, J50f6
+J50f6: 	ld iy, $6812
+J50fa: 	ld (iy + $00), $82
+J50fe: 	ld (iy + $01), $58
+J5102: 	ld (iy + $02), $36
+J5106: 	ld hl, $d085
+J5109: 	ld bc, $1a18	; could be a data table address, label T1a18: created
+J510c: 	call J5d52
+J5d52: 	push de
+J5d53: 	ld de, $0400	; could be a data table address, label T0400: created
+J5d56: 	push bc
+J5d57: 	push hl
+J5d58: 	push hl
+J5d59: 	ld (hl), $ff
+J5d5b: 	add hl, de
+J5d5c: 	ld (hl), $00
+J5d5e: 	pop hl
+J5d5f: 	inc hl
+J5d60: 	djnz J5d58
+J5d62: 	pop hl
+J5d63: 	ld bc, $0020	; could be a data table address, label T0020: created
+J5d66: 	add hl, bc
+J5d67: 	pop bc
+J5d68: 	dec c
+J5d69: 	jr nz, J5d56
+J5d6b: 	pop de
+J5d6c: 	ret
+J510f: 	ld hl, $544e	; could be a data table address, label T544e: created
+J5112: 	call J5d36
+J5115: 	ld hl, $5459	; could be a data table address, label T5459: created
+J5118: 	call J5d36
+J511b: 	ld hl, $5465	; could be a data table address, label T5465: created
+J511e: 	call J5d36
+J5121: 	ld a, (ix + $04)
+J5124: 	ld b, a
+J5125: 	add a
+J5126: 	add b
+J5127: 	ld e, a
+J5128: 	ld d, $00
+J512a: 	ld hl, $546f	; could be a data table address, label T546f: created
+J512d: 	add hl, de
+J512e: 	ex de, hl
+J512f: 	push de
+J5130: 	ld hl, $d1de
+J5133: 	ld bc, $0306	; could be a data table address, label T0306: created
+J5136: 	call J5d3f
+J5139: 	pop de
+J513a: 	ld hl, $d0dd
+J513d: 	ld bc, $0307	; could be a data table address, label T0307: created
+J5140: 	call J5d3f
+J5143: 	call J5d6d
+J5d6d: 	ld de, $d2dd
+J5d70: 	ld hl, $6805
+J5d73: 	xor a
+J5d74: 	ld b, $06
+J5d76: 	rld
+J5d78: 	jr z, J5d83
+J5d83: 	push hl
+J5d84: 	ld hl, $0020	; could be a data table address, label T0020: created
+J5d87: 	add hl, de
+J5d88: 	ex de, hl
+J5d89: 	pop hl
+J5d8a: 	bit 0, b
+J5d8c: 	jr z, J5d93
+J5d93: 	bit 1, b
+J5d95: 	jr nz, J5d99
+J5d99: 	djnz J5d76
+J5d9b: 	ret
+J5d97: 	or $80
+J5d8e: 	rld
+J5d90: 	inc hl
+J5d91: 	jr J5d99
+J5d7a: 	or $80
+J5d7c: 	push af
+J5d7d: 	and $0f
+J5d7f: 	add a, $00
+J5d81: 	ld (de), a
+J5d82: 	pop af
+J5146: 	call J5dbc
+J5dbc: 	ld c, $06
+J5dbe: 	ld a, $4e
+J5dc0: 	ld ($d09c), a
+J5dc3: 	ld a, c
+J5dc4: 	ld ($d49c), a
+J5dc7: 	ld a, $4f
+J5dc9: 	ld ($d37c), a
+J5dcc: 	ld a, c
+J5dcd: 	ld ($d77c), a
+J5dd0: 	ld a, $51
+J5dd2: 	ld ($d085), a
+J5dd5: 	ld a, c
+J5dd6: 	ld ($d485), a
+J5dd9: 	ld a, $50
+J5ddb: 	ld ($d365), a
+J5dde: 	ld a, c
+J5ddf: 	ld ($d765), a
+J5de2: 	ld a, $52
+J5de4: 	ld b, $16
+J5de6: 	ld hl, $d0bc
+J5de9: 	call J5e2a
+J5e2a: 	ld de, $0400	; could be a data table address, label T0400: created
+J5e2d: 	push bc
+J5e2e: 	push hl
+J5e2f: 	ld (hl), a
+J5e30: 	add hl, de
+J5e31: 	ld (hl), c
+J5e32: 	pop hl
+J5e33: 	ld bc, $0020	; could be a data table address, label T0020: created
+J5e36: 	add hl, bc
+J5e37: 	pop bc
+J5e38: 	djnz J5e2d
+J5e3a: 	ret
+J5dec: 	ld a, $54
+J5dee: 	ld b, $16
+J5df0: 	ld hl, $d0a5
+J5df3: 	call J5e2a
+J5df6: 	ld a, $55
+J5df8: 	ld b, $16
+J5dfa: 	ld hl, $d086
+J5dfd: 	call J5e3b
+J5e3b: 	ld de, $0400	; could be a data table address, label T0400: created
+J5e3e: 	push hl
+J5e3f: 	ld (hl), a
+J5e40: 	add hl, de
+J5e41: 	ld (hl), c
+J5e42: 	pop hl
+J5e43: 	inc hl
+J5e44: 	djnz J5e3e
+J5e46: 	ret
+J5e00: 	ld a, $53
+J5e02: 	ld b, $16
+J5e04: 	ld hl, $d366
+J5e07: 	call J5e3b
+J5e0a: 	ld c, $00
+J5e0c: 	ld a, $30
+J5e0e: 	ld ($d0bb), a
+J5e11: 	ld a, c
+J5e12: 	ld ($d4bb), a
+J5e15: 	ld a, $31
+J5e17: 	ld b, $15
+J5e19: 	ld hl, $d0db
+J5e1c: 	call J5e2a
+J5e1f: 	ld a, $32
+J5e21: 	ld b, $15
+J5e23: 	ld hl, $d0a6
+J5e26: 	call J5e3b
+J5e29: 	ret
+J5149: 	ld bc, $050a	; could be a data table address, label T050a: created
+J514c: 	ld hl, $d0e7
+J514f: 	ld de, $0020	; could be a data table address, label T0020: created
+J5152: 	push bc
+J5153: 	push hl
+J5154: 	ld (hl), $31
+J5156: 	add hl, de
+J5157: 	ld (hl), $31
+J5159: 	add hl, de
+J515a: 	ld (hl), $33
+J515c: 	add hl, de
+J515d: 	add hl, de
+J515e: 	djnz J5154
+J5160: 	pop hl
+J5161: 	inc hl
+J5162: 	inc hl
+J5163: 	pop bc
+J5164: 	dec c
+J5165: 	jr nz, J5152
+J5167: 	ld a, $0a
+J5169: 	ld b, $03
+J516b: 	ld hl, $d198
+J516e: 	call J5415
+J5415: 	ld de, $0400	; could be a data table address, label T0400: created
+J5418: 	push bc
+J5419: 	push hl
+J541a: 	ld (hl), a
+J541b: 	add hl, de
+J541c: 	ld (hl), $05
+J541e: 	pop hl
+J541f: 	ld bc, $0080	; could be a data table address, label T0080: created
+J5422: 	add hl, bc
+J5423: 	pop bc
+J5424: 	inc a
+J5425: 	djnz J5418
+J5427: 	ret
+J5171: 	ld bc, $0504	; could be a data table address, label T0504: created
+J5174: 	ld hl, $d116
+J5177: 	push bc
+J5178: 	push hl
+J5179: 	call J5415
+J517c: 	pop hl
+J517d: 	dec hl
+J517e: 	dec hl
+J517f: 	pop bc
+J5180: 	dec c
+J5181: 	jr nz, J5177
+J5183: 	ld b, $03
+J5185: 	call J5415
+J5188: 	ld a, $01
+J518a: 	ld b, $02
+J518c: 	call J5415
+J518f: 	ld b, $05
+J5191: 	ld hl, $d10c
+J5194: 	call J5415
+J5197: 	ld b, $02
+J5199: 	ld hl, $d10a
+J519c: 	call J5415
+J519f: 	ld a, $27
+J51a1: 	ld b, $01
+J51a3: 	call J5415
+J51a6: 	ld a, $28
+J51a8: 	ld b, $01
+J51aa: 	call J5415
+J51ad: 	ld a, $24
+J51af: 	ld b, $01
+J51b1: 	call J5415
+J51b4: 	ld a, $2d
+J51b6: 	ld b, $01
+J51b8: 	ld hl, $d188
+J51bb: 	call J5415
+J51be: 	ld a, $29
+J51c0: 	ld b, $01
+J51c2: 	ld hl, $d288
+J51c5: 	call J5415
+J51c8: 	ld hl, $d0f8
+J51cb: 	call J5428
+J5428: 	ld bc, $0020	; could be a data table address, label T0020: created
+J542b: 	ld de, $0400	; could be a data table address, label T0400: created
+J542e: 	push hl
+J542f: 	ld (hl), $0c
+J5431: 	add hl, de
+J5432: 	ld (hl), $06
+J5434: 	pop hl
+J5435: 	add hl, bc
+J5436: 	ld (hl), $15
+J5438: 	add hl, de
+J5439: 	ld (hl), $06
+J543b: 	ret
+J51ce: 	ld hl, $d2f8
+J51d1: 	call J5428
+J51d4: 	ld hl, $d0e8
+J51d7: 	call J5428
+J51da: 	call J543c
+J543c: 	ld a, $57
+J543e: 	ld ($d2e8), a
+J5441: 	inc a
+J5442: 	ld ($d308), a
+J5445: 	ld a, $07
+J5447: 	ld ($d6e8), a
+J544a: 	ld ($d708), a
+J544d: 	ret
+J51dd: 	call J5e47
+J5e47: 	push ix
+J5e49: 	push iy
+J5e4b: 	call J1dd1
+J5e4e: 	call J1e8b
+J5e51: 	ld b, $06
+J5e53: 	ld a, $05
+J5e55: 	ld hl, $d5a1
+J5e58: 	call J1e7d
+J5e5b: 	call J1ee0
+J5e5e: 	call J2826
+J5e61: 	ld b, $05
+J5e63: 	ld a, $01
+J5e65: 	ld hl, $d4e1
+J5e68: 	call J1e7d
+J5e6b: 	ld hl, $d0e1
+J5e6e: 	ld (hl), $2a
+J5e70: 	add hl, de
+J5e71: 	call J1f44
+J5e74: 	ld ix, $601c
+J5e78: 	ld (ix + $00), $82
+J5e7c: 	ld (ix + $01), $08
+J5e80: 	ld (ix + $02), $0f
+J5e84: 	call J1f7f
+J5e87: 	ld ix, a
+J5e89: 	inc bc
+J5e8a: 	ld ix, b
+J5e8c: 	inc b
+J5e8d: 	call J1fc7
+J5e90: 	call J178f
+J5e93: 	ld (ix + $00), $81
+J5e97: 	pop iy
+J5e99: 	pop ix
+J5e9b: 	ret
+J51e0: 	call J5e9c
+J5e9c: 	ld de, $6026
+J5e9f: 	ld hl, $6812
+J5ea2: 	ld bc, $0003	; could be a data table address, label T0003: created
+J5ea5: 	ldir
+J5ea7: 	ex de, hl
+J5ea8: 	ld (hl), $00
+J5eaa: 	inc hl
+J5eab: 	ld (hl), $00
+J5ead: 	ret
+J51e3: 	push ix
+J51e5: 	push iy
+J51e7: 	call J1fc7
+J51ea: 	call J178f
+J51ed: 	pop iy
+J51ef: 	pop ix
+J51f1: 	dec (ix + $01)
+J51f4: 	jr nz, J5208
+J5208: 	ld a, ($6065)
+J520b: 	and a
+J520c: 	jr nz, J5213
+J5213: 	ld a, ($9001)
+J5216: 	cpl
+J5217: 	and $0f
+J5219: 	jr z, J51e0
+J521b: 	rra
+J521c: 	jr c, J5286
+J5286: 	ld (iy + $00), $12
+J528a: 	ld a, (iy + $01)
+J528d: 	cp $09
+J528f: 	jp c, J51e0
+J5292: 	ld c, (iy + $02)
+J5295: 	ld hl, $53b1	; could be a data table address, label T53b1: created
+J5298: 	call J539f
+J539f: 	ld b, (hl)
+J53a0: 	inc hl
+J53a1: 	ld a, (hl)
+J53a2: 	sub c
+J53a3: 	jr nc, J53a7
+J53a7: 	cp $07
+J53a9: 	jr c, J53af
+J53af: 	ld c, (hl)
+J53b0: 	ret
+J53ab: 	inc hl
+J53ac: 	djnz J53a1
+J53ae: 	ret
+J53a5: 	neg
+J529b: 	jp nc, J51e0
+J529e: 	ld iy, c
+J52a0: 	ld (bc), a
+J52a1: 	dec (iy + $01)
+J52a4: 	ld a, b
+J52a5: 	sub $02
+J52a7: 	jp c, J51e0
+J52aa: 	cp $09
+J52ac: 	jp nc, J51e0
+J52af: 	ld b, a
+J52b0: 	add a
+J52b1: 	add a
+J52b2: 	add b
+J52b3: 	ld d, a
+J52b4: 	ld c, (iy + $01)
+J52b7: 	ld hl, $53c4	; could be a data table address, label T53c4: created
+J52ba: 	call J539f
+J52bd: 	and a
+J52be: 	jp nz, J51e0
+J52c1: 	ld a, b
+J52c2: 	dec a
+J52c3: 	add d
+J52c4: 	ld e, a
+J52c5: 	ld d, $00
+J52c7: 	ld hl, $5494	; could be a data table address, label T5494: created
+J52ca: 	add hl, de
+J52cb: 	ld a, (hl)
+J52cc: 	and a
+J52cd: 	jr nz, J52d6
+J52d6: 	cp $80
+J52d8: 	jr nz, J52f9
+J52f9: 	ld b, a
+J52fa: 	ld hl, $6000
+J52fd: 	set 0, (hl)
+J52ff: 	ld a, (ix + $03)
+J5302: 	cp (ix + $02)
+J5305: 	jp nc, J51e0
+J5308: 	inc (ix + $03)
+J530b: 	push bc
+J530c: 	ld hl, $6809
+J530f: 	ld de, $6808
+J5312: 	ld bc, $0009	; could be a data table address, label T0009: created
+J5315: 	ldir
+J5317: 	ex de, hl
+J5318: 	pop bc
+J5319: 	ld (hl), b
+J531a: 	ld bc, $0a07	; could be a data table address, label T0a07: created
+J531d: 	ld de, $6808
+J5320: 	ld hl, $d17d
+J5323: 	call J5d3f
+J5326: 	jp J51e0
+J52da: 	ld hl, $6001
+J52dd: 	set 1, (hl)
+J52df: 	ld a, (ix + $03)
+J52e2: 	and a
+J52e3: 	jp z, J51e0
+J52e6: 	dec (ix + $03)
+J52e9: 	ld hl, $6810
+J52ec: 	ld de, $6811
+J52ef: 	ld bc, $0009	; could be a data table address, label T0009: created
+J52f2: 	lddr
+J52f4: 	ex de, hl
+J52f5: 	ld (hl), $ff
+J52f7: 	jr J531a
+J52cf: 	ld hl, $6000
+J52d2: 	set 7, (hl)
+J52d4: 	jr J5329
+J5329: 	ld hl, $6808
+J532c: 	ld b, $0a
+J532e: 	ld a, $ff
+J5330: 	cp (hl)
+J5331: 	jr nz, J5341
+J5341: 	ld de, $608d
+J5344: 	ld a, (ix + $04)
+J5347: 	sub $08
+J5349: 	jr nc, J5358
+J5358: 	ld hl, $6807
+J535b: 	ld bc, $0003	; could be a data table address, label T0003: created
+J535e: 	lddr
+J5360: 	ld de, $d3eb
+J5363: 	ld a, (ix + $04)
+J5366: 	sub $08
+J5368: 	jr nc, J5379
+J5379: 	ld a, $ff
+J537b: 	ld (de), a
+J537c: 	dec de
+J537d: 	ld hl, $6811
+J5380: 	ld bc, $000a	; could be a data table address, label T000a: created
+J5383: 	lddr
+J5385: 	ld (de), a
+J5386: 	xor a
+J5387: 	ld ($6026), a
+J538a: 	call J1fc7
+J538d: 	call J178f
+J5390: 	ld hl, $d080
+J5393: 	ld bc, $2018	; could be a data table address, label T2018: created
+J5396: 	call J5d52
+J5399: 	ret
+J536a: 	neg
+J536c: 	add a
+J536d: 	add a
+J536e: 	ld b, a
+J536f: 	add a
+J5370: 	add b
+J5371: 	ld c, a
+J5372: 	ld b, $00
+J5374: 	ld hl, $d3df
+J5377: 	lddr
+J534b: 	neg
+J534d: 	ld b, a
+J534e: 	add a
+J534f: 	add b
+J5350: 	ld c, a
+J5351: 	ld b, $00
+J5353: 	ld hl, $608a
+J5356: 	lddr
+J5333: 	inc hl
+J5334: 	djnz J5330
+J5336: 	ld hl, $548a	; could be a data table address, label T548a: created
+J5339: 	ld de, $6808
+J533c: 	ld bc, $000a	; could be a data table address, label T000a: created
+J533f: 	ldir
+J521e: 	rra
+J521f: 	jr c, J5265
+J5265: 	ld (iy + $00), $22
+J5269: 	ld a, (iy + $02)
+J526c: 	cp $37
+J526e: 	jp c, J51e0
+J5271: 	ld c, (iy + $01)
+J5274: 	ld hl, $53bd	; could be a data table address, label T53bd: created
+J5277: 	call J539f
+J527a: 	jp nc, J51e0
+J527d: 	ld iy, c
+J527f: 	ld bc, $35fd	; could be a data table address, label T35fd: created
+J5282: 	ld (bc), a
+J5283: 	jp J51e0
+J5221: 	rra
+J5222: 	jr c, J5245
+J5245: 	ld (iy + $00), $42
+J5249: 	ld a, (iy + $01)
+J524c: 	cp $a8
+J524e: 	jp nc, J51e0
+J5251: 	ld c, (iy + $02)
+J5254: 	ld hl, $53b1	; could be a data table address, label T53b1: created
+J5257: 	call J539f
+J525a: 	jp nc, J51e0
+J525d: 	ld iy, c
+J525f: 	ld (bc), a
+J5260: 	inc (iy + $01)
+J5263: 	jr J52a4
+J5224: 	ld (iy + $00), $82
+J5228: 	ld a, (iy + $02)
+J522b: 	cp $d6
+J522d: 	jp nc, J51e0
+J5230: 	ld c, (iy + $01)
+J5233: 	ld hl, $53bd	; could be a data table address, label T53bd: created
+J5236: 	call J539f
+J5239: 	jp nc, J51e0
+J523c: 	ld iy, c
+J523e: 	ld bc, $34fd	; could be a data table address, label T34fd: created
+J5241: 	ld (bc), a
+J5242: 	jp J51e0
+J520e: 	ld a, ($9000)
+J5211: 	jr J5216
+J51f6: 	ld (ix + $01), $4e
+J51fa: 	call J53ca
+J53ca: 	ld a, (ix + $00)
+J53cd: 	cp $0c
+J53cf: 	jr c, J53fd
+J53fd: 	sub $0b
+J53ff: 	neg
+J5401: 	ld de, $d4bc
+J5404: 	ld l, a
+J5405: 	ld h, $00
+J5407: 	add hl, hl
+J5408: 	add hl, hl
+J5409: 	add hl, hl
+J540a: 	add hl, hl
+J540b: 	add hl, hl
+J540c: 	jr J5411
+J5411: 	add hl, de
+J5412: 	ld (hl), $05
+J5414: 	ret
+J53d1: 	cp $23
+J53d3: 	jr c, J53f4
+J53f4: 	sub $22
+J53f6: 	neg
+J53f8: 	ld de, $d486
+J53fb: 	jr J540e
+J540e: 	ld l, a
+J540f: 	ld h, $00
+J53d5: 	cp $3a
+J53d7: 	jr c, J53ed
+J53ed: 	sub $23
+J53ef: 	ld de, $d485
+J53f2: 	jr J5404
+J53d9: 	cp $51
+J53db: 	jr c, J53e6
+J53e6: 	sub $3a
+J53e8: 	ld de, $d765
+J53eb: 	jr J540e
+J53dd: 	sub $5c
+J53df: 	neg
+J53e1: 	ld de, $d61c
+J53e4: 	jr J5404
+J51fd: 	ld hl, $6000
+J5200: 	set 4, (hl)
+J5202: 	dec (ix + $00)
+J5205: 	jp z, J5329
+J5072: 	ld a, ($605f)
+J5075: 	jp J5ec0
+J5ec0: 	and $02
+J5ec2: 	jp z, J5ee3
+J5ee3: 	call J253e
+J5ee6: 	call J2607
+J5ee9: 	call J5bb1
+J5eec: 	nop
+J5eed: 	nop
+J5eee: 	nop
+J5eef: 	ret
+J5ec5: 	jp J5078
+J5078: 	ld de, $606b
+J507b: 	ld a, ($6065)
+J507e: 	and a
+J507f: 	jr z, J5084
+J5084: 	jp J5ed0
+J5ed0: 	call J50a4
+J5ed3: 	jp c, J5ee3
+J5ed6: 	jp J5088
+J5088: 	ld a, ($6065)
+J508b: 	and a
+J508c: 	jr z, J5090
+J5090: 	cpl
+J5091: 	ld ($6065), a
+J5094: 	ld b, a
+J5095: 	ld a, ($9002)
+J5098: 	and $20
+J509a: 	jr z, J50a0
+J50a0: 	jp J5ee0
+J5ee0: 	call J50f6
+J509c: 	ld a, b
+J509d: 	ld ($a000), a
+J508e: 	ld a, $ff
+J5081: 	ld de, $6068
+J5069: 	ld de, $606b
+J0baf: 	ld a, ($605e)
+J0bb2: 	cp $00
+J0bb4: 	jr z, J0bc0
+J0bc0: 	ld hl, $9002
+J0bc3: 	bit 6, (hl)
+J0bc5: 	jr z, J0bda
+J0bda: 	ld a, $09
+J0bdc: 	ld ($605e), a
+J0bdf: 	jp J035f
+J0bc7: 	ld hl, $605f
+J0bca: 	res 0, (hl)
+J0bcc: 	ld b, $02
+J0bce: 	push bc
+J0bcf: 	ld b, $b4
+J0bd1: 	call J0528
+J0bd4: 	pop bc
+J0bd5: 	djnz J0bce
+J0bd7: 	jp J011b
+J0bb6: 	ld hl, $9002
+J0bb9: 	bit 6, (hl)
+J0bbb: 	jr z, J0bda
+J0bbd: 	jp J035f
+J0b31: 	ld a, $02
+J0b33: 	jr J0b59
+J0b59: 	push af
+J0b5a: 	call J3a99
+J0b5d: 	call J3cf3
+J0b60: 	call J3510
+J0b63: 	pop af
+J0b64: 	call J2cfc
+J0b67: 	ld b, $80
+J0b69: 	call J0528
+J0b6c: 	jr J0b77
+J0b0f: 	ld a, ($6066)
+J0b12: 	cp $00
+J0b14: 	jr nz, J0b35
+J0b16: 	ld a, ($6067)
+J0b19: 	cp $00
+J0b1b: 	jp z, J0b96
+J0b1e: 	ld a, $01
+J0b20: 	jr J0b59
+J087c: 	cp $59
+J087e: 	jr c, J0888
+J0880: 	cp $62
+J0882: 	jp c, J09fe
+J09fe: 	call J3fe5
+J0a01: 	call J3d9f
+J3d9f: 	push hl
+J3da0: 	ld hl, ($6199)
+J3da3: 	ld a, h
+J3da4: 	cp $00
+J3da6: 	jr nz, J3db1
+J3db1: 	ld e, $01
+J3db3: 	jr J3dbb
+J3dbb: 	pop hl
+J3dbc: 	ret
+J3da8: 	ld a, l
+J3da9: 	cp $1f
+J3dab: 	jr c, J3db5
+J3db5: 	ld e, $03
+J3db7: 	jr J3dbb
+J3dad: 	cp $b4
+J3daf: 	jr c, J3db9
+J3db9: 	ld e, $02
+J0a04: 	ld a, e
+J0a05: 	cp $03
+J0a07: 	jr z, J0a0d
+J0a0d: 	ld a, (hl)
+J0a0e: 	call J3e5e
+J3e5e: 	push hl
+J3e5f: 	ld d, $00
+J3e61: 	cp $5e
+J3e63: 	jr z, J3e94
+J3e94: 	pop hl
+J3e95: 	ret
+J3e65: 	inc d
+J3e66: 	cp $5b
+J3e68: 	jr z, J3e94
+J3e6a: 	inc d
+J3e6b: 	cp $59
+J3e6d: 	jr z, J3e94
+J3e6f: 	inc d
+J3e70: 	cp $5a
+J3e72: 	jr z, J3e94
+J3e74: 	inc d
+J3e75: 	cp $5c
+J3e77: 	jr nz, J3e83
+J3e83: 	inc d
+J3e84: 	cp $5d
+J3e86: 	jr z, J3e94
+J3e88: 	inc d
+J3e89: 	inc d
+J3e8a: 	cp $5f
+J3e8c: 	jr z, J3e94
+J3e8e: 	inc d
+J3e8f: 	cp $60
+J3e91: 	jr z, J3e94
+J3e93: 	inc d
+J3e79: 	inc hl
+J3e7a: 	ld a, (hl)
+J3e7b: 	cp $66
+J3e7d: 	jr c, J3e94
+J3e7f: 	inc d
+J3e80: 	inc d
+J3e81: 	jr J3e94
+J0a11: 	push de
+J0a12: 	call J3d2b
+J0a15: 	pop de
+J0a16: 	call J3c2c
+J0a19: 	call J3dbd
+J3dbd: 	push de
+J3dbe: 	ld a, $da
+J3dc0: 	ex af, af'
+J3dc1: 	ld a, ($6065)
+J3dc4: 	cp $00
+J3dc6: 	jr nz, J3dcd
+J3dcd: 	ld a, ($60a2)
+J3dd0: 	cp $00
+J3dd2: 	jr z, J3de1
+J3de1: 	ld ix, $6026
+J3de5: 	res 0, (ix + $00)
+J3de9: 	res 1, (ix + $00)
+J3ded: 	ld ix, $6049
+J3df1: 	ld (ix + $00), $82
+J3df5: 	call J3e3f
+J3e3f: 	push hl
+J3e40: 	push de
+J3e41: 	ld de, $d0a0
+J3e44: 	and a
+J3e45: 	sbc hl, de
+J3e47: 	ld c, l
+J3e48: 	ld a, $e0
+J3e4a: 	and l
+J3e4b: 	ld l, a
+J3e4c: 	ld b, $02
+J3e4e: 	srl h
+J3e50: 	rr l
+J3e52: 	djnz J3e4e
+J3e54: 	ld b, l
+J3e55: 	sla c
+J3e57: 	sla c
+J3e59: 	sla c
+J3e5b: 	pop de
+J3e5c: 	pop hl
+J3e5d: 	ret
+J3df8: 	ld a, $09
+J3dfa: 	add c
+J3dfb: 	ld ix, a
+J3dfd: 	ld (bc), a
+J3dfe: 	ld ix, b
+J3e00: 	ld bc, $36dd	; could be a data table address, label T36dd: created
+J3e03: 	inc b
+J3e04: 	rrca
+J3e05: 	ld a, e
+J3e06: 	cp $02
+J3e08: 	jr c, J3e18
+J3e18: 	ld (ix + $03), $d8
+J3e1c: 	push hl
+J3e1d: 	ld hl, $6000
+J3e20: 	set 2, (hl)
+J3e22: 	ld b, $1e
+J3e24: 	push bc
+J3e25: 	call J1fc7
+J3e28: 	call J178f
+J3e2b: 	call J2d5a
+J3e2e: 	pop bc
+J3e2f: 	djnz J3e24
+J3e31: 	xor a
+J3e32: 	ld ($6049), a
+J3e35: 	ld hl, $6026
+J3e38: 	set 1, (hl)
+J3e3a: 	pop hl
+J3e3b: 	ld (hl), $ff
+J3e3d: 	pop de
+J3e3e: 	ret
+J3e0a: 	jr z, J3e12
+J3e12: 	ld (ix + $03), $dc
+J3e16: 	jr J3e1c
+J3e0c: 	ld (ix + $03), $e0
+J3e10: 	jr J3e1c
+J3dd4: 	cp $03
+J3dd6: 	jr z, J3dde
+J3dde: 	ld a, $dd
+J3de0: 	ld (hl), a
+J3dd8: 	ld b, a
+J3dd9: 	ex af, af'
+J3dda: 	dec b
+J3ddb: 	add b
+J3ddc: 	jr J3de0
+J3dc8: 	ld a, ($609f)
+J3dcb: 	jr J3dd0
+J0a1c: 	ld a, e
+J0a1d: 	cp $03
+J0a1f: 	jr z, J0a25
+J0a25: 	call J3e96
+J3e96: 	cp $03
+J3e98: 	jr z, J3e9f
+J3e9f: 	ld a, ($6065)
+J3ea2: 	cp $00
+J3ea4: 	jr nz, J3eab
+J3eab: 	ld hl, $60a0
+J3eae: 	jr J3ec1
+J3ec1: 	ld a, d
+J3ec2: 	cp $00
+J3ec4: 	jr nz, J3eca
+J3eca: 	cp $01
+J3ecc: 	jr nz, J3ed2
+J3ed2: 	cp $02
+J3ed4: 	jr nz, J3eda
+J3eda: 	cp $03
+J3edc: 	jr nz, J3ee2
+J3ee2: 	cp $04
+J3ee4: 	jr nz, J3eea
+J3eea: 	cp $05
+J3eec: 	jr nz, J3ef2
+J3ef2: 	cp $06
+J3ef4: 	jr nz, J3ef8
+J3ef8: 	jr J3f29
+J3f29: 	push hl
+J3f2a: 	call J30f4
+J3f2d: 	pop hl
+J3f2e: 	ret
+J3ef6: 	res 6, (hl)
+J3eee: 	res 4, (hl)
+J3ef0: 	jr J3ef8
+J3ee6: 	res 3, (hl)
+J3ee8: 	jr J3ef8
+J3ede: 	res 1, (hl)
+J3ee0: 	jr J3ef8
+J3ed6: 	res 0, (hl)
+J3ed8: 	jr J3ef8
+J3ece: 	res 2, (hl)
+J3ed0: 	jr J3ef8
+J3ec6: 	res 5, (hl)
+J3ec8: 	jr J3ef8
+J3ea6: 	ld hl, $609d
+J3ea9: 	jr J3ec1
+J3e9a: 	cp $02
+J3e9c: 	jr z, J3eb0
+J3eb0: 	ld a, ($6065)
+J3eb3: 	cp $00
+J3eb5: 	jr nz, J3ebc
+J3ebc: 	ld hl, $60a1
+J3ebf: 	jr J3efa
+J3efa: 	ld a, d
+J3efb: 	cp $00
+J3efd: 	jr nz, J3f03
+J3f03: 	cp $01
+J3f05: 	jr nz, J3f0b
+J3f0b: 	cp $07
+J3f0d: 	jr nz, J3f13
+J3f13: 	cp $08
+J3f15: 	jr nz, J3f1b
+J3f1b: 	cp $09
+J3f1d: 	jr nz, J3f21
+J3f21: 	dec hl
+J3f22: 	push hl
+J3f23: 	call J311c
+J3f26: 	pop hl
+J3f27: 	jr J3f2e
+J3f1f: 	res 3, (hl)
+J3f17: 	res 2, (hl)
+J3f19: 	jr J3f21
+J3f0f: 	res 1, (hl)
+J3f11: 	jr J3f21
+J3f07: 	res 0, (hl)
+J3f09: 	jr J3f21
+J3eff: 	res 4, (hl)
+J3f01: 	jr J3f21
+J3eb7: 	ld hl, $609e
+J3eba: 	jr J3efa
+J3e9e: 	ret
+J0a28: 	ld a, (hl)
+J0a29: 	res 7, a
+J0a2b: 	cp $00
+J0a2d: 	jr z, J0a3a
+J0a3a: 	xor a
+J0a3b: 	ld hl, $61e2
+J0a3e: 	cp (hl)
+J0a3f: 	jr z, J0a42
+J0a42: 	jp J4989
+J4989: 	ld hl, $61e3
+J498c: 	inc (hl)
+J498d: 	call J3f2f
+J4990: 	jp J0a45
+J0a45: 	ld hl, $6000
+J0a48: 	set 7, (hl)
+J0a4a: 	ld b, $00
+J0a4c: 	ld c, b
+J0a4d: 	inc b
+J0a4e: 	call J0ac2
+J0ac2: 	push bc
+J0ac3: 	call J1fc7
+J0ac6: 	call J178f
+J0ac9: 	pop bc
+J0aca: 	ld a, ($6059)
+J0acd: 	and $0f
+J0acf: 	jr nz, J0add
+J0add: 	ld a, ($6003)
+J0ae0: 	cp $00
+J0ae2: 	jr nz, J0ac2
+J0ae4: 	ld b, $01
+J0ae6: 	call J1bfc
+J0ae9: 	ret
+J0ad1: 	ld a, b
+J0ad2: 	cp $01
+J0ad4: 	jr z, J0ad9
+J0ad9: 	inc b
+J0ada: 	call J1bfc
+J0ad6: 	dec b
+J0ad7: 	jr J0ada
+J0a51: 	call J5010
+J5010: 	jp J561b
+J561b: 	push af
+J561c: 	ex af, af'
+J561d: 	push af
+J561e: 	push bc
+J561f: 	push de
+J5620: 	push hl
+J5621: 	push iy
+J5623: 	call J5d9c
+J5d9c: 	ld bc, $1818	; could be a data table address, label T1818: created
+J5d9f: 	ld hl, $d085
+J5da2: 	call J5d52
+J5da5: 	ld hl, $601c
+J5da8: 	ld de, $0005	; could be a data table address, label T0005: created
+J5dab: 	ld (hl), $00
+J5dad: 	add hl, de
+J5dae: 	ld (hl), $00
+J5db0: 	add hl, de
+J5db1: 	ld b, $07
+J5db3: 	add hl, de
+J5db4: 	ld (hl), $00
+J5db6: 	djnz J5db3
+J5db8: 	call J5dbc
+J5dbb: 	ret
+J5626: 	ld iy, $6812
+J562a: 	ld a, ($6027)
+J562d: 	ld iy, a
+J562f: 	ld bc, $283a	; could be a data table address, label T283a: created
+J5632: 	ld h, b
+J5633: 	ld iy, a
+J5635: 	ld (bc), a
+J5636: 	ld hl, $5767	; could be a data table address, label T5767: created
+J5639: 	call J5d36
+J563c: 	ex de, hl
+J563d: 	call J5d36
+J5640: 	ld b, $10
+J5642: 	call J5710
+J5645: 	ld hl, $6001
+J5648: 	set 3, (hl)
+J564a: 	ld hl, $5743	; could be a data table address, label T5743: created
+J564d: 	call J571b
+J571b: 	ld e, (hl)
+J571c: 	inc hl
+J571d: 	ld d, (hl)
+J571e: 	inc hl
+J571f: 	ld b, (hl)
+J5720: 	inc hl
+J5721: 	ld c, (hl)
+J5722: 	inc hl
+J5723: 	ld a, (hl)
+J5724: 	inc hl
+J5725: 	ex af, af'
+J5726: 	ld a, (hl)
+J5727: 	ex af, af'
+J5728: 	ex de, hl
+J5729: 	push bc
+J572a: 	push hl
+J572b: 	ld de, $0400	; could be a data table address, label T0400: created
+J572e: 	push hl
+J572f: 	ld (hl), a
+J5730: 	add hl, de
+J5731: 	ex af, af'
+J5732: 	ld (hl), a
+J5733: 	ex af, af'
+J5734: 	inc a
+J5735: 	pop hl
+J5736: 	inc hl
+J5737: 	djnz J572e
+J5739: 	pop hl
+J573a: 	ld de, $0020	; could be a data table address, label T0020: created
+J573d: 	add hl, de
+J573e: 	pop bc
+J573f: 	dec c
+J5740: 	jr nz, J5729
+J5742: 	ret
+J5650: 	ld hl, $5749	; could be a data table address, label T5749: created
+J5653: 	call J571b
+J5656: 	ld b, $18
+J5658: 	call J5710
+J565b: 	ld hl, $574f	; could be a data table address, label T574f: created
+J565e: 	call J571b
+J5661: 	ld hl, $5755	; could be a data table address, label T5755: created
+J5664: 	call J571b
+J5667: 	ld hl, $575b	; could be a data table address, label T575b: created
+J566a: 	call J571b
+J566d: 	ld hl, $5773	; could be a data table address, label T5773: created
+J5670: 	call J5d36
+J5673: 	ex de, hl
+J5674: 	call J5d36
+J5677: 	ld b, $48
+J5679: 	call J5710
+J567c: 	ld hl, $5761	; could be a data table address, label T5761: created
+J567f: 	call J571b
+J5682: 	ld a, $0a
+J5684: 	ld ($d609), a
+J5687: 	ld ($d629), a
+J568a: 	ld b, $30
+J568c: 	call J5710
+J568f: 	ld hl, $5791	; could be a data table address, label T5791: created
+J5692: 	ld b, $06
+J5694: 	push bc
+J5695: 	call J5d36
+J5698: 	pop bc
+J5699: 	ex de, hl
+J569a: 	djnz J5694
+J569c: 	ld b, $30
+J569e: 	call J5710
+J56a1: 	ld iy, $6812
+J56a5: 	ld a, (iy + $01)
+J56a8: 	cp $0f
+J56aa: 	jr z, J56c9
+J56c9: 	ld iy, $6812
+J56cd: 	ld a, (iy + $02)
+J56d0: 	cp $cf
+J56d2: 	jr z, J56f1
+J56f1: 	ld bc, $0202	; could be a data table address, label T0202: created
+J56f4: 	ld hl, $d0d9
+J56f7: 	call J5d52
+J56fa: 	xor a
+J56fb: 	ld ($6026), a
+J56fe: 	ld bc, $1515	; could be a data table address, label T1515: created
+J5701: 	ld hl, $d0c6
+J5704: 	call J5d52
+J5707: 	pop iy
+J5709: 	pop hl
+J570a: 	pop de
+J570b: 	pop bc
+J570c: 	pop af
+J570d: 	ex af, af'
+J570e: 	pop af
+J570f: 	ret
+J56d4: 	jr c, J56df
+J56df: 	ld (iy + $00), $82
+J56e3: 	inc (iy + $02)
+J56e6: 	call J5e9c
+J56e9: 	call J1fc7
+J56ec: 	call J178f
+J56ef: 	jr J56c9
+J56d6: 	ld (iy + $00), $22
+J56da: 	dec (iy + $02)
+J56dd: 	jr J56e6
+J56ac: 	jr c, J56b7
+J56b7: 	ld (iy + $00), $42
+J56bb: 	inc (iy + $01)
+J56be: 	call J5e9c
+J56c1: 	call J1fc7
+J56c4: 	call J178f
+J56c7: 	jr J56a1
+J56ae: 	ld (iy + $00), $12
+J56b2: 	dec (iy + $01)
+J56b5: 	jr J56be
+J0a54: 	ld b, $00
+J0a56: 	ld c, $00
+J0a58: 	call J1bfc
+J0a5b: 	ld a, $ff
+J0a5d: 	ex af, af'
+J0a5e: 	ld hl, $609d
+J0a61: 	ld a, ($6065)
+J0a64: 	cp $00
+J0a66: 	jr z, J0a6b
+J0a6b: 	ex af, af'
+J0a6c: 	ld (hl), a
+J0a6d: 	ld hl, $6001
+J0a70: 	set 4, (hl)
+J0a72: 	ld hl, $605e
+J0a75: 	inc (hl)
+J0a76: 	call J2826
+J0a79: 	jp J0969
+J0a68: 	ld hl, $60a0
+J0a41: 	dec (hl)
+J0a2f: 	inc hl
+J0a30: 	ld a, (hl)
+J0a31: 	and $1f
+J0a33: 	cp $00
+J0a35: 	jr z, J0a7c
+J0a7c: 	call J3f2f
+J0a7f: 	ld hl, $6000
+J0a82: 	set 7, (hl)
+J0a84: 	ld b, $01
+J0a86: 	ld c, b
+J0a87: 	call J0ac2
+J0a8a: 	call J5008
+J5008: 	jp J54c1
+J54c1: 	push af
+J54c2: 	push bc
+J54c3: 	push de
+J54c4: 	push hl
+J54c5: 	push iy
+J54c7: 	call J5d9c
+J54ca: 	ld hl, $55c3	; could be a data table address, label T55c3: created
+J54cd: 	call J571b
+J54d0: 	ld a, $c1
+J54d2: 	ld c, $08
+J54d4: 	ld hl, $55d8	; could be a data table address, label T55d8: created
+J54d7: 	ld b, $05
+J54d9: 	push bc
+J54da: 	ld e, (hl)
+J54db: 	inc hl
+J54dc: 	ld d, (hl)
+J54dd: 	inc hl
+J54de: 	ld b, (hl)
+J54df: 	inc hl
+J54e0: 	push hl
+J54e1: 	ex de, hl
+J54e2: 	call J55c9
+J55c9: 	ld de, $0400	; could be a data table address, label T0400: created
+J55cc: 	push hl
+J55cd: 	ld (hl), a
+J55ce: 	add hl, de
+J55cf: 	ld (hl), c
+J55d0: 	pop hl
+J55d1: 	ld de, $0020	; could be a data table address, label T0020: created
+J55d4: 	add hl, de
+J55d5: 	djnz J55c9
+J55d7: 	ret
+J54e5: 	pop hl
+J54e6: 	pop bc
+J54e7: 	djnz J54d9
+J54e9: 	ld a, $c0
+J54eb: 	ld hl, $55d8	; could be a data table address, label T55d8: created
+J54ee: 	ld b, $05
+J54f0: 	push bc
+J54f1: 	ld e, (hl)
+J54f2: 	inc hl
+J54f3: 	ld d, (hl)
+J54f4: 	inc hl
+J54f5: 	ld b, (hl)
+J54f6: 	inc hl
+J54f7: 	push hl
+J54f8: 	ex de, hl
+J54f9: 	dec hl
+J54fa: 	call J55c9
+J54fd: 	pop hl
+J54fe: 	pop bc
+J54ff: 	djnz J54f0
+J5501: 	ld hl, $55e7	; could be a data table address, label T55e7: created
+J5504: 	call J5d36
+J5507: 	ex de, hl
+J5508: 	call J5d36
+J550b: 	ex de, hl
+J550c: 	call J5d36
+J550f: 	ex de, hl
+J5510: 	call J5d36
+J5513: 	ld iy, $6812
+J5517: 	ld (iy + $00), $22
+J551b: 	ld (iy + $01), $58
+J551f: 	ld (iy + $02), $d6
+J5523: 	ld (iy + $03), $10
+J5527: 	push iy
+J5529: 	call J5eae
+J5eae: 	ld de, $603f
+J5eb1: 	jr J5e9f
+J552c: 	call J1fc7
+J552f: 	call J178f
+J5532: 	pop iy
+J5534: 	dec (iy + $03)
+J5537: 	jr nz, J5527
+J5539: 	ld hl, $55b4	; could be a data table address, label T55b4: created
+J553c: 	ld iy, iyh
+J553e: 	inc b
+J553f: 	ld iy, iyl
+J5541: 	dec b
+J5542: 	ld hl, $6001
+J5545: 	set 2, (hl)
+J5547: 	ld iyh, (iy + $04)
+J554a: 	ld iyl, (iy + $05)
+J554d: 	ld a, (hl)
+J554e: 	and a
+J554f: 	jr z, J5592
+J5592: 	ld hl, $603f
+J5595: 	ld (hl), $00
+J5597: 	ld (iy + $03), $10
+J559b: 	push iy
+J559d: 	call J1fc7
+J55a0: 	call J178f
+J55a3: 	pop iy
+J55a5: 	dec (iy + $03)
+J55a8: 	jr nz, J559b
+J55aa: 	call J5d9c
+J55ad: 	pop iy
+J55af: 	pop hl
+J55b0: 	pop de
+J55b1: 	pop bc
+J55b2: 	pop af
+J55b3: 	ret
+J5551: 	ld iy, a
+J5553: 	nop
+J5554: 	inc hl
+J5555: 	ld a, (hl)
+J5556: 	ld iy, a
+J5558: 	inc bc
+J5559: 	inc hl
+J555a: 	ld iy, iyh
+J555c: 	inc b
+J555d: 	ld iy, iyl
+J555f: 	dec b
+J5560: 	ld a, (iy + $00)
+J5563: 	rla
+J5564: 	jr c, J557b
+J557b: 	inc (iy + $02)
+J557e: 	push iy
+J5580: 	call J5eae
+J5583: 	call J1fc7
+J5586: 	call J178f
+J5589: 	pop iy
+J558b: 	dec (iy + $03)
+J558e: 	jr nz, J5560
+J5590: 	jr J5547
+J5566: 	rla
+J5567: 	jr c, J5576
+J5576: 	inc (iy + $01)
+J5579: 	jr J557e
+J5569: 	rla
+J556a: 	jr c, J5571
+J5571: 	dec (iy + $02)
+J5574: 	jr J557e
+J556c: 	dec (iy + $01)
+J556f: 	jr J557e
+J0a8d: 	ld b, $00
+J0a8f: 	ld c, $01
+J0a91: 	call J1bfc
+J0a94: 	ld a, $ff
+J0a96: 	ex af, af'
+J0a97: 	ld hl, $609e
+J0a9a: 	ld a, ($6065)
+J0a9d: 	cp $00
+J0a9f: 	jr z, J0aa4
+J0aa4: 	ex af, af'
+J0aa5: 	ld (hl), a
+J0aa6: 	ld hl, $6001
+J0aa9: 	set 6, (hl)
+J0aab: 	ld a, ($6065)
+J0aae: 	cp $00
+J0ab0: 	jr nz, J0ab8
+J0ab8: 	ld hl, $6067
+J0abb: 	inc (hl)
+J0abc: 	call J1d77
+J0abf: 	jp J0969
+J0ab2: 	ld hl, $6066
+J0ab5: 	inc (hl)
+J0ab6: 	jr J0abc
+J0aa1: 	ld hl, $60a1
+J0a37: 	jp J0957
+J0a21: 	cp $02
+J0a23: 	jr nz, J0a37
+J0a09: 	cp $02
+J0a0b: 	jr nz, J0a11
+J0885: 	jp z, J09cc
+J09cc: 	call J3fe5
+J09cf: 	call J3d2b
+J09d2: 	call J3d9f
+J09d5: 	call J3c2c
+J09d8: 	call J3dbd
+J09db: 	ld a, e
+J09dc: 	cp $01
+J09de: 	jr nz, J09fb
+J09fb: 	jp J0957
+J09e0: 	ld a, ($6065)
+J09e3: 	cp $00
+J09e5: 	jr nz, J09ed
+J09ed: 	ld hl, $60a2
+J09f0: 	inc (hl)
+J09f1: 	ld a, (hl)
+J09f2: 	cp $04
+J09f4: 	jr c, J09f8
+J09f8: 	call J3154
+J09f6: 	ld (hl), $03
+J09e7: 	ld hl, $609f
+J09ea: 	inc (hl)
+J09eb: 	jr J09f1
+J0864: 	neg
+J0855: 	neg
+J081b: 	ld a, ($6027)
+J081e: 	ld d, a
+J081f: 	ld a, ($6028)
+J0822: 	ld e, a
+J0823: 	ld a, ($6026)
+J0826: 	srl a
+J0828: 	srl a
+J082a: 	srl a
+J082c: 	srl a
+J082e: 	cp $02
+J0830: 	jr z, J083f
+J083f: 	dec e
+J0840: 	jp J086e
+J0832: 	jr c, J0843
+J0843: 	inc d
+J0844: 	inc d
+J0845: 	inc d
+J0846: 	inc d
+J0847: 	inc d
+J0848: 	jp J086e
+J0834: 	cp $04
+J0836: 	jr z, J0846
+J0838: 	ld a, e
+J0839: 	sub $04
+J083b: 	ld e, a
+J083c: 	jp J086e
+J07f7: 	ld ix, $6021
+J07fb: 	bit 1, (ix + $00)
+J07ff: 	jp z, J0814
+J0802: 	ld a, (ix + $01)
+J0805: 	cp (ix + $06)
+J0808: 	jp nz, J0814
+J080b: 	ld a, (ix + $02)
+J080e: 	cp (ix + $07)
+J0811: 	jp z, J0898
+J0898: 	ld hl, $6021
+J089b: 	res 0, (hl)
+J089d: 	res 1, (hl)
+J089f: 	ld hl, $6026
+J08a2: 	res 1, (hl)
+J08a4: 	ld hl, $6000
+J08a7: 	set 1, (hl)
+J08a9: 	call J1fc7
+J08ac: 	call J178f
+J08af: 	ld a, $05
+J08b1: 	ld ($61e1), a
+J08b4: 	call J1f26
+J08b7: 	cp $13
+J08b9: 	jr c, J08bd
+J08bd: 	push af
+J08be: 	dec a
+J08bf: 	ld hl, $0c79	; could be a data table address, label T0c79: created
+J08c2: 	ld b, $00
+J08c4: 	ld c, a
+J08c5: 	add hl, bc
+J08c6: 	ld c, (hl)
+J08c7: 	ld a, ($6065)
+J08ca: 	cp $00
+J08cc: 	jr nz, J08d4
+J08d4: 	ld ix, $606b
+J08d8: 	ld a, (ix + $01)
+J08db: 	add c
+J08dc: 	daa
+J08dd: 	ld ix, a
+J08df: 	ld bc, $7edd
+J08e2: 	nop
+J08e3: 	adc b
+J08e4: 	daa
+J08e5: 	ld ix, a
+J08e7: 	nop
+J08e8: 	ld a, ($6065)
+J08eb: 	cp $00
+J08ed: 	jr nz, J08f4
+J08f4: 	ld hl, $d2c3
+J08f7: 	call J1e06
+J08fa: 	pop af
+J08fb: 	ld de, $0400	; could be a data table address, label T0400: created
+J08fe: 	dec a
+J08ff: 	ld b, a
+J0900: 	add a, $c6
+J0902: 	ld hl, $d1f0
+J0905: 	ld (hl), a
+J0906: 	add hl, de
+J0907: 	ld (hl), $05
+J0909: 	ld a, b
+J090a: 	cp $06
+J090c: 	jr c, J0912
+J0912: 	ld a, $d8
+J0914: 	ld hl, $d210
+J0917: 	ld (hl), a
+J0918: 	add hl, de
+J0919: 	ld (hl), $05
+J091b: 	ld b, $20
+J091d: 	push bc
+J091e: 	call J1fc7
+J0921: 	call J178f
+J0924: 	call J2d5a
+J0927: 	pop bc
+J0928: 	djnz J091d
+J092a: 	ld hl, $d1f0
+J092d: 	ld (hl), $32
+J092f: 	ld de, $0400	; could be a data table address, label T0400: created
+J0932: 	add hl, de
+J0933: 	ld (hl), $00
+J0935: 	ld hl, $d210
+J0938: 	ld (hl), $ff
+J093a: 	add hl, de
+J093b: 	ld (hl), $00
+J093d: 	ld hl, $605f
+J0940: 	set 6, (hl)
+J0942: 	ld hl, $6026
+J0945: 	set 1, (hl)
+J0947: 	jp J0784
+J090e: 	ld a, $d9
+J0910: 	jr J0914
+J08ef: 	ld hl, $d2c4
+J08f2: 	jr J08f7
+J08ce: 	ld ix, $6068
+J08d2: 	jr J08d8
+J08bb: 	ld a, $12
+J07d8: 	dec hl
+J07d9: 	ld a, ($6027)
+J07dc: 	sub (hl)
+J07dd: 	jr nc, J07e1
+J07e1: 	cp $09
+J07e3: 	jp nc, J07ea
+J07e6: 	pop hl
+J07e7: 	jp J088b
+J088b: 	res 0, (hl)
+J088d: 	res 1, (hl)
+J088f: 	call J1fc7
+J0892: 	call J178f
+J0895: 	jp J0af3
+J07df: 	neg
+J07d1: 	neg
+J07a9: 	call J407e
+J407e: 	ld a, ($61b4)
+J4081: 	and $0f
+J4083: 	jp z, J40a4
+J40a4: 	call J40f8
+J40f8: 	call J1f26
+J40fb: 	ld hl, $0ea6	; could be a data table address, label T0ea6: created
+J40fe: 	cp $33
+J4100: 	jp c, J4105
+J4105: 	ld e, a
+J4106: 	ld d, $00
+J4108: 	add hl, de
+J4109: 	ld e, (hl)
+J410a: 	ld hl, $0ed8	; could be a data table address, label T0ed8: created
+J410d: 	ld a, ($9002)
+J4110: 	bit 1, a
+J4112: 	jr nz, J4117
+J4117: 	ld a, ($61b7)
+J411a: 	srl a
+J411c: 	srl a
+J411e: 	srl a
+J4120: 	srl a
+J4122: 	add e
+J4123: 	cp $10
+J4125: 	jr c, J4129
+J4129: 	ld e, a
+J412a: 	add hl, de
+J412b: 	ld a, (hl)
+J412c: 	ld ($61c3), a
+J412f: 	ret
+J4127: 	ld a, $0f
+J4114: 	ld hl, $0ee8	; could be a data table address, label T0ee8: created
+J4103: 	ld a, $32
+J40a7: 	call J3cb0
+J40aa: 	and $0f
+J40ac: 	jr z, J40cb
+J40cb: 	ret
+J40ae: 	call J2e5c
+J2e5c: 	ld hl, $0ea4	; could be a data table address, label T0ea4: created
+J2e5f: 	call J1f26
+J2e62: 	bit 0, a
+J2e64: 	jr nz, J2e67
+J2e67: 	ld a, ($61b9)
+J2e6a: 	cp (hl)
+J2e6b: 	jp c, J2e9e
+J2e9e: 	ld hl, $61c4
+J2ea1: 	ld b, $04
+J2ea3: 	ld a, r	; read z80 dram refresh counter, bits 6-0 count, bit 7 remains unchanged. usually used as a random number generator
+J2ea5: 	and $0f
+J2ea7: 	srl a
+J2ea9: 	inc a
+J2eaa: 	cp $03
+J2eac: 	jr c, J2ebb
+J2ebb: 	ld a, $01
+J2ebd: 	jp J2ec7
+J2ec7: 	ld (hl), a
+J2ec8: 	inc hl
+J2ec9: 	djnz J2ea3
+J2ecb: 	call J46d8
+J46d8: 	call J1f26
+J46db: 	cp $1e
+J46dd: 	jr c, J46e1
+J46e1: 	ld hl, $4788	; could be a data table address, label T4788: created
+J46e4: 	ld ($61c8), a
+J46e7: 	dec a
+J46e8: 	add l
+J46e9: 	ld l, a
+J46ea: 	ld a, $00
+J46ec: 	adc h
+J46ed: 	ld h, a
+J46ee: 	ld a, (hl)
+J46ef: 	ld hl, $47a6	; could be a data table address, label T47a6: created
+J46f2: 	add l
+J46f3: 	ld l, a
+J46f4: 	ld a, $00
+J46f6: 	adc h
+J46f7: 	ld h, a
+J46f8: 	ld a, (hl)
+J46f9: 	ld b, a
+J46fa: 	push af
+J46fb: 	ld a, ($61b8)
+J46fe: 	ld c, a
+J46ff: 	ld a, b
+J4700: 	ld b, $00
+J4702: 	rla
+J4703: 	jr c, J4708
+J4708: 	push bc
+J4709: 	ld a, c
+J470a: 	rlca
+J470b: 	djnz J470a
+J470d: 	pop bc
+J470e: 	srl a
+J4710: 	djnz J470e
+J4712: 	ld b, a
+J4713: 	pop af
+J4714: 	cp b
+J4715: 	jr nz, J4753
+J4753: 	ld iy, $61c4
+J4757: 	ld de, $0005	; could be a data table address, label T0005: created
+J475a: 	ld ix, $602c
+J475e: 	ld hl, $61ce
+J4761: 	ld b, $04
+J4763: 	ld a, (hl)
+J4764: 	cp $00
+J4766: 	jr z, J4780
+J4780: 	inc iy
+J4782: 	add ix, de
+J4784: 	inc hl
+J4785: 	djnz J4763
+J4787: 	ret
+J4768: 	push de
+J4769: 	ld d, (ix + $00)
+J476c: 	ld e, (ix + $01)
+J476f: 	call J45dc
+J4772: 	ld e, a
+J4773: 	ld d, $62
+J4775: 	ld a, (de)
+J4776: 	and $0f
+J4778: 	pop de
+J4779: 	cp $0f
+J477b: 	jr z, J4780
+J477d: 	ld iy, a
+J477f: 	nop
+J4717: 	ld a, ($61b6)
+J471a: 	cp $3b
+J471c: 	jr nz, J4753
+J471e: 	ld hl, $61d2
+J4721: 	ld a, (hl)
+J4722: 	inc (hl)
+J4723: 	and $03
+J4725: 	ld hl, $61ce
+J4728: 	add l
+J4729: 	ld l, a
+J472a: 	ld a, $00
+J472c: 	adc h
+J472d: 	ld h, a
+J472e: 	ld a, (hl)
+J472f: 	cp $00
+J4731: 	jr nz, J4753
+J4733: 	push hl
+J4734: 	ld hl, $47ae	; could be a data table address, label T47ae: created
+J4737: 	ld a, ($9002)
+J473a: 	bit 0, a
+J473c: 	jr nz, J4741
+J4741: 	ld a, ($61b7)
+J4744: 	srl a
+J4746: 	srl a
+J4748: 	srl a
+J474a: 	add l
+J474b: 	ld l, a
+J474c: 	ld a, $00
+J474e: 	adc h
+J474f: 	ld h, a
+J4750: 	ld a, (hl)
+J4751: 	pop hl
+J4752: 	ld (hl), a
+J473e: 	ld hl, $47cd	; could be a data table address, label T47cd: created
+J4705: 	inc b
+J4706: 	jr J4702
+J46df: 	ld a, $1e
+J2ece: 	ret
+J2eae: 	cp $05
+J2eb0: 	jr c, J2ec0
+J2ec0: 	ld a, $02
+J2ec2: 	jp J2ec7
+J2eb2: 	cp $07
+J2eb4: 	jr c, J2ec5
+J2ec5: 	ld a, $04
+J2eb6: 	ld a, $08
+J2eb8: 	jp J2ec7
+J2e6e: 	ld a, ($6065)
+J2e71: 	cp $00
+J2e73: 	jr z, J2e81
+J2e81: 	ld a, ($9000)
+J2e84: 	cp $00
+J2e86: 	jp z, J2e9e
+J2e89: 	ld a, ($6198)
+J2e8c: 	ld hl, $61c4
+J2e8f: 	ld b, $04
+J2e91: 	srl a
+J2e93: 	jr nc, J2e97
+J2e97: 	ld (hl), a
+J2e98: 	inc hl
+J2e99: 	djnz J2e91
+J2e9b: 	jp J2ecb
+J2e95: 	set 3, a
+J2e75: 	ld a, ($9002)
+J2e78: 	bit 5, a
+J2e7a: 	jr z, J2e81
+J2e7c: 	ld a, ($9001)
+J2e7f: 	jr J2e84
+J2e66: 	inc hl
+J40b1: 	call J40cc
+J40cc: 	ld a, ($61c3)
+J40cf: 	ld b, a
+J40d0: 	sra a
+J40d2: 	sra a
+J40d4: 	sra a
+J40d6: 	sra a
+J40d8: 	ld e, a
+J40d9: 	bit 1, b
+J40db: 	jr nz, J40ed
+J40ed: 	ld a, $33
+J40ef: 	ld hl, $61b5
+J40f2: 	add (hl)
+J40f3: 	ld (hl), a
+J40f4: 	jr nc, J40f7
+J40f7: 	ret
+J40f6: 	inc e
+J40dd: 	bit 2, b
+J40df: 	jr nz, J40e9
+J40e9: 	ld a, $80
+J40eb: 	jr J40ef
+J40e1: 	bit 3, b
+J40e3: 	jr z, J40f7
+J40e5: 	ld a, $cc
+J40e7: 	jr J40ef
+J40b4: 	ld b, $04
+J40b6: 	ld hl, $602b
+J40b9: 	jp J40c2
+J40c2: 	bit 1, (hl)
+J40c4: 	jr z, J40c9
+J40c9: 	djnz J40bc
+J40bc: 	push de
+J40bd: 	ld de, $0005	; could be a data table address, label T0005: created
+J40c0: 	add hl, de
+J40c1: 	pop de
+J40c6: 	call J42ba
+J42ba: 	push hl
+J42bb: 	push de
+J42bc: 	push bc
+J42bd: 	call J43f0
+J43f0: 	ld de, $61ba
+J43f3: 	ld a, (hl)
+J43f4: 	srl a
+J43f6: 	srl a
+J43f8: 	srl a
+J43fa: 	srl a
+J43fc: 	ld (de), a
+J43fd: 	inc de
+J43fe: 	inc hl
+J43ff: 	ld a, (hl)
+J4400: 	ld (de), a
+J4401: 	inc de
+J4402: 	inc hl
+J4403: 	ld a, (hl)
+J4404: 	ld (de), a
+J4405: 	ret
+J42c0: 	ld bc, $0003	; could be a data table address, label T0003: created
+J42c3: 	ld hl, $61ba
+J42c6: 	ld de, $61bd
+J42c9: 	ldir
+J42cb: 	xor a
+J42cc: 	ld ($61c1), a
+J42cf: 	ld ($61c2), a
+J42d2: 	ld hl, $61bd
+J42d5: 	ld a, (hl)
+J42d6: 	inc hl
+J42d7: 	ld d, (hl)
+J42d8: 	inc hl
+J42d9: 	ld e, (hl)
+J42da: 	call J427e
+J427e: 	ex af, af'
+J427f: 	ld a, d
+J4280: 	and $0f
+J4282: 	cp $08
+J4284: 	jr nz, J42b8
+J42b8: 	and a
+J42b9: 	ret
+J4286: 	ld a, e
+J4287: 	and $0f
+J4289: 	cp $06
+J428b: 	jr nz, J42b8
+J428d: 	ex af, af'
+J428e: 	and $05
+J4290: 	jr nz, J429a
+J429a: 	ld b, d
+J429b: 	ld a, e
+J429c: 	call J36da
+J429f: 	srl d
+J42a1: 	rr e
+J42a3: 	jp c, J42aa
+J42aa: 	call J3703
+J42ad: 	jr z, J42b6
+J42b6: 	scf
+J42b7: 	ret
+J42af: 	jr c, J42b8
+J42b1: 	set 7, d
+J42b3: 	jp J42a6
+J42a6: 	add c
+J42a7: 	jp J429f
+J4292: 	ld b, e
+J4293: 	ld a, d
+J4294: 	call J377a
+J4297: 	jp J429f
+J42dd: 	jp nc, J433a
+J433a: 	ld hl, $61bd
+J433d: 	ld a, (hl)
+J433e: 	inc hl
+J433f: 	ld d, (hl)
+J4340: 	inc hl
+J4341: 	ld e, (hl)
+J4342: 	call J4189
+J4189: 	bit 0, a
+J418b: 	jr nz, J41b9
+J41b9: 	ld a, d
+J41ba: 	sub $01
+J41bc: 	ld b, a
+J41bd: 	ld d, a
+J41be: 	call J3c0a
+J41c1: 	ld a, (hl)
+J41c2: 	cp $45
+J41c4: 	jr z, J4222
+J4222: 	scf
+J4223: 	ret
+J41c6: 	cp $46
+J41c8: 	jr z, J4222
+J41ca: 	ld a, b
+J41cb: 	sub $02
+J41cd: 	ld d, a
+J41ce: 	call J3c0a
+J41d1: 	ld a, (hl)
+J41d2: 	cp $4a
+J41d4: 	jr z, J4222
+J41d6: 	cp $41
+J41d8: 	jr z, J4222
+J41da: 	jr J4220
+J4220: 	and a
+J4221: 	ret
+J418d: 	bit 1, a
+J418f: 	jr nz, J41dc
+J41dc: 	ld a, e
+J41dd: 	sub $01
+J41df: 	ld b, a
+J41e0: 	ld e, a
+J41e1: 	call J3c0a
+J41e4: 	ld a, (hl)
+J41e5: 	cp $49
+J41e7: 	jr z, J4222
+J41e9: 	cp $43
+J41eb: 	jr z, J4222
+J41ed: 	ld a, b
+J41ee: 	sub $06
+J41f0: 	ld e, a
+J41f1: 	call J3c0a
+J41f4: 	ld a, (hl)
+J41f5: 	cp $41
+J41f7: 	jr z, J4222
+J41f9: 	cp $46
+J41fb: 	jr z, J4222
+J41fd: 	jr J4220
+J4191: 	bit 2, a
+J4193: 	jr nz, J41ff
+J41ff: 	ld a, $02
+J4201: 	add d
+J4202: 	ld b, a
+J4203: 	ld d, a
+J4204: 	call J3c0a
+J4207: 	ld a, (hl)
+J4208: 	cp $44
+J420a: 	jr z, J4222
+J420c: 	cp $47
+J420e: 	jr z, J4222
+J4210: 	ld a, b
+J4211: 	add a, $06
+J4213: 	ld d, a
+J4214: 	call J3c0a
+J4217: 	ld a, (hl)
+J4218: 	cp $4a
+J421a: 	jr z, J4222
+J421c: 	cp $41
+J421e: 	jr z, J4222
+J4195: 	ld a, $02
+J4197: 	add e
+J4198: 	ld b, a
+J4199: 	ld e, a
+J419a: 	call J3c0a
+J419d: 	ld a, (hl)
+J419e: 	cp $4a
+J41a0: 	jp z, J4222
+J41a3: 	cp $45
+J41a5: 	jr z, J4222
+J41a7: 	ld a, b
+J41a8: 	add a, $02
+J41aa: 	ld e, a
+J41ab: 	call J3c0a
+J41ae: 	ld a, (hl)
+J41af: 	cp $41
+J41b1: 	jr z, J4222
+J41b3: 	cp $46
+J41b5: 	jr z, J4222
+J41b7: 	jr J4220
+J4345: 	jr nc, J4359
+J4359: 	ld hl, $61bd
+J435c: 	ld a, (hl)
+J435d: 	inc hl
+J435e: 	ld d, (hl)
+J435f: 	inc hl
+J4360: 	ld e, (hl)
+J4361: 	cp $02
+J4363: 	jr z, J4372
+J4372: 	dec e
+J4373: 	jp J437b
+J437b: 	call J3c0a
+J437e: 	ld a, (hl)
+J437f: 	cp $63
+J4381: 	jp nz, J43ba
+J43ba: 	ld ix, $61bd
+J43be: 	call J4224
+J4224: 	ld a, (ix + $00)
+J4227: 	cp $02
+J4229: 	jr c, J4235
+J4235: 	dec (ix + $01)
+J4238: 	ret
+J422b: 	jr z, J4239
+J4239: 	dec (ix + $02)
+J423c: 	ret
+J422d: 	cp $04
+J422f: 	jr z, J423d
+J423d: 	inc (ix + $01)
+J4240: 	ret
+J4231: 	inc (ix + $02)
+J4234: 	ret
+J43c1: 	ld hl, $61c2
+J43c4: 	inc (hl)
+J43c5: 	ld a, (hl)
+J43c6: 	pop bc
+J43c7: 	pop de
+J43c8: 	push de
+J43c9: 	push bc
+J43ca: 	cp e
+J43cb: 	jp nz, J42d2
+J43ce: 	pop bc
+J43cf: 	pop de
+J43d0: 	pop hl
+J43d1: 	push hl
+J43d2: 	push de
+J43d3: 	push bc
+J43d4: 	ld a, ($61bd)
+J43d7: 	sla a
+J43d9: 	sla a
+J43db: 	sla a
+J43dd: 	sla a
+J43df: 	set 1, a
+J43e1: 	ld (hl), a
+J43e2: 	ld a, ($61be)
+J43e5: 	inc hl
+J43e6: 	ld (hl), a
+J43e7: 	ld a, ($61bf)
+J43ea: 	inc hl
+J43eb: 	ld (hl), a
+J43ec: 	pop bc
+J43ed: 	pop de
+J43ee: 	pop hl
+J43ef: 	ret
+J4384: 	call J3fe5
+J4387: 	call J3d2b
+J438a: 	push hl
+J438b: 	ld hl, $6001
+J438e: 	set 7, (hl)
+J4390: 	ld hl, $605f
+J4393: 	res 6, (hl)
+J4395: 	pop hl
+J4396: 	pop bc
+J4397: 	push bc
+J4398: 	ld hl, $61b4
+J439b: 	ld a, $04
+J439d: 	sub b
+J439e: 	jr z, J43ab
+J43ab: 	set 0, (hl)
+J43ad: 	jp J43ce
+J43a0: 	cp $02
+J43a2: 	jr z, J43b0
+J43b0: 	set 2, (hl)
+J43b2: 	jp J43ce
+J43a4: 	jr c, J43b5
+J43b5: 	set 1, (hl)
+J43b7: 	jp J43ce
+J43a6: 	set 3, (hl)
+J43a8: 	jp J43ce
+J4365: 	jr c, J4379
+J4379: 	inc d
+J437a: 	inc d
+J4367: 	cp $04
+J4369: 	jr z, J4376
+J4376: 	inc d
+J4377: 	inc d
+J4378: 	inc d
+J436b: 	ld a, e
+J436c: 	sub $04
+J436e: 	ld e, a
+J436f: 	jp J437b
+J4347: 	ld a, ($61bd)
+J434a: 	ld b, a
+J434b: 	srl a
+J434d: 	srl a
+J434f: 	sla b
+J4351: 	sla b
+J4353: 	or b
+J4354: 	and $0f
+J4356: 	ld ($61bd), a
+J42e0: 	call J42e6
+J42e6: 	ld ix, $61be
+J42ea: 	pop hl
+J42eb: 	pop bc
+J42ec: 	push bc
+J42ed: 	push hl
+J42ee: 	ld a, $04
+J42f0: 	sub b
+J42f1: 	ld c, a
+J42f2: 	ld b, $00
+J42f4: 	ld hl, $61c4
+J42f7: 	add hl, bc
+J42f8: 	ld d, (hl)
+J42f9: 	call J3911
+J42fc: 	jr c, J4311
+J4311: 	ld a, ($61c1)
+J4314: 	or d
+J4315: 	ld ($61c1), a
+J4318: 	ld hl, $61bd
+J431b: 	ld a, (hl)
+J431c: 	ld b, a
+J431d: 	and e
+J431e: 	jr z, J4329
+J4329: 	ld a, ($61bd)
+J432c: 	ld b, a
+J432d: 	ld a, ($61c1)
+J4330: 	or b
+J4331: 	ld ($61c1), a
+J4334: 	call J4241
+J4241: 	ld ix, $61be
+J4245: 	ld d, (ix + $00)
+J4248: 	ld e, (ix + $01)
+J424b: 	ld b, $01
+J424d: 	rra
+J424e: 	jr nc, J425a
+J425a: 	ld ($61c8), a
+J425d: 	push bc
+J425e: 	ld d, b
+J425f: 	call J3911
+J4262: 	pop bc
+J4263: 	ld a, ($61c8)
+J4266: 	jr c, J4250
+J4250: 	sla b
+J4252: 	bit 4, b
+J4254: 	jr z, J424d
+J4256: 	xor a
+J4257: 	jp J424b
+J4268: 	ld ($61c8), a
+J426b: 	push bc
+J426c: 	ld a, b
+J426d: 	ld d, (ix + $00)
+J4270: 	ld e, (ix + $01)
+J4273: 	call J4130
+J4130: 	bit 0, a
+J4132: 	jr nz, J414f
+J414f: 	ld a, d
+J4150: 	sub $01
+J4152: 	ld d, a
+J4153: 	call J3c0a
+J4156: 	ld a, (hl)
+J4157: 	cp $3d
+J4159: 	jr z, J4187
+J4187: 	scf
+J4188: 	ret
+J415b: 	cp $3f
+J415d: 	jr z, J4187
+J415f: 	jp J4185
+J4185: 	and a
+J4186: 	ret
+J4134: 	bit 1, a
+J4136: 	jr nz, J4162
+J4162: 	ld a, e
+J4163: 	sub $07
+J4165: 	ld e, a
+J4166: 	call J3c0a
+J4169: 	ld a, (hl)
+J416a: 	cp $35
+J416c: 	jr z, J4187
+J416e: 	cp $37
+J4170: 	jr z, J4187
+J4172: 	jp J4185
+J4138: 	bit 2, a
+J413a: 	jr nz, J4175
+J4175: 	ld a, $08
+J4177: 	add d
+J4178: 	ld d, a
+J4179: 	call J3c0a
+J417c: 	ld a, (hl)
+J417d: 	cp $3f
+J417f: 	jr z, J4187
+J4181: 	cp $3d
+J4183: 	jr z, J4187
+J413c: 	ld a, $02
+J413e: 	add e
+J413f: 	ld e, a
+J4140: 	call J3c0a
+J4143: 	ld a, (hl)
+J4144: 	cp $35
+J4146: 	jr z, J4187
+J4148: 	cp $37
+J414a: 	jr z, J4187
+J414c: 	jp J4185
+J4276: 	pop bc
+J4277: 	ld a, ($61c8)
+J427a: 	jr c, J4250
+J427c: 	ld d, b
+J427d: 	ret
+J4337: 	jp J430c
+J430c: 	ld hl, $61bd
+J430f: 	ld (hl), d
+J4310: 	ret
+J4320: 	ld a, b
+J4321: 	inc hl
+J4322: 	ld d, (hl)
+J4323: 	inc hl
+J4324: 	ld e, (hl)
+J4325: 	call J4130
+J4328: 	ret nc
+J42fe: 	push de
+J42ff: 	ld a, d
+J4300: 	ld hl, $61be
+J4303: 	ld d, (hl)
+J4304: 	inc hl
+J4305: 	ld e, (hl)
+J4306: 	call J4130
+J4309: 	pop de
+J430a: 	jr c, J4311
+J42e3: 	jp J43ba
+J4086: 	ld hl, $6021
+J4089: 	res 1, (hl)
+J408b: 	res 0, (hl)
+J408d: 	ld b, $04
+J408f: 	ld hl, $602b
+J4092: 	ld de, $0005	; could be a data table address, label T0005: created
+J4095: 	rra
+J4096: 	jp nc, J409d
+J409d: 	add hl, de
+J409e: 	djnz J4095
+J40a0: 	xor a
+J40a1: 	ld ($61b4), a
+J4099: 	res 0, (hl)
+J409b: 	res 1, (hl)
+J0794: 	ld hl, $9002
+J0797: 	bit 3, (hl)
+J0799: 	jp z, J095e
+J064f: 	ld a, $82
+J0651: 	ld ($6026), a
+J0654: 	inc hl
+J0655: 	ld d, $56
+J0657: 	jr J0648
+J0648: 	pop af
+J0649: 	jr J062e
+J0647: 	inc (hl)
+J0630: 	cpl
+J0631: 	call J1e4c
+J0634: 	ld b, $0f
+J05d8: 	ld hl, $6067
+J05db: 	jr J05e0
+J4978: 	ld a, ($605f)
+J497b: 	bit 1, a
+J497d: 	jp z, J4981
+J4981: 	dec (hl)
+J4982: 	xor a
+J4983: 	ld ($61e2), a
+J4980: 	dec (hl)
+J038c: 	ld a, ($605e)
+J038f: 	cp $02
+J0391: 	jr c, J0397
+J0397: 	push bc
+J0398: 	call J1ca5
+J1ca5: 	inc hl
+J1ca6: 	bit 7, (hl)
+J1ca8: 	jr z, J1ca6
+J1caa: 	bit 7, (hl)
+J1cac: 	jr nz, J1caa
+J1cae: 	push hl
+J1caf: 	call J033a
+J1cb2: 	call J178f
+J1cb5: 	pop hl
+J1cb6: 	bit 7, (hl)
+J1cb8: 	jr z, J1cb6
+J1cba: 	ret
+J039b: 	call J27e5
+J27e5: 	push af
+J27e6: 	push bc
+J27e7: 	push de
+J27e8: 	push hl
+J27e9: 	ld de, $0020	; could be a data table address, label T0020: created
+J039e: 	call J2755
+J03a1: 	call J2d5a
+J03a4: 	pop bc
+J03a5: 	dec bc
+J03a6: 	ld a, b
+J03a7: 	or c
+J03a8: 	jr nz, J0385
+J03aa: 	ld a, ($61c8)
+J03ad: 	call J2863
+J03b0: 	cpl
+J03b1: 	jr J037f
+J0393: 	bit 6, (hl)
+J0395: 	jr z, J03cb
+J03cb: 	ld a, ($605f)
+J03ce: 	set 1, a
+J03d0: 	ld ($605f), a
+J03d3: 	call J1f36
+J03d6: 	ld ($6066), a
+J03d9: 	ld ($6067), a
+J03dc: 	jp J4960
+J4960: 	ld hl, $605e
+J4963: 	dec (hl)
+J4964: 	dec (hl)
+J4965: 	ld hl, $61e2
+J4968: 	inc (hl)
+J4969: 	jp J03e1
+J0149: 	dec b
+J014a: 	jr nz, J012d
+J014c: 	call J5038
+J5038: 	jp J5bfb
+J5bfb: 	ld hl, $601c
+J5bfe: 	ld (hl), $00
+J5c00: 	ld de, $601d
+J5c03: 	ld bc, $0031	; could be a data table address, label T0031: created
+J5c06: 	ldir
+J5c08: 	call J1fc7
+J5c0b: 	jp J5f10
+J5f10: 	call J178f
+J5f13: 	ld hl, $d080
+J5f16: 	ld bc, $2018	; could be a data table address, label T2018: created
+J5f19: 	call J5d52
+J5f1c: 	ret
+J014f: 	call J5020
+J5020: 	jp J58bf
+J58bf: 	call J5d9c
+J58c2: 	call J1be5
+J58c5: 	ld hl, $5aff	; could be a data table address, label T5aff: created
+J58c8: 	ld b, $0d
+J58ca: 	push bc
+J58cb: 	call J5d36
+J58ce: 	ex de, hl
+J58cf: 	pop bc
+J58d0: 	djnz J58ca
+J58d2: 	call J5e47
+J58d5: 	ld ix, $681a
+J58d9: 	ld (ix + $00), $ff
+J58dd: 	ld a, ($5adf)
+J58e0: 	ld ix, a
+J58e2: 	ld bc, $e021
+J58e5: 	ld e, d
+J58e6: 	ld ix, ixh
+J58e8: 	ld (bc), a
+J58e9: 	ld ix, ixl
+J58eb: 	inc bc
+J58ec: 	ld (ix + $04), $07
+J58f0: 	ld (ix + $05), $1e
+J58f4: 	ld (ix + $06), $00
+J58f8: 	ld iy, $6812
+J58fc: 	ld (iy + $00), $42
+J5900: 	ld (iy + $01), $08
+J5904: 	ld (iy + $02), $b7
+J5908: 	call J5e9c
+J590b: 	push ix
+J590d: 	push iy
+J590f: 	call J1fc7
+J5912: 	call J178f
+J5915: 	pop iy
+J5917: 	pop ix
+J5919: 	dec (ix + $05)
+J591c: 	jr nz, J5925
+J5925: 	ld a, (ix + $00)
+J5928: 	and a
+J5929: 	jr z, J5933
+J5933: 	inc (iy + $01)
+J5936: 	dec (ix + $01)
+J5939: 	jr nz, J5908
+J593b: 	call J5a44
+J5a44: 	ld a, (ix + $06)
+J5a47: 	add a
+J5a48: 	ld e, a
+J5a49: 	ld d, $00
+J5a4b: 	ld hl, $5a5a	; could be a data table address, label T5a5a: created
+J5a4e: 	add hl, de
+J5a4f: 	ld e, (hl)
+J5a50: 	inc hl
+J5a51: 	ld d, (hl)
+J5a52: 	ex de, hl
+J5a53: 	ld bc, $0202	; could be a data table address, label T0202: created
+J5a56: 	call J5d52
+J5a59: 	ret
+J593e: 	ld a, (ix + $06)
+J5941: 	cp $0f
+J5943: 	jr nc, J596d
+J596d: 	ld a, $81
+J596f: 	ld ($6026), a
+J5972: 	ld hl, $599a	; could be a data table address, label T599a: created
+J5975: 	ld c, $0f
+J5977: 	ld b, $1e
+J5979: 	ld e, (hl)
+J597a: 	inc hl
+J597b: 	ld d, (hl)
+J597c: 	inc hl
+J597d: 	ld ($6029), de
+J5981: 	push bc
+J5982: 	push hl
+J5983: 	call J5710
+J5986: 	pop hl
+J5987: 	pop bc
+J5988: 	ld b, $05
+J598a: 	dec c
+J598b: 	jr nz, J5979
+J598d: 	ld b, $3c
+J598f: 	call J5710
+J5992: 	xor a
+J5993: 	ld ($6026), a
+J5996: 	jp J5ef0
+J5ef0: 	call J1fc7
+J5ef3: 	call J178f
+J5ef6: 	ret
+J5945: 	call J59b8
+J59b8: 	ld a, (ix + $06)
+J59bb: 	cp $0c
+J59bd: 	jr nc, J59f6
+J59f6: 	sub $0c
+J59f8: 	add a
+J59f9: 	call J5a20
+J5a20: 	ld l, a
+J5a21: 	ld h, $00
+J5a23: 	add hl, hl
+J5a24: 	add hl, hl
+J5a25: 	add hl, hl
+J5a26: 	add hl, hl
+J5a27: 	add hl, hl
+J5a28: 	ret
+J59fc: 	ld de, $d6bd
+J59ff: 	add hl, de
+J5a00: 	ld (hl), $05
+J5a02: 	ld de, $0020	; could be a data table address, label T0020: created
+J5a05: 	add hl, de
+J5a06: 	ld (hl), $05
+J5a08: 	rrca
+J5a09: 	ld e, a
+J5a0a: 	ld d, $00
+J5a0c: 	ld hl, $5a29	; could be a data table address, label T5a29: created
+J5a0f: 	add hl, de
+J5a10: 	ld a, $56
+J5a12: 	ld ($d2ed), a
+J5a15: 	ld ($d2ea), a
+J5a18: 	ld a, (hl)
+J5a19: 	ld ($d30d), a
+J5a1c: 	ld ($d30a), a
+J5a1f: 	ret
+J59bf: 	cp $05
+J59c1: 	jr nc, J59da
+J59da: 	sub $05
+J59dc: 	call J5a20
+J59df: 	ld de, $d4bd
+J59e2: 	add hl, de
+J59e3: 	ld (hl), $07
+J59e5: 	ld a, (ix + $06)
+J59e8: 	cp $0b
+J59ea: 	ret nz
+J59eb: 	ld hl, $5a38	; could be a data table address, label T5a38: created
+J59ee: 	call J5d36
+J59f1: 	ex de, hl
+J59f2: 	call J5d36
+J59f5: 	ret
+J59c3: 	call J5a20
+J59c6: 	ld de, $d5dd
+J59c9: 	add hl, de
+J59ca: 	ld (hl), $06
+J59cc: 	cp $04
+J59ce: 	ret nz
+J59cf: 	ld hl, $5a2c	; could be a data table address, label T5a2c: created
+J59d2: 	call J5d36
+J59d5: 	ex de, hl
+J59d6: 	call J5d36
+J59d9: 	ret
+J5948: 	call J5a7a
+J5a7a: 	ld a, (ix + $00)
+J5a7d: 	cpl
+J5a7e: 	ld ix, a
+J5a80: 	nop
+J5a81: 	ld ixh, (ix + $02)
+J5a84: 	ld ixl, (ix + $03)
+J5a87: 	ld a, (hl)
+J5a88: 	ld ix, a
+J5a8a: 	ld bc, $dd23
+J5a8d: 	ld (hl), h
+J5a8e: 	ld (bc), a
+J5a8f: 	ld ix, ixl
+J5a91: 	inc bc
+J5a92: 	ret
+J594b: 	inc (ix + $06)
+J594e: 	ld a, (ix + $06)
+J5951: 	cp $0c
+J5953: 	jr z, J5963
+J5963: 	ld (iy + $01), $08
+J5967: 	ld (iy + $02), $87
+J596b: 	jr J5908
+J5955: 	cp $05
+J5957: 	jr nz, J5908
+J5959: 	ld (iy + $01), $08
+J595d: 	ld (iy + $02), $9f
+J5961: 	jr J5908
+J592b: 	dec (ix + $01)
+J592e: 	call z, J5a7a
+J5931: 	jr J5908
+J591e: 	ld (ix + $05), $1e
+J5922: 	call J5a93
+J5a93: 	ld a, (ix + $04)
+J5a96: 	dec a
+J5a97: 	cp $05
+J5a99: 	jr nc, J5a9d
+J5a9d: 	ld ix, a
+J5a9f: 	inc b
+J5aa0: 	ld hl, $d537
+J5aa3: 	ld b, $0a
+J5aa5: 	call J5aca
+J5aca: 	ld c, $02
+J5acc: 	ld de, $0020	; could be a data table address, label T0020: created
+J5acf: 	push bc
+J5ad0: 	push hl
+J5ad1: 	ld (hl), a
+J5ad2: 	add hl, de
+J5ad3: 	djnz J5ad1
+J5ad5: 	pop hl
+J5ad6: 	dec hl
+J5ad7: 	pop bc
+J5ad8: 	dec c
+J5ad9: 	jr nz, J5acf
+J5adb: 	ret
+J5aa8: 	dec hl
+J5aa9: 	ld b, $0e
+J5aab: 	call J5aca
+J5aae: 	dec hl
+J5aaf: 	ld b, $0a
+J5ab1: 	call J5aca
+J5ab4: 	ld hl, $d52b
+J5ab7: 	ld b, $02
+J5ab9: 	call J5aca
+J5abc: 	sub $05
+J5abe: 	ld e, a
+J5abf: 	ld d, $00
+J5ac1: 	ld hl, $5adc	; could be a data table address, label T5adc: created
+J5ac4: 	add hl, de
+J5ac5: 	ld a, (hl)
+J5ac6: 	ld ($d18a), a
+J5ac9: 	ret
+J5a9b: 	ld a, $07
+J0152: 	ld hl, $605f
+J0155: 	set 4, (hl)
+J0157: 	ld hl, $0ef8	; could be a data table address, label T0ef8: created
+J015a: 	ld ($61d8), hl
+J015d: 	nop
+J015e: 	nop
+J015f: 	nop
+J0160: 	nop
+J0161: 	nop
+J0162: 	call J1f36
+J0165: 	ld ($6066), a
+J0168: 	xor a
+J0169: 	ld ($6067), a
+J016c: 	ld ($6065), a
+J016f: 	ld ($606e), a
+J0172: 	ld ($606f), a
+J0175: 	jp J03f7
+J58ab: 	ld de, $0012	; could be a data table address, label T0012: created
+J588a: 	ld a, $18
+J588c: 	ld ($d20f), a
+J588f: 	ld a, $14
+J5891: 	ld ($d22f), a
+J5894: 	jr J58a3
+J585e: 	ld a, $18
+J5860: 	ld ($d212), a
+J5863: 	ld a, $14
+J5865: 	ld ($d232), a
+J5868: 	jr J5886
+J582a: 	exx	; exchange bc de hl <- -> bc' de' hl'
+J582b: 	ld c, $ff
+J582d: 	exx	; exchange bc de hl <- -> bc' de' hl'
+
+J0038: 	jp J019e
+J019e: 	push af
+J019f: 	push hl
+J01a0: 	push bc
+J01a1: 	ld a, ($61cd)
+J01a4: 	cp $00
+J01a6: 	jp nz, J022b
+J022b: 	ld a, ($8000)
+J022e: 	ei
+J022f: 	pop bc
+J0230: 	pop hl
+J0231: 	pop af
+J0232: 	reti
+J01a9: 	ld a, ($605b)
+J01ac: 	cp $00
+J01ae: 	jp nz, J022b
+J01b1: 	ld a, $03
+J01b3: 	ld ($605b), a
+J01b6: 	ld a, $ff
+J01b8: 	ld hl, $9003
+J01bb: 	rrd
+J01bd: 	cpl
+J01be: 	ld hl, $0be2	; could be a data table address, label T0be2: created
+J01c1: 	sla a
+J01c3: 	ld c, a
+J01c4: 	ld b, $00
+J01c6: 	add hl, bc
+J01c7: 	push de
+J01c8: 	ex de, hl
+J01c9: 	srl c
+J01cb: 	ld hl, $6830
+J01ce: 	add hl, bc
+J01cf: 	inc (hl)
+J01d0: 	ld a, (de)
+J01d1: 	cp (hl)
+J01d2: 	jp z, J01d9
+J01d9: 	ld (hl), $00
+J01db: 	inc de
+J01dc: 	ld a, (de)
+J01dd: 	pop de
+J01de: 	jp J01fc
+J01fc: 	ld hl, $605e
+J01ff: 	add (hl)
+J0200: 	ld (hl), a
+J0201: 	ld b, a
+J0202: 	ld a, ($d321)
+J0205: 	cp $1d
+J0207: 	jr nz, J0211
+J0211: 	ld a, ($605f)
+J0214: 	bit 0, a
+J0216: 	jr nz, J0226
+J0226: 	ld hl, $6001
+J0229: 	set 4, (hl)
+J0218: 	ld hl, $0008	; could be a data table address, label T0008: created
+J021b: 	add hl, sp
+J021c: 	ld sp, hl
+J021d: 	ld bc, $035f	; could be a data table address, label T035f: created
+J0220: 	push bc
+J0221: 	ld hl, $fffa
+J0224: 	add hl, sp
+J0225: 	ld sp, hl
+J0209: 	ld a, b
+J020a: 	cp $0a
+J020c: 	jr nc, J0211
+J020e: 	ld ($d361), a
+J01d5: 	pop de
+J01d6: 	jp J0226
+
+J0066: 	jp J0234
+J0234: 	push af
+J0235: 	push hl
+J0236: 	push bc
+J0237: 	ld a, ($61cd)
+J023a: 	cp $00
+J023c: 	jp nz, J02c1
+J02c1: 	pop bc
+J02c2: 	pop hl
+J02c3: 	pop af
+J02c4: 	retn
+J023f: 	ld a, ($605b)
+J0242: 	cp $00
+J0244: 	jp nz, J02c1
+J0247: 	ld a, $03
+J0249: 	ld ($605b), a
+J024c: 	ld a, $ff
+J024e: 	ld hl, $9003
+J0251: 	rld
+J0253: 	cpl
+J0254: 	ld hl, $0be2	; could be a data table address, label T0be2: created
+J0257: 	sla a
+J0259: 	ld c, a
+J025a: 	ld b, $00
+J025c: 	add hl, bc
+J025d: 	push de
+J025e: 	ex de, hl
+J025f: 	srl c
+J0261: 	ld hl, $6830
+J0264: 	add hl, bc
+J0265: 	inc (hl)
+J0266: 	ld a, (de)
+J0267: 	cp (hl)
+J0268: 	jp z, J026f
+J026f: 	ld (hl), $00
+J0271: 	inc de
+J0272: 	ld a, (de)
+J0273: 	pop de
+J0274: 	jp J0292
+J0292: 	ld hl, $605e
+J0295: 	add (hl)
+J0296: 	ld (hl), a
+J0297: 	ld b, a
+J0298: 	ld a, ($d321)
+J029b: 	cp $1d
+J029d: 	jr nz, J02a7
+J02a7: 	ld a, ($605f)
+J02aa: 	bit 0, a
+J02ac: 	jr nz, J02bc
+J02bc: 	ld hl, $6001
+J02bf: 	set 4, (hl)
+J02ae: 	ld hl, $0008	; could be a data table address, label T0008: created
+J02b1: 	add hl, sp
+J02b2: 	ld sp, hl
+J02b3: 	ld bc, $035f	; could be a data table address, label T035f: created
+J02b6: 	push bc
+J02b7: 	ld hl, $fffa
+J02ba: 	add hl, sp
+J02bb: 	ld sp, hl
+J029f: 	ld a, b
+J02a0: 	cp $0a
+J02a2: 	jr nc, J02a7
+J02a4: 	ld ($d361), a
+J026b: 	pop de
+J026c: 	jp J02bc
+

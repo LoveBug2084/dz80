@@ -1,0 +1,11 @@
+; base address, ladybug.bin 24KBytes @ $0000-$5fff
+0x0000
+
+; reset boot
+0x0000
+
+; int interrupt (used for coin input)
+0x0038
+
+; nmi interrupt (used for coin input)
+0x0066
