@@ -7,10 +7,10 @@ dz80 command line z80 code tracer/disassembler by lovebug, https://lovebyte.eu.o
 
 Usage: dz80 binInput mapInput traceOutput assemblerOutput
 
-binInput:        name of binary file to disassemble
-mapInput:        name of text file to control the disassembly process
-traceOutput:     name of text file that will be generated during the trace phase
-assemblerOutput: name of text file that will be generated during the disassembly phase
+binInput:        name of binary file to disassemble\
+mapInput:        name of text file to control the disassembly process\
+traceOutput:     name of text file that will be generated during the trace phase\
+assemblerOutput: name of text file that will be generated during the disassembly phase\
 
 ----------------------------------------------------------------------------------------------------------------------------
 see top of main.c source code for changes and known issues
