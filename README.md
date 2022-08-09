@@ -14,7 +14,7 @@ mapInput:        name of text file to control the disassembly process\
 traceOutput:     name of text file that will be generated during the trace phase\
 \
 assemblerOutput: name of text file that will be generated during the disassembly phase\
-\
+
 
 ----------------------------------------------------------------------------------------------------------------------------
 see top of main.c source code for changes and known issues
