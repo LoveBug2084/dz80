@@ -13,7 +13,7 @@ mapInput:        name of text file to control the disassembly process\
 \
 traceOutput:     name of text file that will be generated during the trace phase\
 \
-assemblerOutput: name of text file that will be generated during the disassembly phase\
+assemblerOutput: name of text file that will be generated during the disassembly phase
 
 
 ----------------------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ either z80 mnemonics or databytes depending on how the locations are marked
 
 map file format
 
-any line start starts with ; is ignored and is just a comment
+any line that starts with ; is ignored and is just a comment
 
 first value encountered in the map file is the base address location within the 64K z80 map for the binary input file
 any values following the first entry will be addresses to start tracing (disassembling)
