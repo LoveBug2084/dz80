@@ -78,7 +78,7 @@
 #define false 0
 #define true 1
 
-// maximum number of entrys in map file
+// maximum number of entries in map file
 #define mapMaxLength 1000
 
 // maximum line length when reading map file text
@@ -100,7 +100,7 @@ int stackPointer;
 // filenames
 char *binInputName, *mapInputName, *traceOutputName, *assemblerOutputName;
 
-// flags for marking area as empty, opcode, jump address label, data addres label
+// flags for marking area as empty, opcode, jump address label, data address label
 #define markEmpty 0
 #define markOpcode 1
 #define markJump 2
@@ -121,8 +121,8 @@ unsigned int markBuffer[codeBufferSize];
 // start and end address of code
 int codeStart, codeEnd;
 
-// storage for z80 instruction data bytes
-unsigned int dataByte[3];
+// storage for z80 instruction data bytes, 4 entries as the disassembler pulls 4 bytes at a time
+unsigned int dataByte[4];
 
 
 
@@ -295,7 +295,7 @@ void disassemble(FILE *output, int disassemblerAddress, int disassemblerMode)
 					fprintf(output, "\n");
 				}
 
-				// if location marked as jump adress then output a jump label
+				// if location marked as jump address then output a jump label
 				if((markBuffer[programCounter - codeStart] & markJump) != 0)
 					fprintf(output, "\nJ%04x:", programCounter);
 
@@ -415,6 +415,20 @@ void disassemble(FILE *output, int disassemblerAddress, int disassemblerMode)
 
 					if((dataByte[0] & 0xcf) == 0x01)
 					{
+						// $31 is a special case, with dd|fd prefix it is ld sp, ix|iy (1 byte) and not ld sp, nn (3 bytes)
+						if((prefixDD || prefixFD) && index54 == 3)
+						{
+							programCounter += 1;
+
+							if(prefixDD)
+								fprintf(output, "\tld sp, ix\n");
+
+							if(prefixFD)
+								fprintf(output, "\tld sp, iy\n");
+
+							break;
+						}
+
 						programCounter += 3;
 
 						// get 16 bit nn
@@ -440,7 +454,7 @@ void disassemble(FILE *output, int disassemblerAddress, int disassemblerMode)
 							}
 
 							// if data mark found
-							if((markBuffer[dataWord - codeStart] & markData) != 0);
+							if((markBuffer[dataWord - codeStart] & markData) != 0)
 							{
 								// make a note in assembler output
 								fprintf(output, "\t; could be a data table address, label T%04x: created", dataWord);
@@ -1050,6 +1064,11 @@ void disassemble(FILE *output, int disassemblerAddress, int disassemblerMode)
 								programCounter += 1;
 								fprintf(output, "\tld %s, (%s + $%02x)\n", regLowIX[index543], regLowIX[index210], dataByte[1]);
 							}
+							else if(index543 == 6)
+							{
+								programCounter += 1;
+								fprintf(output, "\tld (%s + $%02x), %s\n", regLowIX[index543], dataByte[1], regLowIX[index210]);
+							}
 							else
 								fprintf(output, "\tld %s, %s\n", regLowIX[index543], regLowIX[index210]);
 						}
@@ -1060,6 +1079,11 @@ void disassemble(FILE *output, int disassemblerAddress, int disassemblerMode)
 							{
 								programCounter += 1;
 								fprintf(output, "\tld %s, (%s + $%02x)\n", regLowIY[index543], regLowIY[index210], dataByte[1]);
+							}
+							else if(index543 == 6)
+							{
+								programCounter += 1;
+								fprintf(output, "\tld (%s + $%02x), %s\n", regLowIY[index543], dataByte[1], regLowIY[index210]);
 							}
 							else
 								fprintf(output, "\tld %s, %s\n", regLowIY[index543], regLowIY[index210]);
@@ -1771,7 +1795,7 @@ void disassemble(FILE *output, int disassemblerAddress, int disassemblerMode)
 						// if trace mode then pop program counter
 						if(disassemblerMode == modeTrace)
 						{
-							fprintf(stderr, "**** issue **** %s untraceable jump at J%04x, popping return address and continuing\n", traceOutputName, programCounter);
+							fprintf(stderr, "**** issue **** %s untraceable jump at J%04x, popping return address and continuing\n", traceOutputName, dataWord);
 							pop();
 						}
 
@@ -2978,9 +3002,28 @@ int main(int argc, char *argv[])
 		// if textInput from mapInputFile is not a comment or a blank line
 		if((textInput[0] != ';') && (textInput[0] != '\n') && (textInput[0] != '\r'))
 		{
-			// then add it to the mapBuffer as an address
-			mapBuffer[mapBufferIndex] = strtol(textInput, NULL, 16);
-			mapBufferIndex++;
+			// pointer to the first character that was not part of the address value
+			char *endPointer;
+
+			// convert the line to a base 16 address value
+			long addressValue = strtol(textInput, &endPointer, 16);
+
+			// if the line holds an address value
+			if(endPointer != textInput)
+			{
+				// check the address value is within the 64K memory range
+				if(addressValue < 0 || addressValue > 0xffff)
+				{
+					fprintf(stderr, "**** issue **** %s address %s is outside the 64K memory range\n", mapInputName, textInput);
+					exit(EXIT_FAILURE);
+				}
+
+				// then add it to the mapBuffer as an address
+				mapBuffer[mapBufferIndex] = addressValue;
+				mapBufferIndex++;
+			}
+
+			// else the line is blank or holds no address value so ignore it
 		}
 	}
 
@@ -2990,7 +3033,7 @@ int main(int argc, char *argv[])
 	// mark the end of the mapBuffer array
 	mapBuffer[mapBufferIndex] = mapEnd;
 
-	// check that theres at least 2 entry's in the mapBuffer array
+	// check that there's at least 2 entry's in the mapBuffer array
 	if(mapBufferIndex < 2)
 	{
 		fprintf(stderr, "**** issue **** %s needs at least two entry's 1) code start address, 2) disassembly start address\n", mapInputName);
@@ -3008,8 +3051,8 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	// check code end address is valid
-	if(codeEnd < 0 || codeEnd > 0xffff)
+	// check code end address is valid, codeEnd of $10000 is valid as it is the first address past the 64K memory range
+	if(codeEnd < 0 || codeEnd > 0x10000)
 	{
 		fprintf(stderr, "**** issue **** %s end address is outside of the 64K memory range\n", mapInputName);
 		exit(EXIT_FAILURE);
